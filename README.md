@@ -13,6 +13,21 @@ This repository is the **modular distribution** of the original single-file buil
 
 ---
 
+## Screenshots
+
+<div align="center">
+  <img src="docs/screenshots/editor.png" alt="Open Motion editor with timeline, preview, and inspector" width="100%">
+</div>
+
+<table>
+  <tr>
+    <td width="50%" align="center"><strong>Home workspace</strong><br><br><img src="docs/screenshots/home.png" alt="Open Motion home workspace" width="100%"></td>
+    <td width="50%" align="center"><strong>New project</strong><br><br><img src="docs/screenshots/new-project.png" alt="Open Motion new project dialog" width="100%"></td>
+  </tr>
+</table>
+
+---
+
 ## Live Application
 
 | Environment | URL |
