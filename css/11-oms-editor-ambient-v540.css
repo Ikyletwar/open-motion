@@ -1,0 +1,26 @@
+
+/* V5.227 — Fixed-count ambient surfaces. Only plate opacity interpolates;
+   no animated inherited colors, per-track backgrounds, filters or shadows. */
+.omsEditorAmbientHost{isolation:isolate}
+.omsEditorAmbientSurface{
+  position:absolute;inset:0;z-index:-1;pointer-events:none;
+  display:none;overflow:hidden;contain:paint;
+}
+.editor.editorAmbientEnabled .omsEditorAmbientSurface{display:block}
+.omsEditorAmbientPlate{
+  position:absolute;inset:0;opacity:0;pointer-events:none;
+  background-repeat:no-repeat;background-size:100% 100%;contain:paint;
+  transition:opacity 1800ms cubic-bezier(.22,.61,.36,1);
+}
+.omsEditorAmbientSurface.isFading .omsEditorAmbientPlate{will-change:opacity}
+.omsEditorAmbientSurface.ambientImmediate .omsEditorAmbientPlate{transition:none}
+@media (prefers-reduced-motion:reduce){.omsEditorAmbientPlate{transition:none}}
+/* Neutral base surfaces and every track/card/clip retain the normal skin.
+   The two noninteractive glow hosts are behind preview and timeline content. */
+.editor.editorAmbientEnabled .viewport{
+  background-image:
+    linear-gradient(45deg,rgba(255,255,255,.014) 25%,transparent 25%,transparent 75%,rgba(255,255,255,.014) 75%),
+    linear-gradient(45deg,rgba(255,255,255,.014) 25%,transparent 25%,transparent 75%,rgba(255,255,255,.014) 75%);
+  background-position:0 0,8px 8px;background-size:16px 16px,16px 16px;
+}
+

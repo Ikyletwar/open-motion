@@ -1,0 +1,94 @@
+
+/* =========================================================
+   V4.03 — compact collapsed-header controls + transient mode badge.
+   - The green Add Layer + returns to its original timeline position and can
+     be covered by drawers/Inspector again.
+   - Collapsed-header restore + and Export are 30% smaller (38px -> 27px).
+   - 2D COMPOSITE sits to the left of those controls while they are pinned.
+   ========================================================= */
+.editor #plusBtn,
+.editor.topBarCollapsed #plusBtn,
+.editor.drawerOverlayOpen #plusBtn,
+.editor.topBarCollapsed.drawerOverlayOpen #plusBtn,
+.editor.topBarCollapsed:not(.drawerOverlayOpen) #plusBtn{
+  position:absolute!important;
+  right:10px!important;
+  top:auto!important;
+  bottom:12px!important;
+  z-index:20!important;
+  transform:none!important;
+}
+
+.editor.topBarCollapsed .editorTop .topActions{
+  top:8px!important;
+  right:8px!important;
+  width:58px!important;
+  height:27px!important;
+}
+.editor.topBarCollapsed #restoreEditorTop{
+  left:0!important;
+  top:0!important;
+  width:27px!important;
+  height:27px!important;
+  border-radius:8px!important;
+  font-size:17px!important;
+  line-height:1!important;
+}
+.editor.topBarCollapsed #openExport{
+  right:0!important;
+  top:0!important;
+  width:27px!important;
+  height:27px!important;
+  border-radius:8px!important;
+  font-size:14px!important;
+  line-height:1!important;
+}
+.editor.topBarCollapsed #modeBadge{
+  top:8px!important;
+  right:74px!important;
+  max-width:calc(100% - 154px);
+  white-space:nowrap;
+}
+
+@media (min-width:900px){
+  .editor #plusBtn,
+  .editor.topBarCollapsed #plusBtn,
+  .editor.drawerOverlayOpen #plusBtn,
+  .editor.topBarCollapsed.drawerOverlayOpen #plusBtn,
+  .editor.topBarCollapsed:not(.drawerOverlayOpen) #plusBtn{right:20px!important}
+  .editor.topBarCollapsed .editorTop .topActions{top:10px!important;right:12px!important;width:58px!important;height:27px!important}
+  .editor.topBarCollapsed #modeBadge{top:10px!important;right:82px!important}
+}
+
+/* V5.33 — compact persistent PWA install action in the Home header.
+   Chrome still controls whether a native install prompt is available. */
+.simpleHome .homeInstallBtn{
+  min-width:58px;
+  padding:0 10px;
+  justify-content:center;
+  border-color:#bfeadd;
+  background:#effbf7;
+  color:#25866b;
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:.055em;
+}
+.simpleHome .homeInstallBtn.ready{
+  border-color:#6edbbb;
+  background:#73e2bd;
+  color:#071b17;
+}
+.simpleHome .homeInstallBtn:active{background:#dff7ee}
+.simpleHome .homeInstallBtn.ready:active{background:#62d4ae}
+.simpleHome .homeInstallBtn[aria-busy="true"]{opacity:.64;pointer-events:none}
+@media(max-width:520px){
+  .simpleHome .homeInstallBtn{min-width:52px;padding:0 7px;font-size:7.5px}
+}
+@media(max-width:390px){
+  .simpleHome .homeTopActions{gap:4px}
+  .simpleHome .homeInstallBtn{min-width:48px;padding:0 6px;font-size:7px}
+}
+@media(display-mode:standalone){
+  .simpleHome .homeInstallBtn{display:none!important}
+}
+

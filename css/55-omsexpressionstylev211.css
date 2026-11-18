@@ -1,0 +1,10 @@
+
+.omsExprMarkers{font-size:12px;min-width:0}.omsExprMarkers summary{cursor:pointer;color:var(--accent,#53cbb6);padding:9px 0}
+.omsExprMarkerSection{border:1px solid #70819a30;border-radius:9px;padding:10px;margin:8px 0;min-width:0}
+.omsExprMarkerHeading{display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap}.omsExprMarkerHeading small{color:var(--muted);font-size:10px}
+.omsExprMarkerSection button{border:1px solid #53cbb650;background:#53cbb619;color:var(--text,#e8edf7);border-radius:7px;min-height:36px;padding:5px 8px;font:inherit;cursor:pointer}
+.omsExprMarkerHint,.omsExprMarkerEmpty{font-size:10px;line-height:1.6;color:var(--muted,#a5b0c5);margin:8px 0}
+.omsExprMarkerRow{display:grid;grid-template-columns:28px minmax(65px,1fr) minmax(60px,1.3fr) 28px;gap:5px;align-items:end;margin:7px 0;min-width:0}
+.omsExprMarkerRow label{display:grid;gap:3px;font-size:10px;min-width:0}.omsExprMarkerRow input{padding:7px 5px;font-size:12px;min-height:36px}.omsExprMarkerRow button{padding:3px}
+.omsExprMarkerError{font-size:11px;color:#ed899a;overflow-wrap:anywhere}.omsExprTimelineMarker{position:absolute;top:0;height:11px;width:8px;padding:0;border:0;border-radius:1px;background:#f4ca6b;z-index:9;cursor:pointer;clip-path:polygon(0 0,100% 0,100% 65%,50% 100%,0 65%)}
+

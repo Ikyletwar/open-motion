@@ -1,0 +1,48 @@
+
+/* =========================================================
+   V4.02 — dedicated top-bar restore button.
+   The green floating + is once again exclusively Add Layer. When the editor
+   header is collapsed, a separate + appears beside the pinned Export button.
+   ========================================================= */
+.restoreEditorTopBtn{display:none!important}
+.editor.topBarCollapsed .editorTop .topActions{
+  width:82px!important;
+  height:38px!important;
+  display:block!important;
+}
+.editor.topBarCollapsed #restoreEditorTop{
+  display:grid!important;
+  place-items:center;
+  position:absolute!important;
+  left:0!important;
+  top:0!important;
+  width:38px!important;
+  height:38px!important;
+  border:1px solid rgba(66,76,100,.72)!important;
+  border-radius:10px!important;
+  background:rgba(17,21,30,.88)!important;
+  box-shadow:0 5px 18px rgba(0,0,0,.24);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  pointer-events:auto!important;
+  z-index:94;
+  font-size:24px!important;
+  line-height:1!important;
+}
+.editor.topBarCollapsed #openExport{
+  left:auto!important;
+  right:0!important;
+  top:0!important;
+  bottom:auto!important;
+  inset:auto 0 auto auto!important;
+}
+/* Floating + stays the normal layer button even while the header is hidden. */
+.editor.topBarCollapsed #plusBtn{
+  background:#17221f!important;
+  border-color:var(--accent)!important;
+  color:var(--accent)!important;
+}
+.editor.topBarCollapsed #plusBtn::after{display:none!important}
+@media (min-width:900px){
+  .editor.topBarCollapsed .editorTop .topActions{width:82px!important}
+}

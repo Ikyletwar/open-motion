@@ -1,0 +1,75 @@
+
+/* V4.31 — mobile landscape desktop canvas split handle + layer-actions popup fit */
+html.omsMobileLandscapeDesktop .timelineArea{position:relative!important}
+#desktopCanvasSplitHandle{
+  position:absolute;
+  left:-13px;
+  top:10px;
+  width:26px;
+  height:44px;
+  border:1px solid #374055;
+  border-radius:12px;
+  background:linear-gradient(180deg,#22283a 0%,#1c2232 100%);
+  color:#aeb8cc;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:45;
+  box-shadow:0 8px 18px rgba(0,0,0,.26),0 0 0 1px rgba(255,255,255,.02);
+  touch-action:none;
+  -webkit-tap-highlight-color:transparent;
+}
+#desktopCanvasSplitHandle:hover,
+#desktopCanvasSplitHandle:focus-visible,
+#desktopCanvasSplitHandle.dragging{
+  color:#f2f6fd;
+  border-color:#4b566e;
+  background:linear-gradient(180deg,#2a3145 0%,#21283b 100%);
+  outline:none;
+}
+#desktopCanvasSplitHandle .desktopCanvasSplitGrip{
+  position:relative;
+  width:18px;
+  height:18px;
+  transform:rotate(90deg);
+  display:block;
+}
+#desktopCanvasSplitHandle .desktopCanvasSplitGrip::before,
+#desktopCanvasSplitHandle .desktopCanvasSplitGrip::after,
+#desktopCanvasSplitHandle .desktopCanvasSplitGrip i{
+  content:"";
+  position:absolute;
+  top:1px;
+  bottom:1px;
+  width:2px;
+  border-radius:2px;
+  background:currentColor;
+  opacity:.92;
+}
+#desktopCanvasSplitHandle .desktopCanvasSplitGrip::before{left:3px}
+#desktopCanvasSplitHandle .desktopCanvasSplitGrip i{left:8px}
+#desktopCanvasSplitHandle .desktopCanvasSplitGrip::after{left:13px}
+html.omsMobileLandscapeDesktop #desktopCanvasSplitHandle{display:flex}
+
+html.omsMobileLandscapeDesktop .layerActionsPopup{
+  width:min(344px,calc(100vw - 28px))!important;
+  max-height:calc(100vh - 24px)!important;max-height:calc(100dvh - 24px)!important;
+  padding:7px!important;
+  border-radius:16px!important;
+}
+html.omsMobileLandscapeDesktop .layerActionsHead{
+  min-height:42px!important;
+  padding:2px 4px 7px 8px!important;
+}
+html.omsMobileLandscapeDesktop .layerActionsHead b{font-size:12px!important}
+html.omsMobileLandscapeDesktop .layerActionsHead small{font-size:7.2px!important}
+html.omsMobileLandscapeDesktop .layerActionRow{
+  min-height:50px!important;
+  grid-template-columns:42px minmax(0,1fr)!important;
+  gap:7px!important;
+  padding:6px 7px!important;
+}
+html.omsMobileLandscapeDesktop .layerActionMenuIcon{width:31px!important;height:31px!important}
+html.omsMobileLandscapeDesktop .layerActionCopy b{font-size:11px!important}
+html.omsMobileLandscapeDesktop .layerActionCopy small{font-size:7.2px!important;margin-top:2px!important}
+html.omsMobileLandscapeDesktop .layerActionsStatus{font-size:7.2px!important;padding:4px 9px 1px!important}

@@ -1,0 +1,1 @@
+.projectThumbImg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1;opacity:0}.projectThumb.hasThumb .projectThumbImg{opacity:1}.projectThumb.hasThumb:before,.projectThumb.hasThumb:after,.simpleHome .projectThumb.hasThumb:before,.simpleHome .projectThumb.hasThumb:after{display:none}

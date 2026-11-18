@@ -1,0 +1,27 @@
+
+.omsStyle247 .omsFxHeader239 [data-fx-presets],
+.omsStyle247 .omsFxHeader239 [data-fx-save-preset],
+.omsStyle247 #addEffectBtn,
+.omsStyle247 .effectCard [data-effect-drag],
+.omsStyle247 .effectCard [data-effect-delete],
+.omsStyle247 .effectCard [data-effect-menu] { display: none !important; }
+.omsStyle247 .effectCardHead { grid-template-columns: 29px minmax(0,1fr) 29px !important; }
+.omsStyle247 .omsStyleHidden247,
+.omsStyle247 [data-style-empty][hidden],
+.omsStyle247 [data-style-remove][hidden],
+.omsStyle247 [data-style-slots][hidden] { display: none !important; }
+.omsStyleTabs247 { display: flex; gap: 7px; margin-bottom: 9px; position: sticky; top: 0; z-index: 4; background: #141d2b; padding-bottom: 4px; }
+.omsStyleTabs247 button { flex: 1; min-height: 34px; border: 1px solid #3e5061; border-radius: 8px; background: #1b2535; color: #c5d4e4; }
+.omsStyleSlots247 { display: grid; grid-template-columns: repeat(8,minmax(0,1fr)); gap: 4px; margin-bottom: 8px; position: sticky; top: 38px; z-index: 3; background: #141d2b; padding-bottom: 4px; }
+.omsStyleSlots247 button { min-width: 0; min-height: 31px; padding: 2px; border: 1px solid #344557; border-radius: 6px; background: #172130; color: #afc1d2; font-size: 10px; }
+.omsStyle247 .omsStyleTabs247 .active,
+.omsStyle247 .omsStyleSlots247 .active { border-color: #6fcab3; color: #a0ebd6; background: #2d73652b; }
+.omsStyleActions247 { display: flex; gap: 7px; margin-bottom: 9px; }
+.omsStyleActions247 button { flex: 1; min-width: 0; font-size: 10px; }
+.omsStyleActions247 [data-style-remove] { border: 1px solid #74505d; border-radius: 7px; background: #3b1e2a55; color: #edb6c1; }
+.omsStyle247 .omsStyleColor247 { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 11px; color: #c8d9e9; padding: 6px 3px; }
+.omsStyleColor247 input[type=color] { width: 48px; height: 32px; padding: 2px; border: 1px solid #476476; border-radius: 6px; background: #14232c; }
+.omsStyleColor247 span { flex: 1; min-width: 110px; font-size: 9px; color: #91a8ba; }
+.omsStyle247 .miniNote { line-height: 1.5; margin: 8px 2px; }
+@media(max-width:420px) { .omsStyle247 .effectCardHead { grid-template-columns: 24px minmax(0,1fr) 27px !important; } }
+

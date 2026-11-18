@@ -1,0 +1,16 @@
+
+/* The added install banner needs its own auto-height grid track on desktop. */
+#home.simpleHome #homeInstallBtn[hidden]{display:none!important}
+@media(min-width:900px){
+  #home.simpleHome{grid-template-rows:68px auto minmax(0,1fr)!important}
+  #home.simpleHome>.homeTop{grid-row:1}
+  #home.simpleHome>#mPwaInstallNotification{grid-row:2;align-self:start}
+  #home.simpleHome>.homeMain{grid-row:3}
+}
+/* Health banners stay compact, readable and dismissible in either theme. */
+#omsPreviewHealth{display:flex;align-items:center;gap:8px;max-height:min(160px,32vh);overflow:auto}
+#omsPreviewHealth .omsPreviewHealthText{min-width:0;flex:1;overflow-wrap:anywhere}
+#omsPreviewHealth button{margin:0;flex:0 0 auto;min-height:30px;padding:4px 8px;border:1px solid #c49c65;border-radius:6px;background:#5b3c24;color:#fff3de;font:600 11px/1.3 system-ui}
+#omsPreviewHealth button:focus-visible{outline:2px solid #fff3de;outline-offset:2px}
+#omsPreviewHealth button[data-dismiss-health]{width:32px;min-height:32px;padding:0;font-size:22px;line-height:1}
+

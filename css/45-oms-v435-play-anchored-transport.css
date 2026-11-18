@@ -1,0 +1,39 @@
+
+/* V4.40 — the visible playhead is the authoritative X anchor for Play/Pause
+   and the four navigation controls. Timeline DOM mutations remain isolated. */
+.transportBalanced{position:relative!important}
+.transportBalanced .transportCenter{justify-content:center!important;position:relative;z-index:5}
+.transportBalanced .transportLeft.omsPlayAnchorEmpty{
+  visibility:hidden!important;
+  pointer-events:none!important;
+}
+.transportBalanced > button.omsPlayheadAnchoredControl{
+  position:absolute!important;
+  margin:0!important;
+  padding:0!important;
+  display:grid!important;
+  place-items:center!important;
+  line-height:0!important;
+  z-index:5!important;
+  transform:translate(-50%,-50%)!important;
+}
+.transportBalanced > #playBtn.omsPlayheadAnchoredControl{z-index:6!important}
+#transportPlaybackCluster:empty{display:none!important}
+/* V4.73 — session-only Pre-render Record control. It shares the transport row
+   but stays independent from the playhead-anchored navigation geometry. */
+/* Legacy preRenderRecordBtn replaced by Viewmode Action Menu row */
+#preRenderRecordBtn:not(.amMenuRow){
+  display:none!important;
+}
+/* Desktop/mobile-landscape already reserves the far-left split handle. Record
+   sits immediately after it and remains the leftmost playback control. */
+html.omsMobileLandscapeDesktop #preRenderRecordBtn{left:35px!important}
+@media(min-width:900px){#preRenderRecordBtn{left:35px!important}}
+/* Portrait side-rail has no horizontal "far left". The geometry controller
+   moves the same button into the start of the rail instead of duplicating it. */
+.portraitRightRail #preRenderRecordBtn{
+  position:static!important;
+  left:auto!important;top:auto!important;
+  transform:none!important;
+  flex:0 0 auto;
+}

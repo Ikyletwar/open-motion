@@ -1,0 +1,14 @@
+
+/* Alight Motion original vector transport play/pause styling */
+#playBtn{
+  display:grid!important;
+  place-items:center!important;
+  line-height:0!important;
+}
+#playBtn .transportPlaySvg{
+  width:22px!important;
+  height:22px!important;
+  display:block;
+  overflow:visible;
+  pointer-events:none;
+}

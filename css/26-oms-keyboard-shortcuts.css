@@ -1,0 +1,29 @@
+
+.shortcutsModalCard{width:min(680px,94vw);max-height:85vh;display:flex;flex-direction:column;background:#171a28;color:#e2e8f0;border:1px solid #2f364b;border-radius:18px;box-shadow:0 20px 50px rgba(0,0,0,.6);padding:0;overflow:hidden}
+.shortcutsModalHead{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid #272d3f;font-weight:800;font-size:16px}
+.shortcutsModalHead button{border:0;background:transparent;color:#8d97ae;font-size:22px;cursor:pointer;line-height:1}
+.shortcutsModalHead button:hover{color:#fff}
+.shortcutsModalSubtitle{padding:10px 20px 0;font-size:12px;color:#8a94a9;line-height:1.4}
+.shortcutsModalBody{padding:14px 20px;overflow-y:auto;display:flex;flex-direction:column;gap:14px;max-height:calc(85vh - 140px)}
+.shortcutCategoryBlock{display:flex;flex-direction:column;gap:6px}
+.shortcutCategoryTitle{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--accent,#50ced0);margin-top:4px}
+.shortcutRow{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:#1d2133;border:1px solid #2a3146;border-radius:9px;gap:12px}
+.shortcutRowLabel{font-size:12.5px;font-weight:600;color:#f1f3f8}
+.shortcutRowRight{display:flex;align-items:center;gap:8px}
+.shortcutKbdWrap{display:flex;align-items:center;gap:4px}
+.shortcutKbd{display:inline-flex;align-items:center;justify-content:center;background:#121522;border:1px solid #36415a;border-radius:6px;padding:2px 7px;font-family:inherit;font-size:11px;font-weight:700;color:#e2e8f0;box-shadow:0 2px 0 #111422;min-width:22px}
+.shortcutEditBtn{background:#242a3e;border:1px solid #37415b;border-radius:6px;color:#9fa8bf;padding:3px 7px;cursor:pointer;font-size:12px;display:inline-flex;align-items:center;justify-content:center;transition:all .15s ease}
+.shortcutEditBtn:hover{background:#2c354e;border-color:var(--accent,#50ced0);color:#fff}
+.shortcutsModalFoot{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-top:1px solid #272d3f;background:#141724}
+.shortcutsResetBtn{border:1px solid #3a445d;background:#1e2436;color:#abb6cb;border-radius:8px;padding:7px 14px;font-size:12px;font-weight:700;cursor:pointer}
+.shortcutsResetBtn:hover{color:#ff6b81;border-color:#ff6b81}
+.shortcutsDoneBtn{border:0;background:var(--accent,#50ced0);color:#0c1520;border-radius:8px;padding:7px 18px;font-size:12px;font-weight:800;cursor:pointer}
+.shortcutsDoneBtn:hover{opacity:.92}
+.shortcutRemapCard{width:min(440px,92vw);background:#181c2b;color:#e2e8f0;border:1px solid #363e54;border-radius:14px;padding:18px;box-shadow:0 25px 60px rgba(0,0,0,.7);display:flex;flex-direction:column;gap:12px}
+.remapPromptText{margin:0;font-size:12px;color:#929db2}
+.remapKeyDisplay{padding:16px;background:#111420;border:1px dashed #3a4561;border-radius:10px;font-size:16px;font-weight:700;color:var(--accent,#50ced0);min-height:54px;display:flex;align-items:center;justify-content:center;gap:6px}
+.remapConflictText{color:#ff6b81;font-size:11.5px;min-height:16px;line-height:1.35}
+.remapActions{display:flex;justify-content:flex-end;gap:10px;margin-top:4px}
+.remapCancelBtn{border:1px solid #38425b;background:#202638;color:#a2adbf;border-radius:8px;padding:7px 14px;font-size:12px;cursor:pointer}
+.remapSaveBtn{border:0;background:var(--accent,#50ced0);color:#0c1520;border-radius:8px;padding:7px 16px;font-size:12px;font-weight:800;cursor:pointer}
+.remapSaveBtn:disabled{opacity:.4;cursor:not-allowed}

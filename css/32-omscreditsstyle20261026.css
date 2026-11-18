@@ -1,0 +1,42 @@
+
+#omsCreditsDialog{box-sizing:border-box;width:min(880px,calc(100vw - 24px));max-width:calc(100vw - 24px);height:min(820px,90dvh);max-height:90dvh;padding:0;border:1px solid #374357;border-radius:14px;background:#151a25;color:#edf1f7;box-shadow:0 22px 80px #0009;color-scheme:dark;overflow:hidden;font:14px/1.5 system-ui,sans-serif}
+#omsCreditsDialog::backdrop{background:#0009}
+#omsCreditsDialog .omsCreditsFrame{display:flex;flex-direction:column;height:100%;min-height:0}
+#omsCreditsDialog .omsCreditsHeader{display:flex;flex:none;align-items:center;gap:12px;border-bottom:1px solid #364053;padding:14px 18px}
+#omsCreditsDialog h2{font-size:18px;line-height:1.4;margin:0;flex:1;min-width:0}
+#omsCreditsDialog button{appearance:none;font:inherit;min-width:42px;min-height:42px;border:1px solid #45526a;border-radius:8px;padding:6px 12px;background:#252e40;color:#f1f5fc;cursor:pointer}
+#omsCreditsDialog [data-credits-close]{font-size:24px;line-height:1;padding:4px}
+#omsCreditsDialog .omsCreditsTools{flex:none;padding:12px 18px;border-bottom:1px solid #364053}
+#omsCreditsDialog .omsCreditsIntro{margin:0 0 10px;color:#bfc9d9;font-size:13px}
+#omsCreditsDialog label{display:block;margin:0 0 5px;font-size:12px;font-weight:600;color:#ced8e8}
+#omsCreditsDialog input{box-sizing:border-box;width:100%;min-width:0;min-height:42px;border:1px solid #45526a;border-radius:8px;background:#101520;color:#f1f5fc;caret-color:#75e2c6;padding:9px 12px;font:inherit}
+#omsCreditsDialog input::placeholder{color:#a7b4c7;opacity:1}
+#omsCreditsDialog [data-credits-count]{display:block;min-height:18px;margin-top:6px;font-size:12px;color:#b9c8dc}
+#omsCreditsDialog .omsCreditsBody{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable;padding:16px 18px;overflow-wrap:anywhere}
+#omsCreditsDialog .omsCreditsGroup{margin:0 0 20px}
+#omsCreditsDialog .omsCreditsGroup>h3{font-size:14px;margin:0 0 9px;color:#dce5f2}
+#omsCreditsDialog .omsCreditCard{padding:13px 15px;margin-bottom:9px;border:1px solid #344157;border-radius:9px;background:#202837;min-width:0}
+#omsCreditsDialog .omsCreditTitle{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:3px}
+#omsCreditsDialog .omsCreditTitle h4{font-size:14px;margin:0;color:#f2f5fa}
+#omsCreditsDialog .omsCreditVersion{font-size:11px;color:#b2c0d4;max-width:100%;overflow-wrap:anywhere}
+#omsCreditsDialog .omsCreditLicense{font-size:12px;color:#82e6cc;margin:4px 0}
+#omsCreditsDialog .omsCreditOwner{font-size:12px;color:#bdcce0;margin:0}
+#omsCreditsDialog .omsCreditScope{font-size:12px;margin:7px 0 0;color:#d2dcec}
+#omsCreditsDialog .omsCreditLinks{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:6px;min-width:0}
+#omsCreditsDialog a{display:inline-flex;align-items:center;min-height:36px;max-width:100%;color:#92e8d1;text-decoration:underline;text-underline-offset:3px;font-size:12px;overflow-wrap:anywhere}
+#omsCreditsDialog details{margin-top:6px}
+#omsCreditsDialog summary{min-height:36px;line-height:1.4;padding:8px 0;box-sizing:border-box;cursor:pointer;color:#dce9f7;font-size:12px}
+#omsCreditsDialog pre{box-sizing:border-box;white-space:pre-wrap;overflow-wrap:anywhere;margin:6px 0 0;padding:12px;border:1px solid #3b485e;border-radius:7px;background:#10151f;color:#d8e2ef;font:11px/1.6 ui-monospace,Consolas,monospace;tab-size:2;max-width:100%}
+#omsCreditsDialog .omsCreditsFootnote{font-size:12px;margin:16px 0 0;color:#b4c3d8}
+#omsCreditsDialog .omsCreditsEmpty{color:#cbd7e9;padding:16px 0}
+#omsCreditsDialog :is(button,input,a,summary):focus-visible{outline:2px solid #85e7ce;outline-offset:2px}
+#omsCreditsDialog [hidden]{display:none!important}
+@media(max-width:520px){#omsCreditsDialog{width:calc(100vw - 12px);max-width:calc(100vw - 12px);height:94dvh;max-height:94dvh;border-radius:11px}#omsCreditsDialog .omsCreditsHeader{padding:9px 12px}#omsCreditsDialog .omsCreditsTools{padding:10px 12px}#omsCreditsDialog .omsCreditsBody{padding:12px}#omsCreditsDialog .omsCreditCard{padding:12px}#omsCreditsDialog .omsCreditsIntro{font-size:12px}}
+@media(max-height:480px){#omsCreditsDialog .omsCreditsHeader{padding:5px 12px}#omsCreditsDialog .omsCreditsTools{padding:6px 12px}#omsCreditsDialog .omsCreditsIntro{display:none}#omsCreditsDialog label{display:none}}
+
+#home .homeBrand[role="button"]{cursor:pointer;min-height:44px;border-radius:9px;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+#home .homeBrand[role="button"]:focus-visible{outline:2px solid #259d80;outline-offset:4px}
+#omsCreditsDialog .omsAboutSummary{margin:0 0 10px;font-size:13px;color:#d6dfed}
+#omsCreditsDialog .omsAboutCreditsTitle{font-size:14px;margin:0 0 5px;color:#eef3fa}
+@media(max-height:480px){#omsCreditsDialog .omsAboutSummary{display:none}#omsCreditsDialog .omsAboutCreditsTitle{margin-bottom:4px;font-size:13px}}
+

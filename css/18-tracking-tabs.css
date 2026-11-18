@@ -1,0 +1,3 @@
+
+.omsTrackingTabs{display:grid;grid-template-columns:1fr 1fr;gap:6px;position:sticky;top:0;background:#151a25;padding:5px 0;z-index:2}.omsMotionKeyField{display:grid;grid-template-columns:1fr 34px;gap:4px}.omsMotionPanel{overflow:auto;min-height:0}.omsTrackTitle b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:65%}.omsTrackTitle small{white-space:normal;text-align:right;max-width:35%}.omsTrackPanel select{max-width:100%}
+

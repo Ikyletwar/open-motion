@@ -1,0 +1,70 @@
+
+/* =========================================================
+   V3.93 — Preview / Timeline vertical split controller
+   ========================================================= */
+.editorSplitSlot{
+  min-width:38px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  align-self:stretch;
+}
+.previewTools .editorSplitHandle{
+  width:34px;
+  height:28px;
+  min-width:34px;
+  padding:0;
+  border:0;
+  border-radius:9px;
+  background:transparent;
+  color:#8994aa;
+  display:grid;
+  place-items:center;
+  touch-action:none;
+  user-select:none;
+  -webkit-user-select:none;
+  -webkit-tap-highlight-color:transparent;
+  cursor:ns-resize;
+}
+.previewTools .editorSplitHandle:hover,
+.previewTools .editorSplitHandle:focus-visible,
+.previewTools .editorSplitHandle.dragging{
+  color:var(--accent);
+  background:#202739;
+  outline:none;
+}
+.editorSplitGrip{
+  width:18px;
+  height:14px;
+  position:relative;
+  display:block;
+}
+.editorSplitGrip:before,
+.editorSplitGrip:after{
+  content:"";
+  position:absolute;
+  left:3px;
+  right:3px;
+  height:1.5px;
+  border-radius:999px;
+  background:currentColor;
+  box-shadow:0 4px 0 currentColor;
+}
+.editorSplitGrip:before{top:2px}
+.editorSplitGrip:after{bottom:2px;box-shadow:none}
+.editorSplitHandle.dragging .editorSplitGrip{transform:scaleY(1.08)}
+.editorMain.editorSplitDragging,
+.editorMain.editorSplitDragging *{cursor:ns-resize!important}
+
+/* V3.94 — split must follow the finger directly. The old 160 ms grid-row
+   transition made manual dragging feel delayed and could leave a tall canvas
+   using the pre-transition viewport size after a drawer opened. */
+.editorMain.fitCompositionLayout,
+.editorMain.fitCompositionLayout.editorSplitDragging{
+  transition:none!important;
+}
+
+/* The split control is a mobile/tablet vertical-layout affordance only. */
+@media (min-width:900px){
+  .editorSplitSlot{display:none!important}
+}

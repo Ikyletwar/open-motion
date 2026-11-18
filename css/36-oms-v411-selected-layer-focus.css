@@ -1,0 +1,25 @@
+
+/* =========================================================
+   V4.11–V4.14 — 9:16+ automatic Inspector focus.
+   Exactly one selected track remains in layout while a drawer is open.
+   V4.14 also hard-clips the track stack to one physical row so borders or
+   fractional Android layout pixels cannot reveal a neighboring layer.
+   ========================================================= */
+.timelineArea.omsSelectedLayerFocus #tracks{
+  height:var(--oms-selected-track-height,29px)!important;
+  min-height:var(--oms-selected-track-height,29px)!important;
+  max-height:var(--oms-selected-track-height,29px)!important;
+  overflow:hidden!important;
+}
+.timelineArea.omsSelectedLayerFocus #timelineScroll{
+  overflow-y:hidden!important;
+}
+.timelineArea.omsSelectedLayerFocus #tracks .track{
+  display:none!important;
+}
+.timelineArea.omsSelectedLayerFocus #tracks .track.omsSelectedFocus{
+  display:grid!important;
+}
+.timelineArea.omsManualSelectedSticky #timelineScroll{
+  overscroll-behavior-y:contain;
+}

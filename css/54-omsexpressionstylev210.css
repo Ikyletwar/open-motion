@@ -1,0 +1,14 @@
+
+.omsExprEditor{padding:12px 14px;display:grid;gap:10px;min-width:0;border-bottom:1px solid #70819a26}
+.omsExprName,.omsExprTarget,.omsExprCodeLabel{display:grid;gap:6px;font-size:12px;color:var(--muted,#a5b0c5)}
+.omsExprEditor input,.omsExprEditor select,.omsExprEditor textarea{box-sizing:border-box;width:100%;min-width:0;border:1px solid #70819a50;border-radius:8px;background:var(--panel,#1c2230);color:var(--text,#e8edf7);padding:9px;font:inherit}
+.omsExprEditor textarea{font-family:ui-monospace,Consolas,monospace;font-size:13px;min-height:116px;resize:vertical;line-height:1.6;tab-size:2}
+.omsExprEditor textarea:focus,.omsExprEditor input:focus,.omsExprEditor select:focus{outline:1px solid var(--accent,#53cbb6)}
+.omsExprActions{display:flex;flex-wrap:wrap;gap:6px}
+.omsExprActions button{font:inherit;font-size:12px;border:1px solid #53cbb650;border-radius:8px;background:#53cbb619;color:var(--text,#e8edf7);padding:9px 12px;cursor:pointer;min-height:38px}
+.omsExprActions button:first-child{background:#53cbb638}
+.omsExprStatus{display:block;font-size:11px;line-height:1.5;color:var(--accent,#53cbb6);overflow-wrap:anywhere}
+.omsExprStatus.error{color:#ed899a}
+.omsExprHelp{font-size:11px;line-height:1.7;min-width:0}.omsExprHelp summary{cursor:pointer;color:var(--muted,#a5b0c5)}
+.omsExprHelp p{margin:8px 0}.omsExprHelp pre{font-size:11px;white-space:pre-wrap;overflow-wrap:anywhere;margin:8px 0;border:1px solid #70819a30;padding:8px;border-radius:8px;color:var(--text,#e8edf7)}
+

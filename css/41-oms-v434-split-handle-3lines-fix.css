@@ -1,0 +1,27 @@
+
+/* V4.34 — make the desktop canvas split handle show 3 vertical lines, not dots */
+#desktopCanvasSplitToolbarBtn .desktopCanvasSplitGripV{
+  position:relative!important;
+  width:14px!important;
+  height:16px!important;
+  display:block!important;
+  transform:none!important;
+}
+#desktopCanvasSplitToolbarBtn .desktopCanvasSplitGripV::before,
+#desktopCanvasSplitToolbarBtn .desktopCanvasSplitGripV::after,
+#desktopCanvasSplitToolbarBtn .desktopCanvasSplitGripV i{
+  content:""!important;
+  position:absolute!important;
+  top:1px!important;
+  bottom:1px!important;
+  left:auto!important;
+  right:auto!important;
+  width:2px!important;
+  height:auto!important;
+  border-radius:999px!important;
+  background:currentColor!important;
+  opacity:.95!important;
+}
+#desktopCanvasSplitToolbarBtn .desktopCanvasSplitGripV::before{left:1px!important}
+#desktopCanvasSplitToolbarBtn .desktopCanvasSplitGripV i{left:6px!important}
+#desktopCanvasSplitToolbarBtn .desktopCanvasSplitGripV::after{left:11px!important}

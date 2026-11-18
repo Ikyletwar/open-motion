@@ -1,0 +1,66 @@
+
+/* V4.49 — persistent multi-select affordance and selected-layer export range. */
+.layerActionsBtn.selectionMode{
+  color:var(--accent)!important;
+  background:rgba(101,226,194,.12)!important;
+  box-shadow:inset 0 0 0 1px rgba(101,226,194,.38);
+}
+.layerActionMenuIcon.exportSelection::before{
+  left:4px;
+  top:7px;
+  width:24px;
+  height:20px;
+  border-color:#8c98b1;
+  background:#252a3e;
+}
+.layerActionMenuIcon.exportSelection::after{display:none}
+.layerActionMenuIcon.exportSelection i{
+  position:absolute;
+  z-index:3;
+  right:1px;
+  top:0;
+  width:18px;
+  height:18px;
+  display:grid;
+  place-items:center;
+  border-radius:6px;
+  color:#10201c;
+  background:var(--accent);
+  box-shadow:0 0 0 2px #252a3e;
+  font-size:12px;
+  font-style:normal;
+  font-weight:850;
+}
+.trackHead.multiSel{
+  background:linear-gradient(90deg,rgba(101,226,194,.18),rgba(58,74,101,.48))!important;
+  box-shadow:inset 3px 0 0 var(--accent),inset 0 0 0 1px rgba(101,226,194,.22);
+}
+.trackHead{
+  grid-template-columns:25px minmax(0,1fr)!important;
+}
+.trackHead .lock{
+  display:none!important;
+}
+.trackHead.layer-select-armed{
+  background:linear-gradient(90deg,rgba(101,226,194,.15),rgba(34,43,56,.96))!important;
+  box-shadow:inset 3px 0 0 rgba(101,226,194,.72);
+}
+.clip.multiSel{
+  outline:2px solid rgba(126,234,209,.95);
+  outline-offset:1px;
+  filter:brightness(1.08) saturate(1.08);
+}
+.exportScopeNotice{
+  display:grid;
+  gap:3px;
+  margin:0 0 10px;
+  padding:10px 12px;
+  border:1px solid rgba(101,226,194,.38);
+  border-radius:10px;
+  color:#dffaf3;
+  background:rgba(40,112,94,.16);
+}
+.exportScopeNotice.hidden{display:none!important}
+.exportScopeNotice b{font-size:11px}
+.exportScopeNotice small{font-size:9px;color:#8fe6cf;line-height:1.35}
+.exportSheet.selectedLayerExport .nonVideoExportOption{display:none}

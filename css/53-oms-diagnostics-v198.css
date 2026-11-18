@@ -1,0 +1,18 @@
+
+#omsDiagnosticsHubModal button { color:#171923; }
+#omsDiagnosticsHubModal #omsDiagCopy { color:#fff; }
+#omsDiagMemoryV198 { margin:10px 0; padding:12px; background:#fff; color:#171923; border:1px solid #d0d6e2; border-radius:12px; }
+#omsDiagMemoryV198 h3 { font-size:14px; margin:0 0 6px; }
+#omsDiagMemoryV198 p, #omsDiagMemoryV198 details { font-size:12px; line-height:1.5; margin:6px 0; }
+#omsDiagMemoryV198 .omsDiagMemoryActions { display:flex; flex-wrap:wrap; gap:8px; margin:10px 0; }
+#omsDiagMemoryV198 button { border:1px solid #bcc5d5; background:#f1f4f9; color:#171923; padding:10px 12px; min-height:40px; border-radius:9px; font-size:12px; font-weight:750; cursor:pointer; }
+#omsDiagMemoryV198 #omsDiagRamTest { background:#172c47; border-color:#172c47; color:#fff; }
+#omsDiagMemoryV198 button:focus-visible, #omsDiagMemoryV198 summary:focus-visible { outline:3px solid #2873da; outline-offset:2px; }
+#omsDiagMemoryV198 .omsDiagMemoryRow { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:10px; padding:7px 0; border-bottom:1px solid #e7eaf0; font-size:12px; line-height:1.4; }
+#omsDiagMemoryV198 .omsDiagMemoryRow strong { text-align:right; overflow-wrap:anywhere; }
+#omsDiagMemoryV198 small { display:block; color:#555e70; font-size:11px; line-height:1.5; margin-top:8px; }
+#omsDiagMemoryV198 summary { cursor:pointer; font-weight:700; }
+#omsDiagMemoryV198 ul { margin:8px 0; padding-left:20px; }
+#omsDiagMemoryV198 .omsDiagMemoryPrivacy { color:#555e70; font-size:11px; }
+@media(max-width:480px) { #omsDiagMemoryV198 .omsDiagMemoryRow { grid-template-columns:minmax(0,1fr) minmax(0,1.1fr); font-size:11px; } }
+

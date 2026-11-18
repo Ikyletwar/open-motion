@@ -1,0 +1,19 @@
+
+.editor.omsSelecting249,.editor.omsGroupView249{grid-template-rows:48px minmax(0,1fr)!important}
+.editor.omsSelecting249 .editorTop,.editor.omsGroupView249 .editorTop{position:relative;height:48px!important;overflow:visible;visibility:visible}
+.omsSelectBar249{position:absolute;inset:0;display:flex;align-items:center;gap:5px;padding:2px 5px;background:#69e9b0;color:#11231e;z-index:50}
+.omsSelectBar249>b{font-size:13px;font-weight:650;white-space:nowrap;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis}
+.omsSelectBar249 button{border:0;background:transparent;color:inherit;min-width:33px;height:42px;padding:2px 4px;border-radius:7px}
+.omsSelectBar249 button:disabled{opacity:.32}.omsSelectBar249 button:hover:not(:disabled){background:#10211c15}
+.omsSelectionActions249{display:flex;align-items:center;gap:2px}.omsSelectionActions249 svg{display:block;width:25px;height:24px;margin:auto}
+.omsSelectionActions249 small{display:block;font-size:9px;line-height:10px}.omsSelectionActions249 [data-group-select-delete]{font-size:24px}
+.omsGroupBreadcrumb249{position:absolute;inset:0;z-index:45;display:flex;align-items:center;gap:3px;padding:4px 8px;overflow-x:auto;background:#1a1d2c;scrollbar-width:none}
+.omsGroupBreadcrumb249 button{white-space:nowrap;max-width:190px;overflow:hidden;text-overflow:ellipsis;border:0;border-radius:6px;background:transparent;color:#eef3ff;padding:7px 8px;font-size:13px;flex-shrink:0}
+.omsGroupBreadcrumb249 [data-group-root]{background:#ffffff09;max-width:155px}.omsGroupBreadcrumb249 [aria-current]{color:#a6efd1}
+.omsGroupBreadcrumb249 [data-group-settings]{margin-left:auto;font-size:20px;min-width:35px}
+.omsGroupSettings249{display:grid;gap:12px;font-size:13px}.omsGroupSettings249 label{display:grid;gap:7px}.omsGroupSettings249 input,.omsGroupSettings249 select,.omsGroupSettings249 button{background:#222a3b;color:#eef4ff;border:1px solid #49556a;border-radius:8px;padding:9px;min-height:40px}.omsGroupSettings249 small,.omsGroupSettings249 p{color:#b3bfd3;line-height:1.5;margin:0}
+.track .clip.group{background:#e28251!important;color:#171f2b;border-color:#f9bd91!important}
+.track .clip.group.sel{background:#ed9d69!important}
+.omsGroupView249 .axisBadge{opacity:.35}
+@media(max-width:420px){.omsSelectBar249>b{font-size:12px}.omsSelectBar249{gap:2px}.omsSelectionActions249{gap:0}.omsGroupBreadcrumb249 button{max-width:120px;font-size:12px;padding:7px 5px}}
+

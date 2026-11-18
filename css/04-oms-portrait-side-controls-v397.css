@@ -1,0 +1,172 @@
+
+/* =========================================================
+   V3.98 — Portrait Side Controls + Timeline Grid Fix
+   For 9:16-or-taller compositions on mobile/tablet, the two horizontal
+   editor toolbars move into the otherwise unused left/right canvas gutters.
+   This returns their vertical space to the composition preview and timeline.
+   ========================================================= */
+.portraitSideRail{
+  position:absolute;
+  z-index:24;
+  width:46px;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  pointer-events:none;
+}
+.portraitLeftRail{left:3px;top:7px;bottom:7px}
+.portraitRightRail{right:3px;top:54px;bottom:7px}
+.editorMain.portraitSideControls .portraitSideRail{display:flex}
+
+/* Reserve real gutters. applyCompositionFitZoom() already subtracts viewport
+   padding, so the canvas is guaranteed not to run underneath either rail. */
+.editorMain.portraitSideControls .viewport{
+  padding-left:52px;
+  padding-right:52px;
+}
+.editorMain.portraitSideControls .previewArea{
+  grid-template-rows:minmax(0,1fr)!important;
+}
+.editorMain.portraitSideControls .timelineArea{
+  /* V3.98: transport is physically moved out of timelineArea. With the old
+     3-row grid, timelineScroll became the first auto-placed child and landed
+     in the collapsed 0px transport row. Use one real row and pin the scroll
+     viewport to it explicitly so ruler/tracks can never collapse. */
+  grid-template-rows:minmax(0,1fr)!important;
+}
+.editorMain.portraitSideControls .timelineScroll{
+  grid-row:1!important;
+  min-height:0!important;
+  height:100%!important;
+}
+.editorMain.portraitSideControls .timelineZoomBadge{top:6px!important}
+
+/* Once the transport row is gone, timeline overlays start at the ruler. */
+.editorMain.portraitSideControls .playhead,
+.editorMain.portraitSideControls .keyframeDragGuide,
+.editorMain.portraitSideControls .layerTrimDragGuide,
+.editorMain.portraitSideControls .layerMoveDragGuide{
+  top:0!important;
+  bottom:0!important;
+}
+.editorMain.portraitSideControls .liveAudioMeter{top:0!important}
+
+/* The original nodes are moved, not cloned, so all existing event listeners,
+   ids, keyframe logic and split-handle pointer ownership remain intact. */
+.portraitSideRail .previewTools,
+.portraitSideRail .transport{
+  pointer-events:auto;
+  position:static!important;
+  width:44px;
+  height:auto!important;
+  min-height:0!important;
+  max-height:100%;
+  margin:0;
+  padding:4px 3px!important;
+  border:1px solid rgba(62,70,94,.72)!important;
+  border-radius:12px;
+  background:rgba(18,22,32,.90)!important;
+  box-shadow:0 5px 18px rgba(0,0,0,.22);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+}
+.portraitLeftRail .previewTools{
+  display:flex!important;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:1px;
+  border-top:1px solid rgba(62,70,94,.72)!important;
+}
+.portraitSideRail .previewTools button,
+.portraitSideRail .transport button{
+  width:36px!important;
+  min-width:36px!important;
+  height:32px!important;
+  flex:0 0 32px;
+  padding:0!important;
+}
+.portraitSideRail .editorSplitSlot{
+  min-width:36px;
+  width:36px;
+  height:30px;
+  flex:0 0 30px!important;
+  align-self:center;
+}
+.portraitSideRail .editorSplitHandle{
+  width:36px!important;
+  height:28px!important;
+}
+
+/* Keep the existing time readout, but turn it into a compact vertical badge. */
+.portraitLeftRail .previewTools .tc{
+  min-width:0!important;
+  width:30px;
+  height:56px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  writing-mode:vertical-rl;
+  transform:rotate(180deg);
+  font-size:7px;
+  letter-spacing:.25px;
+  line-height:1;
+  overflow:hidden;
+  flex:0 0 56px;
+}
+
+/* The horizontal zoom slider becomes a compact vertical slider. */
+.portraitLeftRail .zoomCtl{
+  width:36px;
+  height:94px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  align-items:center;
+  gap:0;
+  flex:0 0 94px;
+}
+.portraitLeftRail .zoomCtl span{font-size:13px;line-height:14px}
+.portraitLeftRail .zoomCtl input{
+  width:66px!important;
+  height:18px;
+  margin:22px -15px;
+  transform:rotate(-90deg);
+  transform-origin:center;
+}
+
+/* Reflow the clean transport groups vertically in the right rail. */
+.portraitRightRail .transportBalanced{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:1px!important;
+  border-bottom:1px solid rgba(62,70,94,.72)!important;
+}
+.portraitRightRail .transportBalanced .transportLeft,
+.portraitRightRail .transportBalanced .transportCenter,
+.portraitRightRail .transportBalanced .transportRight{
+  width:36px;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:1px!important;
+}
+
+/* Side mode is intentionally mobile/tablet only. */
+@media (min-width:900px){
+  .portraitSideRail{display:none!important}
+  .editorMain.portraitSideControls .viewport{padding-left:0;padding-right:0}
+}
+
+/* Very small phones still get touch-safe controls without consuming too much
+   horizontal gutter. */
+@media (max-width:380px){
+  .portraitSideRail{width:40px}
+  .portraitLeftRail{left:1px}.portraitRightRail{right:1px}
+  .editorMain.portraitSideControls .viewport{padding-left:44px;padding-right:44px}
+  .portraitSideRail .previewTools,.portraitSideRail .transport{width:39px;padding-left:1px!important;padding-right:1px!important}
+  .portraitSideRail .previewTools button,.portraitSideRail .transport button{width:33px!important;min-width:33px!important}
+}

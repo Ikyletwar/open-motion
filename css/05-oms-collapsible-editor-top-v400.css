@@ -1,0 +1,77 @@
+
+/* =========================================================
+   V4.00 — Collapsible editor top bar.
+   The project/navigation bar can be hidden to reclaim vertical space.
+   Export remains pinned in the upper-right corner, and the existing floating
+   + button temporarily becomes the restore affordance while the bar is hidden.
+   ========================================================= */
+.editorTopCollapseBtn{font-size:22px;line-height:1}
+
+.editor.topBarCollapsed{
+  grid-template-rows:0 minmax(0,1fr)!important;
+}
+.editor.topBarCollapsed .editorTop{
+  height:0!important;
+  min-height:0!important;
+  padding:0!important;
+  gap:0!important;
+  border:0!important;
+  background:transparent!important;
+  overflow:visible!important;
+  position:relative;
+  z-index:90;
+  pointer-events:none;
+}
+.editor.topBarCollapsed #backHome,
+.editor.topBarCollapsed #editorTitle,
+.editor.topBarCollapsed #saveProject,
+.editor.topBarCollapsed #settingsBtn,
+.editor.topBarCollapsed #collapseEditorTop{
+  display:none!important;
+}
+.editor.topBarCollapsed .editorTop .topActions{
+  position:absolute!important;
+  top:8px;
+  right:8px;
+  width:38px;
+  height:38px;
+  display:block!important;
+  pointer-events:none;
+  z-index:92;
+}
+.editor.topBarCollapsed #openExport{
+  display:grid!important;
+  place-items:center;
+  position:absolute!important;
+  inset:0!important;
+  width:38px!important;
+  height:38px!important;
+  border:1px solid rgba(66,76,100,.72)!important;
+  border-radius:10px!important;
+  background:rgba(17,21,30,.88)!important;
+  box-shadow:0 5px 18px rgba(0,0,0,.24);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  pointer-events:auto!important;
+  z-index:93;
+}
+/* While the top bar is hidden, + is guaranteed to stay above drawers because
+   it is also the only restore control requested by the UI. */
+.editor.topBarCollapsed #plusBtn{
+  z-index:80!important;
+  transform:none!important;
+  background:#17221f!important;
+  border-color:var(--accent)!important;
+  color:var(--accent)!important;
+}
+.editor.topBarCollapsed #plusBtn::after{
+  content:"";
+  position:absolute;
+  inset:-7px;
+  border-radius:50%;
+  border:1px solid rgba(115,226,189,.16);
+  pointer-events:none;
+}
+@media (min-width:900px){
+  .editor.topBarCollapsed .editorTop .topActions{top:10px;right:12px}
+}

@@ -1,0 +1,38 @@
+
+/* Reuse the live timecode. No separate marker toolbar or extra timeline row. */
+#editor #timeRead.timeRead{position:absolute!important;bottom:auto!important;left:50%!important;transform:translateX(-50%)!important;display:flex!important;align-items:center!important;justify-content:center!important;box-sizing:border-box!important;width:68px!important;min-width:68px!important;height:20px!important;margin:0!important;padding:0 4px!important;z-index:35!important;border-radius:3px!important;border:1px solid #3b4356!important;background:#282c3f!important;color:#fff!important;font:600 11px/1 system-ui,sans-serif!important;font-variant-numeric:tabular-nums!important;letter-spacing:.3px!important;cursor:pointer;pointer-events:auto!important;touch-action:manipulation!important;user-select:none!important;-webkit-user-select:none!important;-webkit-touch-callout:none!important}
+@media(min-width:900px){html:not(.omsPanelOpen) #editor #timeRead.timeRead{top:39px!important}}
+#editor #timeRead.timeRead:disabled{cursor:default;opacity:.65!important}
+#editor #timeRead.timeRead:focus-visible{outline:2px solid #64dabb!important;outline-offset:2px!important}
+#editor #timeRead.timeRead:active{filter:brightness(1.15)}
+#editor #ruler .omsRulerMarker:focus-visible{outline:2px solid #fff;outline-offset:1px}
+
+#editor #ruler .omsRulerMarker{position:absolute;top:0;transform:translateX(-50%);width:22px;height:22px;min-height:0;margin:0;padding:0;border:0;border-radius:0;background:none;z-index:6;cursor:pointer;color:var(--marker-color);touch-action:manipulation}
+#editor #ruler .omsRulerMarker:before{content:"";position:absolute;left:10px;top:0;height:22px;border-left:1px solid currentColor;opacity:.6;pointer-events:none}
+#editor #ruler .omsRulerMarker:after{content:"";position:absolute;left:4px;top:0;bottom:auto;width:7px;height:8px;background:currentColor;clip-path:polygon(100% 0,100% 100%,0 100%);pointer-events:none}
+#editor #ruler .omsRulerMarker.active:after{left:1px;width:10px;height:11px}
+#editor #timeRead.omsAtMarker{border-color:var(--marker-color)!important;color:var(--marker-color)!important}
+.omsMarkerDialog{box-sizing:border-box;width:min(680px,calc(100vw - 24px));max-width:calc(100vw - 24px);max-height:calc(100dvh - 24px);padding:0;border:1px solid #4f6574;border-radius:13px;background:#151b26;color:#eef2f7;font:13px/1.4 system-ui;box-shadow:0 16px 70px #0009;overflow:hidden}
+.omsMarkerDialog::backdrop{background:#0009}
+.omsMarkerFrame{display:flex;flex-direction:column;max-height:calc(100dvh - 26px);min-height:0}
+.omsMarkerDialog header{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;border-bottom:1px solid #364153;flex:none}
+.omsMarkerDialog h2{font:600 17px/1.3 system-ui;margin:0}
+.omsMarkerDialog button,.omsMarkerDialog input,.omsMarkerDialog select{box-sizing:border-box;min-height:36px;border:1px solid #465267;border-radius:6px;background:#242e40;color:#f1f5f9;padding:5px 7px;font:inherit}
+.omsMarkerDialog button{cursor:pointer}
+.omsMarkerDialog button:disabled,.omsMarkerDialog input:disabled,.omsMarkerDialog select:disabled{opacity:.5;cursor:default}
+.omsMarkerDialog button:focus-visible,.omsMarkerDialog input:focus-visible,.omsMarkerDialog select:focus-visible{outline:2px solid #60d6b8;outline-offset:1px}
+.omsMarkerDialog [data-marker-close]{width:40px;height:40px;font-size:24px}
+.omsMarkerScope{padding:10px 14px 0;margin:0;font-weight:600;overflow-wrap:anywhere}
+.omsMarkerNav{display:flex;gap:6px;align-items:center;padding:10px 14px;flex-wrap:wrap;flex:none}
+.omsMarkerNav>button:first-child,.omsMarkerNav>button:nth-child(2){width:36px;font-size:20px}
+.omsMarkerNav>span{margin-left:auto;color:#b5c2d3}
+.omsMarkerHint{margin:0;padding:0 14px 10px;font-size:12px;color:#adbbce;flex:none}
+.omsMarkerList{overflow:auto;overscroll-behavior:contain;min-height:0;padding:0 14px 12px}
+.omsMarkerRow{display:grid;grid-template-columns:90px 100px minmax(80px,1fr) 84px 36px;align-items:end;gap:7px;padding:9px 0;border-top:1px solid #2f394b}
+.omsMarkerRow label{display:flex;flex-direction:column;gap:3px;font-size:11px;color:#b7c4d6;min-width:0}
+.omsMarkerRow input{width:100%;min-width:0}
+.omsMarkerRow [data-marker-jump]{border-left:3px solid var(--marker-color);font-variant-numeric:tabular-nums;font-size:12px}
+.omsMarkerDialog output{padding:0 14px 10px;color:#ffbc90;flex:none;overflow-wrap:anywhere}
+.omsMarkerEmpty{color:#aebed0}
+@media(max-width:540px){.omsMarkerRow{grid-template-columns:90px minmax(100px,1fr) 36px}.omsMarkerRow>label:nth-child(3){grid-column:1/-1;grid-row:2}.omsMarkerRow>select{grid-column:1/-1;grid-row:3;width:100%}.omsMarkerRow>[data-marker-delete]{grid-column:3;grid-row:1;align-self:end}}
+

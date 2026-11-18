@@ -1,0 +1,67 @@
+
+/* Keep eye, thumbnail, folder toggle and layer name on explicit grid row on mobile and desktop. */
+.trackHead{
+  grid-template-columns:25px 20px minmax(0,1fr)!important;
+  grid-template-rows:minmax(0,1fr);
+  min-width:0;
+  min-height:0;
+  gap:2px!important;
+}
+.trackHead>.eye{grid-column:1;grid-row:1}
+.trackHead>.trackThumb{
+  grid-column:2;
+  grid-row:1;
+  width:18px;
+  height:18px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  color:#8c9bb4;
+  pointer-events:none;
+}
+.trackHead.sel>.trackThumb{
+  color:var(--oms-m-accent,#55e6b5);
+}
+.trackHead>.trackThumb svg,
+.trackHead>.trackThumb .trackThumbSvg{
+  width:14px;
+  height:14px;
+  display:block;
+}
+.trackHead>.trackName{grid-column:3;grid-row:1;min-width:0;align-self:center}
+.trackHead.amTimelineGroupHead{grid-template-columns:25px 16px 20px minmax(0,1fr)!important}
+.trackHead.amTimelineGroupHead>.amGroupToggle{
+  grid-column:2;
+  grid-row:1;
+  width:16px;
+  height:24px;
+  padding:0;
+  border:0;
+  background:transparent;
+  color:#78dfcb;
+  font-size:11px;
+  line-height:1;
+  touch-action:manipulation;
+}
+.trackHead.amTimelineGroupHead>.trackThumb{grid-column:3;grid-row:1}
+.trackHead.amTimelineGroupHead>.trackName{grid-column:4;grid-row:1}
+@media (min-width:900px){
+  .trackHead{
+    grid-template-columns:25px 20px 1fr 21px!important;
+  }
+  .trackHead>.lock{
+    grid-column:4;
+    grid-row:1;
+  }
+  .trackHead.amTimelineGroupHead{
+    grid-template-columns:25px 16px 20px 1fr 21px!important;
+  }
+  .trackHead.amTimelineGroupHead>.lock{
+    grid-column:5;
+    grid-row:1;
+  }
+}
+.amGroupToggle:focus-visible{outline:1px solid var(--accent);outline-offset:-1px}
+.clip.null{background:#e5c166;color:#151923;border:1px dashed #786126}
+.clip.group{background:#929fdd;color:#151923;border:1px solid #b9c4f1}
+

@@ -1,0 +1,217 @@
+
+/* =========================================================
+   Desktop Homepage Scale & Typography (ID, INSTAL, IMPOR, AM LINK & Project Cards)
+   ========================================================= */
+/* Header Buttons: ID, INSTAL, IMPOR, AM LINK */
+.simpleHome .homeTop {
+  height: 68px !important;
+  padding: 0 32px !important;
+}
+.simpleHome .homeTopActions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+.simpleHome .homeTopActions .rightBtn,
+.simpleHome .rightBtn {
+  height: 40px !important;
+  padding: 0 16px !important;
+  border-radius: 12px !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.04em !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  border: 1px solid #dce1e8 !important;
+  background: #ffffff !important;
+  color: #3b424f !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03) !important;
+  transition: background 0.14s ease, border-color 0.14s ease, transform 0.14s ease !important;
+}
+.simpleHome .rightBtn:hover {
+  background: #f8fafc !important;
+  border-color: #cbd4e0 !important;
+}
+.simpleHome .rightBtn:active {
+  transform: scale(0.98) !important;
+}
+.simpleHome .rightBtn svg {
+  width: 17px !important;
+  height: 17px !important;
+}
+
+/* Language Button & 'ID' / 'EN' code */
+.simpleHome .languageBtn {
+  min-width: 58px !important;
+  height: 40px !important;
+  padding: 0 14px !important;
+  border-radius: 12px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+}
+.simpleHome .languageBtn svg {
+  width: 17px !important;
+  height: 17px !important;
+  stroke: #2bb58f !important;
+}
+.simpleHome .languageBtn .langCode {
+  font-size: 13px !important;
+  font-weight: 850 !important;
+  color: inherit !important;
+  letter-spacing: 0.04em !important;
+}
+
+@media (max-width: 899px) {
+  #home .homeTopActions .rightBtn .langCode,
+  #home .homeTopActions .languageBtn .langCode,
+  #homeLanguageCode,
+  .simpleHome .languageBtn .langCode {
+    color: #ffffff !important;
+  }
+}
+
+/* INSTAL Button */
+.simpleHome .homeInstallBtn {
+  min-width: 78px !important;
+  height: 40px !important;
+  padding: 0 16px !important;
+  border-radius: 12px !important;
+  font-size: 13px !important;
+  font-weight: 850 !important;
+  letter-spacing: 0.05em !important;
+  background: #5edbb5 !important;
+  color: #0b221a !important;
+  border: 1px solid #4ecba5 !important;
+}
+.simpleHome .homeInstallBtn:hover {
+  background: #52cfab !important;
+}
+.simpleHome .homeInstallBtn:active {
+  background: #46c4a0 !important;
+}
+
+/* Brand on Desktop */
+.simpleHome .homeWordmark b {
+  font-size: 16px !important;
+  font-weight: 850 !important;
+  color: #171a22 !important;
+}
+.simpleHome .homeWordmark small {
+  font-size: 11px !important;
+  color: #7d8592 !important;
+}
+
+/* Project List & Workspace on Desktop (min-width: 900px) */
+@media (min-width: 900px) {
+  .simpleHome .homeMain {
+    width: min(1200px, calc(100% - 64px)) !important;
+    margin: 0 auto !important;
+    padding: 32px 0 60px 0 !important;
+  }
+  .simpleHome .sectionRow {
+    margin-bottom: 24px !important;
+  }
+  .simpleHome .sectionKicker {
+    font-size: 12px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.1em !important;
+    color: #79828f !important;
+    margin-bottom: 6px !important;
+  }
+  .simpleHome .sectionRow h1 {
+    font-size: 28px !important;
+    font-weight: 850 !important;
+    color: #141821 !important;
+  }
+  .simpleHome .projectCountBadge {
+    height: 26px !important;
+    min-width: 26px !important;
+    padding: 0 10px !important;
+    font-size: 13px !important;
+    font-weight: 850 !important;
+  }
+  .simpleHome .projectSort {
+    height: 40px !important;
+    padding: 0 14px !important;
+    border-radius: 12px !important;
+    gap: 8px !important;
+  }
+  .simpleHome .projectSort svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+  .simpleHome .projectSort select {
+    font-size: 13px !important;
+    font-weight: 750 !important;
+    max-width: 110px !important;
+  }
+  .simpleHome .sectionRowActions .fabHome {
+    height: 40px !important;
+    padding: 0 18px !important;
+    border-radius: 12px !important;
+    gap: 8px !important;
+  }
+  .simpleHome .sectionRowActions .fabHome span {
+    font-size: 20px !important;
+  }
+  .simpleHome .sectionRowActions .fabHome b {
+    font-size: 13px !important;
+    font-weight: 850 !important;
+    letter-spacing: 0.04em !important;
+  }
+
+  /* Grid of Project Cards */
+  .simpleHome .projectGrid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)) !important;
+    gap: 16px !important;
+  }
+  .simpleHome .projectCard {
+    min-height: 98px !important;
+    padding: 14px 16px !important;
+    display: grid !important;
+    grid-template-columns: 70px minmax(0, 1fr) !important;
+    align-items: center !important;
+    border: 1px solid #dde2e8 !important;
+    border-radius: 16px !important;
+    background: #ffffff !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03) !important;
+    transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease !important;
+  }
+  .simpleHome .projectCard:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.07) !important;
+    border-color: #5edbb5 !important;
+  }
+  .simpleHome .projectThumb {
+    width: 70px !important;
+    height: 70px !important;
+    border-radius: 12px !important;
+  }
+  .simpleHome .projectMeta {
+    padding: 0 28px 0 16px !important;
+  }
+  .simpleHome .projectMeta b {
+    font-size: 16px !important;
+    font-weight: 800 !important;
+    color: #161a22 !important;
+    margin-bottom: 7px !important;
+  }
+  .simpleHome .projectMeta span {
+    font-size: 13px !important;
+    color: #6a7482 !important;
+    font-weight: 550 !important;
+  }
+  .simpleHome .projectMeta .projectDate {
+    font-size: 12.5px !important;
+    color: #8c95a2 !important;
+  }
+  .simpleHome .projectArrow {
+    font-size: 15px !important;
+    width: 28px !important;
+    height: 28px !important;
+    right: 4px !important;
+  }
+}

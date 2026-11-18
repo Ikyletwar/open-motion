@@ -1,0 +1,25 @@
+
+html.omsPanelOpen #drawer>.omsPanelResize{position:absolute!important;top:0!important;left:50%!important;right:auto!important;bottom:auto!important;transform:translateX(-50%)!important;z-index:90;display:flex!important;align-items:center;justify-content:center;flex:none!important;min-height:14px!important;height:14px!important;width:56px!important;box-sizing:border-box;cursor:ns-resize;touch-action:none;user-select:none;background:transparent;border:0;border-radius:0 0 6px 6px;margin:0!important;padding:0;outline-offset:-2px;color:#a1bdc9}
+.omsPanelResize>span{display:block;width:32px;height:3px;border-radius:4px;background:currentColor;opacity:.65;pointer-events:none}
+/* Keep the grip above tab icons, within the existing 52px Add Object header. */
+html.omsPanelOpen .timelineArea>#drawer.addDrawer .amTabHolder{height:52px!important;min-height:0!important;max-height:52px!important;padding:0!important;box-sizing:border-box!important}
+html.omsPanelOpen .timelineArea>#drawer.addDrawer .amTab{padding-top:13px!important;padding-bottom:2px!important;box-sizing:border-box!important}
+.omsPanelResize:hover,.omsPanelResize:focus-visible{color:#78d4bf!important;background:#213635!important}
+html.omsPanelResizing,html.omsPanelResizing *{cursor:ns-resize!important;user-select:none!important}
+.omsFreehandHUD{max-height:44%;overflow:auto;overscroll-behavior:contain;box-sizing:border-box;align-content:flex-start;row-gap:5px}
+.omsFreehandHUD label{display:inline-flex;align-items:center;gap:4px;min-height:24px;white-space:nowrap}
+.omsFreehandHUD input[type=color]{width:27px;height:26px;padding:0;border:0;background:transparent}
+.omsFreehandHUD input[type=range]{width:70px;max-width:20vw;accent-color:#64cbb3}
+.omsFreehandHUD input[type=checkbox]{accent-color:#64cbb3;width:16px;height:16px}
+.omsFreehandHUD output{min-width:22px;font-variant-numeric:tabular-nums}
+.omsFreehandHUD small{flex-basis:100%;font-size:10px;line-height:1.35;color:#afc3d3}
+.omsFreehandHUD>header{display:flex;align-items:center;gap:8px;width:100%;min-height:30px}
+.omsFreehandHUD>header>b{flex:1}
+.omsFreehandOptions{display:flex;flex-wrap:wrap;gap:5px 10px;align-items:center;width:100%}
+.omsFreehandOptions[hidden]{display:none!important}
+/* Legacy tablet rules use flex; the resizable panel requires actual grid tracks. */
+html.omsPanelOpen #editor .timelineArea:has(>#drawer:not(.hidden)){display:grid!important;grid-template-rows:var(--oms-panel-toolbar,68px) minmax(96px,1fr) minmax(64px,var(--oms-panel-height,250px))!important}
+html.omsPanelOpen .timelineArea>.transport{grid-row:1!important;align-self:start!important;height:calc(var(--oms-panel-toolbar,68px) - 24px)!important;min-height:38px!important}
+html.omsPanelOpen .timelineArea>#timelineScroll{height:auto!important;margin:0!important}
+html.omsPanelOpen .timelineArea>#timeRead{position:absolute!important;top:calc(var(--oms-panel-toolbar,68px) - 23px)!important;bottom:auto!important;left:50%!important;transform:translateX(-50%)!important;height:20px!important;padding:0 4px!important;box-sizing:border-box!important;display:flex;align-items:center;justify-content:center;z-index:35}
+

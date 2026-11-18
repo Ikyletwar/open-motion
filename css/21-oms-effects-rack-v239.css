@@ -1,0 +1,158 @@
+
+/* Compact effects rack, adapted to Open Motion's theme and existing gestures. */
+#drawer:has(> .omsEffects239) > .drawerHead { display: none !important; }
+#drawer > .drawerBody.omsEffects239 {
+  display: grid !important;
+  grid-template-columns: 42px minmax(0, 1fr) !important;
+  flex: 1; min-height: 0 !important; height: 100% !important;
+  overflow: hidden !important; padding: 0 !important;
+}
+.omsEffects239 .effectSideRail {
+  display: flex !important; flex-direction: column; align-items: stretch;
+  width: auto; height: 100%; padding: 0; gap: 0; border-right: 1px solid #30384a;
+}
+.omsEffects239 .effectSideRail > button:not([hidden]) {
+  flex: 0 0 40px; height: 40px; min-height: 40px; border: 0;
+  border-bottom: 1px solid #2b3344; background: transparent;
+  color: #b1bdd0; font-size: 18px; display: grid; place-items: center;
+  padding: 2px; border-radius: 0; touch-action: manipulation;
+}
+.omsEffects239 .effectSideRail > button:disabled { opacity: .35; }
+.omsEffects239 .effectSideRail > button.active { color: var(--accent); background: #233b39; }
+.omsEffects239 #effectEaseSide { font-size: 19px; position: relative; }
+.omsEffects239 #effectEaseRailValue { position: absolute; right: 3px; bottom: 2px; font-size: 7px; }
+.omsEffects239 .effectStackPanel {
+  display: flex !important; flex-direction: column; min-height: 0 !important;
+  height: 100% !important; overflow: hidden !important; padding: 0 !important; gap: 0 !important;
+}
+.omsFxHeader239 {
+  display: flex; flex-shrink: 0; align-items: center; gap: 5px; padding: 5px 7px;
+  min-height: 42px; border-bottom: 1px solid #30384a; background: #171d2b;
+}
+.omsFxHeader239 > b { flex: 1; font-size: 12px; }
+.omsFxHeader239 > button {
+  border: 1px solid #303b4e; border-radius: 18px; color: #cdd8e9;
+  background: #202838; min-height: 30px; padding: 5px 9px; font-size: 10px;
+}
+.omsFxHeader239 > .primary { color: #0d2520; background: var(--accent); border-color: transparent; }
+.omsFxHeader239 > [data-fx-close-drawer] { border: 0; background: transparent; padding: 2px; font-size: 19px; }
+.omsFxBody239 { flex: 1; min-height: 0; overflow: auto; overscroll-behavior: contain; padding: 9px 8px 14px; scrollbar-gutter: stable; }
+.omsFxBody239 .effectStackList { gap: 8px; }
+.omsEffects239 .effectCard { border-radius: 11px; border: 1px solid #354057; background: #171d2a; }
+.omsEffects239 .effectCardHead { grid-template-columns: 29px minmax(0,1fr) 29px 29px 29px 29px; height: 39px; }
+.omsEffects239 .effectCardTitle { padding: 0 5px 0 1px; }
+.omsEffects239 .effectCardTitle b { font-size: 11px; }
+.omsEffects239 .effectCardTitle small { font-size: 7px; }
+.omsEffects239 .effectHeadBtn, .omsEffects239 .effectDragHandle { min-width: 27px; min-height: 36px; font-size: 16px; }
+.omsEffects239 .effectHeadBtn.chevron { transform: rotate(0deg); }
+.omsEffects239 .expanded .effectHeadBtn.chevron { transform: rotate(90deg); }
+.omsEffects239 .effectParams { padding: 9px 8px; gap: 6px !important; }
+.omsEffects239 .effectParamGroup { gap: 6px; }
+.omsEffects239 .effectParamGroupTitle { font-size: 9px; padding: 5px 0 3px; }
+.omsEffects239 .effectParamRow.effectParamRulerRow {
+  display: grid !important; grid-template-columns: minmax(90px,36%) minmax(0,1fr) !important;
+  grid-template-rows: auto !important; grid-auto-rows: auto;
+  align-items: center; gap: 7px; padding: 3px; min-height: 35px !important; height: auto !important;
+}
+.omsEffects239 .effectRulerTop { grid-column: 1; grid-row: 1 !important; display: block; margin: 0; padding: 0; min-width: 0; }
+.omsEffects239 .effectRulerMain { grid-column: 2; grid-row: 1 !important; display: flex !important; align-items: center; gap: 0; min-width: 0; }
+.omsEffects239 .effectParamLabel { font-size: 10px; font-weight: 600; color: #bac6d9; line-height: 1.3; cursor: pointer; overflow-wrap: anywhere; }
+.omsEffects239 .effectParamRulerShell { height: 30px !important; min-height: 30px !important; flex: 1; width: 0 !important; min-width: 24px; border-radius: 6px 0 0 6px !important; }
+.omsEffects239 .effectParamRulerViewport { height: 100%; }
+.omsEffects239 .effectRulerSideControls { flex: 0 0 auto; display: flex; align-items: center; gap: 0; }
+.omsEffects239 .effectParamNumber { font-size: 10px !important; min-width: 34px !important; max-width: 70px; height: 30px !important; padding: 1px 3px !important; border-radius: 0 6px 6px 0 !important; background: #111723; color: #a7eddd; }
+.omsEffects239 .effectParamKey { height: 30px; width: 22px; min-width: 22px; border: 0; background: transparent; color: #65758d; font-size: 13px; }
+.omsEffects239 .effectParamKey.on { color: var(--accent); }
+.omsEffects239 .effectEaseMain { min-height: 0 !important; height: 100%; }
+.omsEffects239 .effectEaseEditorWrap { min-height: 0; }
+.omsEffects239 .effectParamRow.bool, .omsEffects239 .effectParamRow.enum {
+  display: grid; grid-template-columns: minmax(90px,36%) minmax(0,1fr) 22px !important; gap: 7px; align-items: center; min-height: 35px; padding: 3px;
+}
+.omsEffects239 .effectEnumSelect { width: 100%; min-width: 0; height: 30px; font-size: 10px; }
+.omsEffects239 .activeEffectParam { background: var(--accent) !important; border-radius: 7px; }
+.omsEffects239 .activeEffectParam .effectParamLabel { color: #10251f !important; }
+.omsEffects239 .activeEffectParam .effectParamRulerShell, .omsEffects239 .activeEffectParam .effectParamNumber { background: #10231f !important; }
+.omsEffects239 .hasParameterExpression:not(.activeEffectParam) .effectParamLabel { color: #83deca; }
+.omsEffects239 .parameterExpressionError .effectParamLabel { text-decoration: underline wavy #f19b99; }
+.omsFxBadges239 { display: inline-flex; gap: 3px; margin-left: 4px; font-size: 9px; }
+.omsFxBadges239 i { font-style: normal; display: none; }
+.omsFxBadges239 i.visible { display: inline; }
+.omsFxHiddenControl239 { display: none !important; }
+.omsFxSegments239 { display: flex; min-width: 0; border: 1px solid #344154; border-radius: 6px; overflow: hidden; }
+.omsFxSegments239 button { flex: 1; min-width: 0; min-height: 29px; padding: 2px 4px; border: 0; border-radius: 0; background: #101723; color: #a9b7cc; font-size: 9px; }
+.omsFxSegments239 button.active { background: var(--accent); color: #10251f; }
+.omsFxShade239 { position: fixed; inset: 0; z-index: 100180; background: #04091380; display: flex; align-items: flex-end; justify-content: center; padding: 10px 10px max(10px,env(safe-area-inset-bottom)); }
+.omsFxPopup239 { width: min(480px,100%); max-height: min(78dvh,650px); overflow: hidden; border: 1px solid #43516b; border-radius: 13px; background: #191f2d; color: #dbe5f3; display: flex; flex-direction: column; }
+.omsFxPopup239 > header { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-bottom: 1px solid #333d51; }
+.omsFxPopup239 > header b { flex: 1; font-size: 12px; }
+.omsFxPopup239 button { border: 1px solid #3d485e; border-radius: 7px; background: #242d3d; color: #d2dfef; min-height: 34px; padding: 6px 10px; font-size: 11px; }
+.omsFxPopup239 button.primary { background: #20453c; color: #92e6d2; border-color: #467f71; }
+.omsFxPopup239 button:disabled { opacity: .35; }
+.omsFxPopupBody239 { overflow: auto; padding: 12px; display: grid; gap: 10px; min-height: 0; }
+.omsFxPopup239 p { font-size: 11px; line-height: 1.45; margin: 0; color: #9fabc0; }
+.omsFxPopup239 input:not([type=file]), .omsFxPopup239 textarea { width: 100%; border: 1px solid #4c6b67; border-radius: 7px; background: #101820; color: #dce8f5; font-size: 13px; padding: 9px; box-sizing: border-box; }
+.omsFxPopup239 textarea { min-height: 140px; max-height: 35dvh; resize: vertical; font-family: monospace; }
+.omsFxPopup239 label { display: grid; gap: 6px; font-size: 12px; }
+.omsFxPopup239 output { font-size: 11px; color: #91d9c8; overflow-wrap: anywhere; }
+.omsFxPopup239 output.error { color: #ffb2b2; }
+.omsFxPopup239 footer { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+.omsFxActionList239 { display: grid; gap: 7px; }
+.omsFxActionList239 button { text-align: left; }
+.omsFxPresetList239 { display: grid; gap: 6px; }
+.omsFxPresetFilters239 { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+.omsFxPresetFilters239 > select { min-width: 0; background: #152231; border: 1px solid #3d5663; border-radius: 7px; color: #bfcedf; font-size: 11px; padding: 5px; }
+.omsFxPresetList239.textPresets { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.omsFxPresetList239.textPresets > button { text-align: left; min-width: 0; }
+.omsFxPresetList239.textPresets > button > span { display: block; font-size: 10px; color: #99a8bc; margin-top: 5px; }
+.omsFxTextGallery239 { border: 1px solid #3c645a; color: #96d9c5; background: #1a302d; border-radius: 8px; padding: 8px; font-size: 11px; text-align: left; }
+.omsFxPresetList239 > div { display: flex; gap: 4px; }
+.omsFxPresetList239 [data-fx-preset-use] { flex: 1; text-align: left; }
+.omsFxPresetList239 small { display: block; font-size: 10px; color: #97a9bc; margin-top: 4px; }
+.omsFxLibraryTabs239 { display: flex; gap: 6px; padding: 5px 0 8px; flex-wrap: wrap; }
+.omsFxLibraryTabs239 button { border: 1px solid #36445a; border-radius: 20px; background: #202b3b; color: #b9c9df; padding: 6px 10px; font-size: 10px; }
+.omsFxLibraryTabs239 button.active { border-color: #70ceb6; color: #9ce9d4; }
+.omsFxLibraryTile239 { position: relative; min-width: 0; }
+.omsFxLibraryTile239[hidden] { display: none !important; }
+.omsFxLibraryTile239 .effectLibraryCard { width: 100%; height: 100%; }
+.omsFxFavorite239 { position: absolute; right: 5px; bottom: 5px; width: 30px; height: 30px; padding: 0; border: 0; background: #131d2bbd; color: #8ca1bc; border-radius: 7px; font-size: 19px; }
+.omsFxFavorite239.active { color: #79e0c0; }
+@media(min-width:900px) {
+  .omsFxShade239 { align-items: center; justify-content: flex-start; }
+  .omsFxPopup239 { margin: auto; }
+  .omsEffects239 .effectParamLabel { font-size: 11px; }
+}
+@media(max-width:420px) {
+  #drawer > .drawerBody.omsEffects239 { grid-template-columns: 35px minmax(0,1fr) !important; }
+  .omsFxHeader239 { gap: 3px; padding: 4px; }
+  .omsFxHeader239 > button { font-size: 9px; padding: 4px 6px; }
+  .omsFxHeader239 > b { font-size: 10px; }
+  .omsFxBody239 { padding: 6px 4px 10px; }
+  .omsEffects239 .effectParams { padding: 7px 5px; }
+  .omsEffects239 .effectParamRow.effectParamRulerRow, .omsEffects239 .effectParamRow.bool, .omsEffects239 .effectParamRow.enum { grid-template-columns: minmax(76px,35%) minmax(0,1fr); gap: 4px; }
+  .omsEffects239 .effectParamRow.bool, .omsEffects239 .effectParamRow.enum { grid-template-columns: minmax(76px,35%) minmax(0,1fr) 18px !important; }
+  .omsEffects239 .effectParamLabel { font-size: 9px; }
+  .omsEffects239 .effectCardHead { grid-template-columns: 24px minmax(0,1fr) 26px 26px 26px 26px; }
+}
+
+/* V5.240: use full native rows for every axis and keep selection subtle. */
+.omsEffects239 .activeEffectParam {
+  background: rgba(112, 225, 192, .12) !important;
+  box-shadow: inset 2px 0 0 rgba(112, 225, 192, .48);
+  border-radius: 7px;
+}
+.omsEffects239 .activeEffectParam .effectParamLabel {
+  color: #b8eee0 !important;
+}
+.omsEffects239 .activeEffectParam .effectParamRulerShell,
+.omsEffects239 .activeEffectParam .effectParamNumber {
+  background: #111723 !important;
+}
+.omsEffects239 .effectSideRail > button.active,
+.omsFxSegments239 button.active {
+  background: rgba(112, 225, 192, .14);
+  color: #b8eee0;
+}
+.omsFxSegments239 button.active {
+  box-shadow: inset 0 0 0 1px rgba(112, 225, 192, .28);
+}
+

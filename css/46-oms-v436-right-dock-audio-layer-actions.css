@@ -1,0 +1,26 @@
+
+/* V4.36 — Music + Layer Actions use the toolbar's right padding as their anchor. */
+.transportBalanced{position:relative!important}
+#transportRightDock{
+  position:absolute;
+  right:7px;
+  top:50%;
+  transform:translateY(-50%);
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:2px;
+  z-index:7;
+  pointer-events:auto;
+}
+#transportRightDock > button{
+  flex:0 0 auto;
+  margin:0!important;
+}
+/* The original right group still exists for compatibility, but Music and
+   Layer Actions no longer participate in its flex width. */
+.transportBalanced .transportRight.omsRightDockDetached{
+  min-width:0!important;
+}
+/* Preserve the established vertical rail behavior for true portrait side mode. */
+.portraitRightRail #transportRightDock{display:none!important}

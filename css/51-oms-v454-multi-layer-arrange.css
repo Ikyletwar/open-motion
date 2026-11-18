@@ -1,0 +1,294 @@
+
+/* V4.54 local preview — unified toolbar surfaces + stepped sequence icon. */
+.drawer.multiSelectDrawer{
+  left:0;
+  right:0;
+  top:auto;
+  bottom:0;
+  width:100%;
+  height:auto;
+  max-height:92px;
+  overflow:hidden;
+}
+.drawer.multiSelectDrawer>.drawerHead{
+  flex:0 0 26px!important;
+  height:26px!important;
+  min-height:26px!important;
+  padding:0 7px;
+}
+.drawer.multiSelectDrawer>.drawerHead b{font-size:9px}
+.drawer.multiSelectDrawer>.drawerHead button{font-size:15px}
+.multiSelectBody{
+  flex:1 1 auto;
+  min-width:0;
+  min-height:0;
+  display:grid;
+  grid-template-columns:minmax(0,1.55fr) minmax(118px,.82fr);
+  gap:6px;
+  align-items:center;
+  padding:3px 6px 4px;
+  overflow:hidden!important;
+  overscroll-behavior:none;
+  scrollbar-width:none;
+}
+#drawer.multiSelectDrawer .multiSelectBody::-webkit-scrollbar{display:none;width:0;height:0}
+.multiTimeGroup{
+  min-width:0;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:4px;
+  padding:0;
+  border:0;
+}
+.multiTimeGroup.outside{grid-template-columns:repeat(2,minmax(0,1fr))}
+.multiTimeBtn{
+  min-width:0;
+  height:46px;
+  border:1px solid #374057;
+  border-radius:7px;
+  background:#252a3e;
+  color:#dbe1ee;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:3px;
+  padding:3px;
+}
+.multiTimeBtn:active,
+.multiTimeBtn:focus-visible,
+.multiArrangeGroup button:active,
+.multiArrangeGroup button:focus-visible{
+  border-color:var(--accent);
+  color:var(--accent);
+  outline:none;
+}
+.multiTimeBtn>span{font-size:16px;line-height:1;letter-spacing:-2px}
+.multiTimeBtn>.mqRecallIcon{min-height:17px;letter-spacing:0}
+.multiTimeBtn>.mqRecallIcon svg{width:25px;height:17px;display:block;overflow:visible}
+.multiTimeBtn>.mqRecallIcon.before svg{transform:scaleX(-1)}
+.multiTimeBtn small{
+  max-width:100%;
+  color:#aab3c6;
+  font-size:6.5px;
+  line-height:1.05;
+  text-align:center;
+  white-space:normal;
+}
+.multiArrangeGroup{
+  min-width:0;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  align-items:center;
+  gap:4px;
+  padding:0;
+  border-radius:0;
+  background:transparent;
+}
+.multiArrangeGroup button{
+  min-width:0;
+  height:46px;
+  border:1px solid #374057;
+  border-radius:7px;
+  background:#252a3e;
+  color:#dbe1ee;
+  display:grid;
+  place-items:center;
+  padding:0;
+}
+.multiArrangeIcon{
+  position:relative;
+  display:block;
+  width:29px;
+  height:22px;
+}
+.multiArrangeIcon i{
+  position:absolute;
+  display:block;
+  height:3px;
+  border:1.5px solid currentColor;
+  background:transparent;
+}
+.multiArrangeIcon i:nth-child(1){top:2px;width:24px}
+.multiArrangeIcon i:nth-child(2){top:9px;width:17px}
+.multiArrangeIcon i:nth-child(3){top:16px;width:10px}
+.multiArrangeIcon.alignStart i{left:2px}
+.multiArrangeIcon.sequence i{
+  width:11px;
+  height:4px;
+  border:0;
+  border-radius:1px;
+  background:currentColor;
+}
+.multiArrangeIcon.sequence i:nth-child(1){top:1px;left:17px;right:auto;width:11px}
+.multiArrangeIcon.sequence i:nth-child(2){top:9px;left:9px;width:11px}
+.multiArrangeIcon.sequence i:nth-child(3){top:17px;left:1px;width:11px}
+.multiArrangeIcon.alignEnd i{right:2px}
+@media(max-width:430px){
+  .multiSelectBody{grid-template-columns:minmax(0,1.48fr) minmax(110px,.82fr);gap:4px;padding:2px 5px 3px}
+  .multiTimeGroup{gap:3px}
+  .multiTimeBtn{height:41px;padding:2px 1px}
+  .multiTimeBtn>span{font-size:15px}
+  .multiTimeBtn small{font-size:6px}
+  .multiArrangeGroup{gap:3px;padding:0}
+  .multiArrangeGroup button{height:41px}
+  .multiArrangeIcon{transform:scale(.78)}
+}
+@media(max-width:899px){
+  #drawer.multiSelectDrawer:not(.addDrawer){
+    height:76px!important;
+    max-height:76px!important;
+  }
+  #drawer.multiSelectDrawer:not(.addDrawer)>.drawerHead{
+    flex:0 0 26px!important;
+    height:26px!important;
+    min-height:26px!important;
+  }
+  #drawer.multiSelectDrawer:not(.addDrawer)>.multiSelectBody{
+    overflow:hidden!important;
+    overflow-x:hidden!important;
+    overflow-y:hidden!important;
+  }
+}
+@media(min-width:900px){
+  html:not(.omsMobileLandscapeDesktop) .timelineArea:has(>#drawer.multiSelectDrawer:not(.hidden)){
+    grid-template-rows:38px minmax(0,1fr) 84px!important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea>#drawer.multiSelectDrawer:not(.hidden){
+    height:84px!important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea>#drawer.multiSelectDrawer:not(.addDrawer)>.drawerHead{
+    flex:0 0 26px!important;
+    height:26px!important;
+    min-height:26px!important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea>#drawer.multiSelectDrawer:not(.addDrawer)>.multiSelectBody{
+    padding:3px 6px 4px!important;
+    overflow:hidden!important;
+    overflow-x:hidden!important;
+    overflow-y:hidden!important;
+  }
+}
+.blendOpacityPanel{display:flex;flex-direction:column;gap:8px;padding:9px;background:#171b29;scroll-padding-top:106px}
+.blendOpacityCard,.blendCurrent,.blendCategory{border:1px solid #30384d;background:#202638;border-radius:10px;overflow:hidden}
+.blendOpacityCard{position:sticky;top:0;z-index:5;flex:0 0 auto;padding:10px;box-shadow:0 7px 16px rgba(9,12,19,.72)}
+.blendOpacityHeading{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.blendOpacityHeading>div{flex:1;min-width:0}
+.blendOpacityHeading b{display:block;color:#edf2fb;font-size:11px}
+.blendOpacityHeading small{display:block;color:#818ca3;font-size:8px;margin-top:2px}
+.blendOpacityControl{display:grid;grid-template-columns:24px minmax(0,1fr) 64px;align-items:center;gap:8px}
+.blendOpacityIcon{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:#151a27;color:var(--accent);font-size:16px}
+.blendOpacityControl input[type=range]{min-width:0;width:100%}
+.blendOpacityControl label{height:32px;border:1px solid #394259;border-radius:8px;background:#111622;display:grid;grid-template-columns:1fr auto;align-items:center;padding:0 7px;color:#8d98ad}
+.blendOpacityControl label:focus-within{border-color:var(--accent)}
+.blendOpacityControl input[type=number]{width:100%;min-width:0;border:0;outline:0;background:transparent;color:#eef3fb;text-align:right;font:700 12px/1 system-ui;-moz-appearance:textfield}
+.blendOpacityControl input[type=number]::-webkit-inner-spin-button,.blendOpacityControl input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.blendOpacityPresets{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin-top:8px}
+.blendOpacityPresets button{height:25px;border:1px solid #343d53;border-radius:6px;background:#181e2d;color:#8f9ab0;font-size:8px}
+.blendOpacityPresets button.active{border-color:var(--accent);background:#1c3436;color:#9cf4de}
+.blendCurrent{min-height:34px;padding:0 10px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.blendCurrent span{color:#808ba1;font-size:8px;text-transform:uppercase;letter-spacing:.55px}
+.blendCurrent b{color:var(--accent);font-size:10px}
+.blendCategories{display:grid;gap:6px}
+.blendCategoryHead{width:100%;height:34px;border:0;background:transparent;color:#d9e0ed;display:grid;grid-template-columns:14px 1fr auto;align-items:center;text-align:left;padding:0 9px}
+.blendCategoryHead b{font-size:10px}
+.blendCategoryHead small{color:#77839a;font-size:7px}
+.blendCategoryArrow{font-size:18px;color:#8591a8;transform-origin:center;transition:transform .14s ease}
+.blendCategory.open .blendCategoryArrow{transform:rotate(90deg);color:var(--accent)}
+.blendModeGrid{display:none;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;padding:0 7px 8px}
+.blendCategory.open .blendModeGrid{display:grid}
+.blendModeBtn{position:relative;min-width:0;min-height:63px;border:1px solid #353e55;border-radius:8px;background:#252b3f;color:#9ca7bb;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:5px 3px}
+.blendModeBtn:active,.blendModeBtn:focus-visible{border-color:var(--accent);outline:none}
+.blendModeBtn.active{border-color:var(--accent);background:#1d3437;color:#dffcf4;box-shadow:inset 0 -2px 0 var(--accent)}
+.blendModeSwatch{position:relative;display:block;width:36px;height:25px}
+.blendModeSwatch i{position:absolute;width:22px;height:22px;border-radius:50%;border:1px solid rgba(255,255,255,.32)}
+.blendModeSwatch i:first-child{left:1px;top:2px;background:linear-gradient(135deg,#705bd6 0 48%,#f0ba55 49% 100%)}
+.blendModeSwatch i:last-child{right:1px;top:0;background:linear-gradient(135deg,#40d6b6 0 48%,#df557e 49% 100%)}
+.blendModeName{max-width:100%;font-size:7.5px;line-height:1.1;white-space:normal;text-align:center}
+.blendModeCheck{display:none;position:absolute;right:4px;top:3px;color:var(--accent);font-size:8px}
+.blendModeBtn.active .blendModeCheck{display:block}
+.blendMaskCard{border:1px solid #354057;background:#1d2333;border-radius:12px;padding:10px;overflow:hidden;flex:0 0 auto}.blendMaskCard.inactive{border-color:#2b3244}.blendMaskHeading{display:flex;align-items:center;gap:8px}.blendMaskGlyph{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;background:#182a2e;color:#73e2bd;font-size:18px}.blendMaskHeading>div{flex:1;min-width:0}.blendMaskHeading b{display:block;color:#edf2fb;font-size:11px}.blendMaskHeading small{display:block;color:#8490a7;font-size:8px;margin-top:2px}.blendMaskState{border:1px solid #3b465e;border-radius:999px;padding:4px 7px;color:#9aa6bb;font-size:8px}.blendMaskCard:not(.inactive) .blendMaskState{border-color:#4f9d8b;background:#18322f;color:#8ff0d5}.blendMaskSource{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-top:9px;padding:8px;border-radius:8px;background:#151b29}.blendMaskSource span{color:#cbd4e4;font-size:9px;font-weight:700;white-space:nowrap}.blendMaskSource small{color:#7f8ba1;font-size:7px;text-align:right;line-height:1.35}.blendMaskModes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:8px}.blendMaskModes button,.blendMaskScopes button{border:1px solid #353e53;background:#20273a;color:#9ca8bd;border-radius:9px;min-width:0}.blendMaskModes button{min-height:58px;display:grid;place-items:center;align-content:center;gap:2px}.blendMaskModes i{font-style:normal;font-size:20px}.blendMaskModes span,.blendMaskScopes span{font-size:9px;font-weight:700}.blendMaskModes small,.blendMaskScopes small{font-size:7px;color:#77839a}.blendMaskModes button.active,.blendMaskScopes button.active{border-color:#66d9ba;background:#19322f;color:#a1f1dc;box-shadow:inset 0 0 0 1px rgba(115,226,189,.16)}.blendMaskModes button[data-matte-mode=exclude].active{border-color:#e690a8;background:#34202b;color:#ffc0d0}.blendMaskScopeTitle{margin:10px 1px 5px;color:#8c98ad;font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}.blendMaskScopes{display:grid;grid-template-columns:1fr 1fr;gap:6px}.blendMaskScopes button{min-height:42px;display:flex;flex-direction:column;justify-content:center;gap:2px;padding:6px}.blendMaskTargets{display:grid;gap:4px;margin-top:7px;max-height:150px;overflow:auto;padding-right:2px}.blendMaskTarget{display:flex;align-items:center;gap:8px;padding:7px 8px;border:1px solid #30394d;border-radius:8px;background:#171d2b}.blendMaskTarget:has(input:checked){border-color:#4c9f8a;background:#18302f}.blendMaskTarget input{width:16px;height:16px;accent-color:#73e2bd}.blendMaskTarget span{min-width:0}.blendMaskTarget b,.blendMaskTarget small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.blendMaskTarget b{font-size:9px;color:#cbd5e5}.blendMaskTarget small{font-size:7px;color:#7f8ba1;margin-top:2px}.blendMaskEmpty,.blendMaskNote{padding:8px;border-radius:7px;background:#151a27;color:#7f8ba1;font-size:8px;line-height:1.4}.blendMaskNote{margin-top:7px}.blendMaskCard.inactive .blendMaskSource,.blendMaskCard.inactive .blendMaskScopes,.blendMaskCard.inactive .blendMaskScopeTitle,.blendMaskCard.inactive .blendMaskTargets,.blendMaskCard.inactive .blendMaskNote{opacity:.58}
+@media(max-width:390px){
+  .blendOpacityPanel{padding:7px;gap:6px;scroll-padding-top:98px}.blendOpacityCard{padding:8px}.blendModeGrid{grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;padding:0 5px 6px}.blendModeBtn{min-height:58px;padding:4px 2px}.blendModeSwatch{transform:scale(.9)}.blendModeName{font-size:7px}.blendMaskCard{padding:8px}.blendMaskModes button{min-height:52px}.blendMaskSource{padding:7px}.blendMaskTargets{max-height:132px}
+}
+@media(min-width:900px){
+  .blendModeGrid{grid-template-columns:repeat(3,minmax(0,1fr))}.blendModeBtn{min-height:68px}.blendOpacityPanel{padding:12px}
+}
+
+/* V5.102 — Edit Points uses the same mobile height envelope as Inspector. */
+@media(max-width:899px){
+  .vectorPenTouchpadDock.vectorEditPoints{
+    left:0!important;
+    right:0!important;
+    bottom:0!important;
+    height:clamp(210px,36vh,300px)!important;height:clamp(210px,36dvh,300px)!important;
+    max-height:clamp(210px,36vh,300px)!important;max-height:clamp(210px,36dvh,300px)!important;
+    border-radius:14px 14px 0 0!important;
+    border-left:0!important;
+    border-right:0!important;
+    border-bottom:0!important;
+    grid-template-columns:62px minmax(0,1fr) 84px!important;
+    grid-template-rows:42px minmax(0,1fr)!important;
+    box-shadow:0 -14px 35px rgba(0,0,0,.30)!important;
+  }
+  .vectorPenTouchpadDock.vectorEditPoints .vectorPenTouchpadHead{
+    min-height:42px;
+    padding:0 10px;
+    gap:8px;
+    border-bottom-color:#30364b;
+  }
+  .vectorPenTouchpadDock.vectorEditPoints .vectorPenTouchpadHead b{
+    flex:0 0 auto;
+    font-size:11px;
+    white-space:nowrap;
+  }
+  .vectorPenTouchpadDock.vectorEditPoints .vectorPenTouchpadHead span{
+    flex:1 1 auto;
+    min-width:0;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    text-align:right;
+    font-size:8px;
+    letter-spacing:.035em;
+  }
+  .vectorPenTouchpadDock.vectorEditPoints .vectorPenLeftRail{
+    padding:8px 5px 8px 7px;
+    gap:5px;
+  }
+  .vectorPenTouchpadDock.vectorEditPoints .vectorPenRailBtn{
+    border-radius:9px;
+    font-size:19px;
+  }
+  .vectorPenTouchpadDock.vectorEditPoints .vectorPenRailBtn small{
+    bottom:5px;
+    font-size:6.5px;
+  }
+  .vectorPenTouchpadDock.vectorEditPoints .vectorPenRailBtn.pointAction{font-size:27px}
+  .vectorPenTouchpadDock.vectorEditPoints .vectorPenTouchpad{
+    margin:8px 7px 8px 8px!important;
+    border-radius:10px;
+  }
+  .vectorPenTouchpadDock.vectorEditPoints .vectorPenTouchpadHint{
+    padding:16px;
+    font-size:9px;
+    line-height:1.35;
+  }
+  .vectorPenTouchpadDock.vectorEditPoints .vectorPenEditPad{
+    margin:8px 8px 8px 2px!important;
+    border-radius:10px;
+  }
+  .vectorPenTouchpadDock.vectorEditPoints .vectorPenEditPad:after{top:7px}
+  .vectorPenTouchpadDock.vectorEditPoints .vectorPenEditPadHint{bottom:7px}
+}
+@media(max-width:700px){
+  .vectorPenTouchpadDock.vectorEditPoints{
+    grid-template-columns:58px minmax(0,1fr) 76px!important;
+    height:clamp(210px,36vh,300px)!important;height:clamp(210px,36dvh,300px)!important;
+    max-height:clamp(210px,36vh,300px)!important;max-height:clamp(210px,36dvh,300px)!important;
+  }
+  .vectorPenTouchpadDock.vectorEditPoints .vectorPenTouchpadHead b{font-size:10px}
+  .vectorPenTouchpadDock.vectorEditPoints .vectorPenTouchpadHead span{font-size:7.2px}
+  .vectorPenTouchpadDock.vectorEditPoints .vectorPenRailBtn{font-size:18px}
+  .vectorPenTouchpadDock.vectorEditPoints .vectorPenRailBtn.pointAction{font-size:25px}
+}

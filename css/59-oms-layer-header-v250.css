@@ -1,0 +1,16 @@
+
+/* Header khusus layer: muncul saat panel layer terbuka, menutupi header biasa.
+   Saat panel ditutup, class dilepas sehingga header lama tampil lagi. */
+.editor.omsLayerPanel250 .editorTop{position:relative;visibility:visible}
+.omsLayerBar250{display:none;position:absolute;inset:0;z-index:80;box-sizing:border-box;align-items:center;gap:6px;
+  padding:var(--oms-sat,0px) max(6px,var(--oms-sar,0px)) 0 max(6px,var(--oms-sal,0px));background:inherit}
+.editor.omsLayerPanel250 .omsLayerBar250{display:flex}
+.omsLayerBar250 button{flex:none;display:grid;place-items:center;width:38px;height:38px;padding:0;border:0;border-radius:9px;
+  background:transparent;color:#e2eaf4;font-size:22px;line-height:1;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.omsLayerBar250 button:active{background:rgba(255,255,255,.12)}
+.omsLayerBar250 .omsLayerBarDelete{color:#ff91a6}
+.omsLayerBar250 .omsLayerBarDelete svg{width:21px;height:21px;display:block}
+.omsLayerBarName{flex:1 1 auto;min-width:0;box-sizing:border-box;height:34px;padding:0 8px;border:1px solid transparent;border-radius:7px;
+  background:transparent;color:#dce0ea;font-family:inherit;font-size:14px;font-weight:750;text-overflow:ellipsis;outline:none}
+.omsLayerBarName:hover{background:rgba(255,255,255,.07)}
+.omsLayerBarName:focus{background:#141724;border-color:#00ffa8;color:#fff;box-shadow:0 0 8px rgba(0,255,168,.25)}

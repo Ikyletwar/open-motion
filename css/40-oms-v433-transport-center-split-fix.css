@@ -1,0 +1,100 @@
+
+/* V4.33 — center playback-nav around Play, keep split handle independent, and simplify its visual */
+.transportBalanced{position:relative!important}
+.transportBalanced .transportCenter{justify-content:center!important}
+.transportBalanced .transportLeft.transportLeftEmpty{
+  visibility:hidden;
+  pointer-events:none;
+}
+#transportPlaybackCluster{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:2px;
+  min-width:0;
+}
+#transportPlaybackCluster > button{
+  display:grid;
+  place-items:center;
+}
+/* Preserve the original vertical side-rail behavior on portrait side-controls. */
+.portraitRightRail #transportPlaybackCluster{
+  flex-direction:column;
+  gap:1px;
+}
+
+/* Desktop PC/mobile-landscape split handle: keep it in the same toolbar row but remove
+   the pill/border so only the 3 vertical bars remain visually. */
+#desktopCanvasSplitToolbarBtn{
+  position:absolute!important;
+  left:10px!important;
+  top:50%!important;
+  transform:translateY(-50%)!important;
+  width:18px!important;
+  min-width:18px!important;
+  height:22px!important;
+  padding:0!important;
+  margin:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  color:#c3cad8!important;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:6;
+}
+#desktopCanvasSplitToolbarBtn:hover,
+#desktopCanvasSplitToolbarBtn:focus-visible,
+#desktopCanvasSplitToolbarBtn.dragging{
+  color:#f5f8ff!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  outline:none!important;
+}
+#desktopCanvasSplitToolbarBtn .desktopCanvasSplitGripV{
+  position:relative;
+  width:14px;
+  height:12px;
+  display:block;
+  transform:rotate(90deg);
+}
+#desktopCanvasSplitToolbarBtn .desktopCanvasSplitGripV::before,
+#desktopCanvasSplitToolbarBtn .desktopCanvasSplitGripV::after,
+#desktopCanvasSplitToolbarBtn .desktopCanvasSplitGripV i{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  height:2px;
+  border-radius:999px;
+  background:currentColor;
+  opacity:.95;
+}
+#desktopCanvasSplitToolbarBtn .desktopCanvasSplitGripV::before{top:0}
+#desktopCanvasSplitToolbarBtn .desktopCanvasSplitGripV i{top:5px}
+#desktopCanvasSplitToolbarBtn .desktopCanvasSplitGripV::after{top:10px}
+
+html.omsMobileLandscapeDesktop #desktopCanvasSplitToolbarBtn{
+  display:flex!important;
+}
+@media(min-width:900px){
+  #desktopCanvasSplitToolbarBtn{display:flex!important}
+}
+
+/* Give the toolbar handle its own visual slot without pushing other buttons. */
+html.omsMobileLandscapeDesktop .transportBalanced{
+  padding-left:34px!important;
+}
+html.omsMobileLandscapeDesktop .transportBalanced .transportLeft{
+  justify-content:flex-start!important;
+}
+
+/* Keep the four navigation buttons optically centered around Play on every layout. */
+.transportBalanced .transportCenter,
+.transportBalanced .transportCenter #transportPlaybackCluster{
+  width:auto;
+  max-width:100%;
+}

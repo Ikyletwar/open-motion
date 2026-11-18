@@ -1,0 +1,31 @@
+
+/* V4.42 — A narrow horizontal preview must use the real split-column width.
+   The preview toolbar's min-content width previously expanded #viewport beyond
+   .previewArea, so fit zoom measured an invisible area behind the timeline. */
+.editorMain .previewArea{
+  min-width:0!important;
+  grid-template-columns:minmax(0,1fr)!important;
+  overflow:hidden;
+}
+.editorMain .previewArea > .viewport{
+  min-width:0!important;
+  width:100%!important;
+  max-width:100%!important;
+}
+.editorMain .previewArea > .previewTools{
+  min-width:0!important;
+  width:100%!important;
+  max-width:100%!important;
+  overflow:hidden;
+}
+.editorMain .previewArea > .previewTools .grow,
+.editorMain .previewArea > .previewTools .zoomCtl{
+  min-width:0;
+}
+.editorMain .previewArea > .previewTools .zoomCtl{
+  flex:0 1 100px;
+}
+.editorMain .previewArea > .previewTools .zoomCtl input{
+  min-width:0;
+  max-width:78px;
+}

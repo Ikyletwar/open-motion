@@ -1,0 +1,405 @@
+
+/* =========================================================
+   Alight Motion Parity: Back Icon, Undo/Redo, Viewmode Menu
+   ========================================================= */
+
+/* 1. Authentic Alight Motion Back Button (ic_exitproject) */
+#backHome.amBackHomeBtn {
+  display: grid !important;
+  place-items: center !important;
+  width: 36px !important;
+  height: 36px !important;
+  padding: 0 !important;
+  border-radius: 8px !important;
+  background: transparent !important;
+  color: #ffffff !important;
+  border: 0 !important;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: background 0.15s ease;
+}
+#backHome.amBackHomeBtn:active {
+  background: rgba(255, 255, 255, 0.12) !important;
+}
+#backHome.amBackHomeBtn .amExitProjectSvg {
+  width: 20px !important;
+  height: 20px !important;
+  display: block;
+  pointer-events: none;
+}
+
+/* 2. Transport Left & Right Docks */
+#transportLeftDock {
+  position: absolute;
+  left: 7px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  z-index: 7;
+  pointer-events: auto;
+}
+#transportRightDock {
+  position: absolute;
+  right: 7px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  z-index: 7;
+  pointer-events: auto;
+}
+
+/* 3. Undo / Redo buttons (ic_edit_undo / ic_edit_redo) */
+.transportNavSvgBtn.amUndoBtn,
+.transportNavSvgBtn.amRedoBtn {
+  width: 32px !important;
+  height: 32px !important;
+  min-width: 32px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 6px !important;
+  background: transparent !important;
+  color: #ffffff !important;
+  display: grid !important;
+  place-items: center !important;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: background 0.12s ease, opacity 0.12s ease;
+}
+.transportNavSvgBtn.amUndoBtn:active,
+.transportNavSvgBtn.amRedoBtn:active {
+  background: rgba(255, 255, 255, 0.12) !important;
+}
+.transportNavSvgBtn.amUndoBtn .amUndoRedoSvg,
+.transportNavSvgBtn.amRedoBtn .amUndoRedoSvg {
+  width: 20px !important;
+  height: 14px !important;
+  display: block;
+  overflow: visible;
+  pointer-events: none;
+}
+
+/* 4. Viewmode Fullscreen-like button (ic_viewmode_panel_close / open) */
+.transportNavSvgBtn.amViewmodeBtn {
+  width: 32px !important;
+  height: 32px !important;
+  min-width: 32px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 6px !important;
+  background: transparent !important;
+  color: #ffffff !important;
+  display: grid !important;
+  place-items: center !important;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+.transportNavSvgBtn.amViewmodeBtn:active,
+.transportNavSvgBtn.amViewmodeBtn.active {
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #00ffa8 !important;
+}
+.transportNavSvgBtn.amViewmodeBtn .amViewmodeSvg {
+  width: 15px !important;
+  height: 25px !important;
+  display: block;
+  overflow: visible;
+  pointer-events: none;
+}
+.transportNavSvgBtn.amViewmodeBtn.active .amViewmodeArrow {
+  transform-origin: 10.5px 2.7px;
+  transform: scaleY(-1);
+}
+
+/* 5. Alight Motion Viewmode Action Menu (Popup) */
+.amViewmodeBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 180;
+  background: rgba(4, 7, 13, 0.35);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  transition: opacity 0.2s ease;
+}
+.amViewmodeBackdrop.hidden {
+  display: none !important;
+}
+
+.amViewmodeMenu {
+  position: absolute;
+  right: 10px;
+  bottom: 50px;
+  width: 250px;
+  max-width: calc(100vw - 20px);
+  background: #1e2232;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55), 0 2px 6px rgba(0, 0, 0, 0.3);
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 200;
+  animation: amMenuPop 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes amMenuPop {
+  0% { opacity: 0; transform: scale(0.94) translateY(8px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+.amViewmodeMenu.hidden {
+  display: none !important;
+}
+
+.amMenuRow {
+  position: relative !important;
+  left: auto !important;
+  top: auto !important;
+  transform: none !important;
+  display: flex !important;
+  align-items: center;
+  gap: 12px;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 44px !important;
+  padding: 8px 10px !important;
+  border: 0 !important;
+  border-radius: 8px !important;
+  background: transparent !important;
+  color: #c9d2e3 !important;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.12s ease, color 0.12s ease;
+  touch-action: manipulation;
+  margin: 0 !important;
+}
+.amMenuRow:hover,
+.amMenuRow:focus-visible {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #ffffff !important;
+  outline: none;
+}
+.amMenuRow:active {
+  background: rgba(255, 255, 255, 0.14) !important;
+}
+.amMenuRow.active {
+  background: rgba(0, 255, 168, 0.12) !important;
+  color: #00ffa8 !important;
+}
+
+.amMenuRowIcon {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  color: inherit;
+}
+.amMenuRow.active .amMenuRowIcon {
+  background: rgba(0, 255, 168, 0.18);
+  color: #00ffa8;
+}
+
+.amMenuRowIcon .amMenuSvg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+.amMenuRowIcon .amCamOnSvg {
+  display: none;
+}
+.amMenuRow.active .amMenuRowIcon .amCamOffSvg {
+  display: none;
+}
+.amMenuRow.active .amMenuRowIcon .amCamOnSvg {
+  display: block;
+  fill: #00ffa8;
+}
+
+/* Pre-render Record dot styling inside menu */
+.amMenuRow .preRenderRecordDot {
+  width: 10px;
+  height: 10px;
+  border: 1.8px solid currentColor;
+  border-radius: 50%;
+  background: transparent;
+  display: block;
+  transition: background 0.15s ease, box-shadow 0.15s ease;
+}
+.amMenuRow.active .preRenderRecordDot {
+  background: #ff4d67;
+  border-color: #ff4d67;
+  box-shadow: 0 0 8px rgba(255, 77, 103, 0.6);
+}
+.amMenuRow.active.preRenderRecordBtn {
+  background: rgba(255, 77, 103, 0.12) !important;
+  color: #ff4d67 !important;
+}
+.amMenuRow.active.preRenderRecordBtn .amMenuRowIcon {
+  background: rgba(255, 77, 103, 0.2);
+}
+
+.amMenuRowText {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+  flex: 1;
+}
+.amMenuRowTitle {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: inherit;
+}
+.amMenuRowDesc {
+  font-size: 10.5px;
+  color: #8c96ab;
+  line-height: 1.2;
+}
+.amMenuRow.active .amMenuRowDesc {
+  color: rgba(0, 255, 168, 0.75);
+}
+.amMenuRow.active.preRenderRecordBtn .amMenuRowDesc {
+  color: rgba(255, 77, 103, 0.8);
+}
+
+/* Compact Mobile Split Handle in .previewTools */
+@media (max-width: 899px) {
+  .previewTools {
+    flex: 0 0 16px !important;
+    height: 16px !important;
+    min-height: 16px !important;
+    padding: 0 !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03) !important;
+    background: #0f131d !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .previewTools .editorSplitSlot {
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .previewTools .editorSplitHandle {
+    width: 44px !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: transparent !important;
+    border: 0 !important;
+    padding: 0 !important;
+  }
+}
+
+/* Pre-render Record styling inside Viewmode Action Menu (matching Sesuaikan Ruang Komposisi) */
+#viewmodeMenu #preRenderRecordBtn,
+.amViewmodeMenu #preRenderRecordBtn {
+  position: relative !important;
+  left: auto !important;
+  top: auto !important;
+  transform: none !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  height: auto !important;
+  min-height: 44px !important;
+  padding: 8px 10px !important;
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  border-radius: 8px !important;
+  background: transparent !important;
+  color: #c9d2e3 !important;
+  border: 0 !important;
+  text-align: left !important;
+  gap: 12px !important;
+  z-index: 1 !important;
+}
+#viewmodeMenu #preRenderRecordBtn:hover,
+#viewmodeMenu #preRenderRecordBtn:focus-visible {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #ffffff !important;
+}
+#viewmodeMenu #preRenderRecordBtn.active,
+.amMenuRow.active.preRenderRecordBtn {
+  background: rgba(255, 77, 103, 0.12) !important;
+  color: #ff4d67 !important;
+}
+#viewmodeMenu #preRenderRecordBtn.active .amMenuRowIcon,
+.amMenuRow.active.preRenderRecordBtn .amMenuRowIcon {
+  background: rgba(255, 77, 103, 0.22) !important;
+  color: #ff4d67 !important;
+}
+#viewmodeMenu #preRenderRecordBtn.active .amRecordInnerDot {
+  fill: #ff4d67 !important;
+  filter: drop-shadow(0 0 4px rgba(255, 77, 103, 0.7));
+}
+
+/* Authentic Alight Motion Top Bar Action Buttons */
+.topActions .amTopActionBtn,
+.topActions #settingsBtn,
+.topActions #openExport {
+  width: 38px !important;
+  height: 38px !important;
+  min-width: 38px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 8px !important;
+  background: transparent !important;
+  color: #ffffff !important;
+  display: grid !important;
+  place-items: center !important;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: background 0.15s ease, opacity 0.15s ease;
+}
+.topActions .amTopActionBtn:active,
+.topActions #settingsBtn:active,
+.topActions #openExport:active {
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+.amTopIconSvg {
+  width: 22px !important;
+  height: 22px !important;
+  display: block !important;
+  pointer-events: none !important;
+}
+
+/* Interactive Project Title Rename */
+#editorTitle {
+  cursor: pointer !important;
+  user-select: none;
+  -webkit-user-select: none;
+  border-radius: 6px;
+  padding: 2px 6px !important;
+  margin-left: 2px;
+  transition: background 0.12s ease;
+}
+#editorTitle:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+.editorTitleInlineInput {
+  background: #141724 !important;
+  color: #ffffff !important;
+  border: 1px solid #00ffa8 !important;
+  border-radius: 6px !important;
+  padding: 2px 6px !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  font-family: inherit !important;
+  outline: none !important;
+  width: 100% !important;
+  max-width: 220px !important;
+  box-shadow: 0 0 8px rgba(0, 255, 168, 0.25) !important;
+}

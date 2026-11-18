@@ -1,0 +1,12 @@
+
+.clip.group{background:#567fab;color:#fff;border:1px solid #94b5da}
+.omsGroupCreate248,.omsGroups248 button{border:1px solid #455268;border-radius:10px;background:#202a39;color:#eaf3ff;min-height:42px;padding:9px 12px}
+.omsGroupCreate248{width:100%;margin-top:10px}
+.omsGroups248{font-size:13px}.omsGroups248 p,.omsGroups248 small{color:#adbacd;line-height:1.5}
+.omsGroupActions{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.omsGroups248 button:disabled,.omsGroupCreate248:disabled{opacity:.45}
+.omsGroupChildren{display:grid;gap:7px;margin-top:12px}
+.omsGroupChildren button{display:flex;justify-content:space-between;gap:10px;text-align:left}
+.omsGroupChildren span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.omsGroupChildren small{white-space:nowrap}
+

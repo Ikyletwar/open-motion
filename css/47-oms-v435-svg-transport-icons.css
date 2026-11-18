@@ -1,0 +1,26 @@
+
+/* V4.40 — geometrically mirrored SVG transport icons. Keyframe paths are
+   shifted within the 28px viewBox so their stroke-length optical centroid is x=14. */
+.transportNavSvgBtn{
+  display:grid!important;
+  place-items:center!important;
+  line-height:0!important;
+}
+.transportNavSvg{
+  width:28px;
+  height:24px;
+  display:block;
+  overflow:visible;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.75;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  vector-effect:non-scaling-stroke;
+  pointer-events:none;
+}
+/* Right-side icons are mirrored inside SVG geometry, not with CSS transforms,
+   so Android rasterization uses the same viewBox coordinate system. */
+/* Same optical box on both sides of the playhead anchor across mobile and desktop. */
+#prevKey .transportNavSvg,#nextKey .transportNavSvg{width:29px;height:24px}
+#jumpStart .transportNavSvg,#jumpEnd .transportNavSvg{width:25px;height:24px}

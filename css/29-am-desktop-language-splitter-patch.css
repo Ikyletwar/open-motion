@@ -1,0 +1,269 @@
+
+
+/* Enhanced readable typography for Language Picker */
+.languageSheetHead h2 {
+  font-size: 19px !important;
+  font-weight: 800 !important;
+  color: #191c23 !important;
+}
+.languageSheetHead p {
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+  color: #68707c !important;
+  margin-top: 6px !important;
+}
+.languageOption {
+  min-height: 60px !important;
+  padding: 10px 14px !important;
+  gap: 12px !important;
+  border-radius: 12px !important;
+}
+.languageFlag {
+  width: 36px !important;
+  height: 36px !important;
+  flex: 0 0 36px !important;
+  font-size: 20px !important;
+  border-radius: 10px !important;
+}
+.languageText b {
+  font-size: 14px !important;
+  font-weight: 750 !important;
+  line-height: 1.3 !important;
+}
+.languageText small {
+  font-size: 12px !important;
+  margin-top: 3px !important;
+  color: #7b8491 !important;
+}
+.languageSheetFoot {
+  font-size: 12px !important;
+  line-height: 1.55 !important;
+  padding: 12px 18px 16px !important;
+  color: #7c8592 !important;
+}
+.simpleHome .languageBtn .langCode {
+  font-size: 11px !important;
+  font-weight: 800 !important;
+}
+
+
+/* Desktop Typography Normalization (matching comfortable mobile scale) */
+@media (min-width: 900px) {
+  .editorTitle {
+    font-size: 15px !important;
+    font-weight: 750 !important;
+  }
+  .editorTitle small {
+    font-size: 11px !important;
+    color: #8c98ad !important;
+    font-weight: 600 !important;
+  }
+  .trackHead b {
+    font-size: 12px !important;
+  }
+  .timeReadout {
+    font-size: 12.5px !important;
+    font-weight: 750 !important;
+  }
+  .heroLead {
+    font-size: 13.5px !important;
+  }
+  .simpleHome .sectionRowTitle {
+    font-size: 17px !important;
+  }
+  .simpleHome .sectionRowActions .fabHome b {
+    font-size: 12px !important;
+  }
+  .effectParamLabel {
+    font-size: 12px !important;
+  }
+  .effectCardTitle b {
+    font-size: 13px !important;
+  }
+  .effectCardTitle small {
+    font-size: 11px !important;
+  }
+  .effectParamGroupTitle {
+    font-size: 11px !important;
+  }
+  .effectSearch {
+    font-size: 12.5px !important;
+  }
+  .effectCategoryChip {
+    font-size: 11.5px !important;
+  }
+  .layerActionsHead b {
+    font-size: 14px !important;
+  }
+  .layerActionsHead small {
+    font-size: 11px !important;
+  }
+  .layerActionCopy b {
+    font-size: 13px !important;
+  }
+  .layerActionCopy small {
+    font-size: 11px !important;
+  }
+  .layerActionsStatus {
+    font-size: 11px !important;
+  }
+}
+
+
+/* =========================================================
+   Desktop Horizontal Sideways Splitter (Resizer)
+   ========================================================= */
+/* Hide old 3-line split handles */
+#desktopCanvasSplitToolbarBtn,
+.desktopCanvasSplitToolbarBtn,
+.editorSplitGrip {
+  display: none !important;
+}
+
+.desktopHorizontalSplitter {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  :root {
+    --oms-desktop-preview-width: calc(50% - 4px);
+  }
+  .editorMain {
+    display: grid !important;
+    grid-template-columns: minmax(320px, var(--oms-desktop-preview-width, calc(50% - 4px))) 8px minmax(320px, 1fr) !important;
+    grid-template-rows: 1fr !important;
+  }
+  .previewArea {
+    border-right: 0 !important;
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+  }
+  .desktopHorizontalSplitter {
+    display: flex !important;
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    align-items: center;
+    justify-content: center;
+    width: 8px;
+    height: 100%;
+    cursor: col-resize;
+    background: #11141e;
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: none;
+    z-index: 30;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+  .timelineArea {
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+  }
+  .desktopHorizontalSplitter:hover,
+  .desktopHorizontalSplitter.dragging {
+    background: #1c2233 !important;
+    border-color: #00ffa8 !important;
+  }
+  .desktopSplitterGrip {
+    width: 2px;
+    height: 38px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.28);
+    transition: background 0.15s ease, height 0.15s ease, box-shadow 0.15s ease;
+    pointer-events: none;
+  }
+  .desktopHorizontalSplitter:hover .desktopSplitterGrip,
+  .desktopHorizontalSplitter.dragging .desktopSplitterGrip {
+    background: #00ffa8 !important;
+    height: 52px !important;
+    box-shadow: 0 0 8px rgba(0, 255, 168, 0.7) !important;
+  }
+}
+
+
+/* =========================================================
+   Viewmode Menu styled authentically like Layer Actions (Aksi Layer)
+   ========================================================= */
+.amViewmodeMenu {
+  position: fixed !important;
+  width: min(320px, calc(100vw - 20px)) !important;
+  max-height: min(520px, calc(100vh - 20px)) !important;
+  overflow-y: auto !important;
+  background: linear-gradient(180deg, #252a3e 0%, #202536 100%) !important;
+  border: 1px solid #3b435c !important;
+  border-radius: 16px !important;
+  box-shadow: 0 22px 58px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.04) !important;
+  padding: 8px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3px !important;
+  z-index: 250 !important;
+  overscroll-behavior: contain !important;
+}
+.amViewmodeMenu.hidden {
+  display: none !important;
+}
+.amViewmodeMenuHead {
+  min-height: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 10px !important;
+  padding: 2px 4px 8px 8px !important;
+  border-bottom: 1px solid #343b51 !important;
+  margin-bottom: 4px !important;
+}
+.amViewmodeMenuHead b {
+  display: block !important;
+  font-size: 13.5px !important;
+  font-weight: 800 !important;
+  color: #f1f4fb !important;
+}
+.amViewmodeMenuHead small {
+  display: block !important;
+  margin-top: 2px !important;
+  color: #8f9ab1 !important;
+  font-size: 11px !important;
+}
+.amViewmodeMenuClose {
+  flex: 0 0 32px !important;
+  width: 32px !important;
+  height: 32px !important;
+  border: 0 !important;
+  border-radius: 8px !important;
+  background: transparent !important;
+  color: #aab3c6 !important;
+  font-size: 20px !important;
+  line-height: 1 !important;
+  cursor: pointer !important;
+  display: grid !important;
+  place-items: center !important;
+}
+.amViewmodeMenuClose:hover {
+  background: #31384d !important;
+  color: #ffffff !important;
+}
+.amMenuRow {
+  min-height: 50px !important;
+  padding: 7px 10px !important;
+  border-radius: 10px !important;
+}
+.amMenuRowTitle {
+  font-size: 13.5px !important;
+  font-weight: 750 !important;
+}
+.amMenuRowDesc {
+  font-size: 11px !important;
+  margin-top: 1px !important;
+  color: #8f9ab1 !important;
+}
+

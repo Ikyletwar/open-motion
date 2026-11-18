@@ -1,0 +1,75 @@
+
+/* =========================================================
+   V4.30 — Mobile landscape desktop workspace
+   A touch phone/tablet in landscape uses the side-by-side desktop workspace,
+   but the app instance is never reloaded. Project/model/history/media state
+   remains live while only layout ownership changes.
+   ========================================================= */
+html.omsMobileLandscapeDesktop .editorMain{
+  grid-template-columns:minmax(0,1fr) minmax(0,1.08fr)!important;
+  grid-template-rows:minmax(0,1fr)!important;
+  min-width:0!important;
+}
+html.omsMobileLandscapeDesktop .previewArea{
+  min-width:0!important;
+  min-height:0!important;
+  border-right:1px solid var(--line)!important;
+  border-bottom:0!important;
+}
+html.omsMobileLandscapeDesktop .timelineArea{
+  min-width:0!important;
+  min-height:0!important;
+  height:100%!important;
+}
+html.omsMobileLandscapeDesktop .editorSplitSlot{
+  display:none!important;
+}
+html.omsMobileLandscapeDesktop .portraitSideRail{
+  display:none!important;
+}
+html.omsMobileLandscapeDesktop .editorMain.portraitSideControls .viewport{
+  padding-left:4px!important;
+  padding-right:4px!important;
+}
+html.omsMobileLandscapeDesktop .editorMain.portraitSideControls .previewArea,
+html.omsMobileLandscapeDesktop .editorMain.portraitSideControls .timelineArea{
+  margin:0!important;
+}
+html.omsMobileLandscapeDesktop #drawer{
+  position:absolute!important;
+  left:auto!important;
+  right:0!important;
+  top:38px!important;
+  bottom:0!important;
+  width:min(100%,430px)!important;
+  height:auto!important;
+  max-height:none!important;
+  border-left:1px solid #353c52!important;
+  border-top:0!important;
+  border-radius:0!important;
+}
+html.omsMobileLandscapeDesktop #drawer.addDrawer{
+  max-height:none!important;
+}
+html.omsMobileLandscapeDesktop .plusBtn{
+  right:20px!important;
+}
+html.omsMobileLandscapeDesktop .shapeGrid{
+  grid-template-columns:repeat(6,minmax(0,1fr))!important;
+}
+/* The mobile bottom-sheet rule uses !important, so explicitly neutralize it
+   in landscape desktop mode. */
+html.omsMobileLandscapeDesktop #drawer:not(.addDrawer){
+  inset:38px 0 0 auto!important;
+  width:min(100%,430px)!important;
+  height:auto!important;
+  max-height:none!important;
+}
+html.omsMobileLandscapeDesktop #drawer.drawerClosing{
+  animation: omsSideDrawerSlideOut 0.2s cubic-bezier(0.4, 0, 1, 1) forwards !important;
+  pointer-events: none !important;
+}
+@keyframes omsSideDrawerSlideOut{
+  from{transform:translateX(0);opacity:1}
+  to{transform:translateX(100%);opacity:0}
+}

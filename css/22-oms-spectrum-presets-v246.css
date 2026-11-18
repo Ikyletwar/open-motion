@@ -1,0 +1,25 @@
+
+/* Lightweight, static spectrum cards reuse the native effect preset surface. */
+.omsFxPopup239:has(.spectrumPresets246) { width: min(680px,100%); }
+.omsFxPopup239 [data-spectrum-options] { display: grid; gap: 5px; }
+.omsFxPopup239 [data-spectrum-options][hidden],
+.omsFxPopup239 [data-spectrum-save-form][hidden],
+.omsFxPopup239 [data-fx-save-package][hidden],
+.omsFxPopup239 [data-spectrum-more][hidden],
+.omsFxPopup239 [data-spectrum-save][hidden] { display: none !important; }
+.omsFxPopup239 .omsSpectrumReplace246 { display: flex; align-items: center; gap: 8px; font-size: 11px; }
+.omsFxPopup239 .omsSpectrumReplace246 input[type=checkbox] { width: 17px; height: 17px; padding: 0; flex: 0 0 17px; accent-color: var(--accent); }
+.omsFxPopup239 [data-spectrum-save-form] { display: grid; gap: 8px; border: 1px solid #3b655b; border-radius: 8px; padding: 10px; }
+.omsFxPopup239 [data-fx-preset-count] { color: #a3b6c9; font-size: 10px; }
+.omsFxPresetList239.spectrumPresets246 { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 7px; }
+.omsFxPresetList239.spectrumPresets246 > .omsSpectrumTile246 { display: block; position: relative; min-width: 0; }
+.spectrumPresets246 [data-fx-spectrum-preset] { display: block; width: 100%; height: 100%; padding: 7px; text-align: left; overflow-wrap: anywhere; }
+.spectrumPresets246 [data-fx-spectrum-preset].active { border-color: #72ccb7; background: #25453c88; }
+.spectrumPresets246 svg { display: block; width: 100%; height: 58px; margin-bottom: 6px; background: #0b1420; border-radius: 5px; }
+.spectrumPresets246 b { display: block; font-size: 11px; line-height: 1.3; padding-right: 10px; }
+.spectrumPresets246 span { display: block; color: #9bacc0; font-size: 9px; line-height: 1.4; margin-top: 5px; }
+.spectrumPresets246 [data-spectrum-delete] { position: absolute; right: 3px; top: 3px; min-height: 27px; padding: 2px 6px; background: #182331e6; }
+@media(max-width:600px) { .omsFxPresetList239.spectrumPresets246 { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media(max-width:899px) { .omsFxPopup239:has(.spectrumPresets246) { margin: 0 !important; } }
+@media(max-height:500px) { .omsFxPopup239:has(.spectrumPresets246) { max-height: 94dvh; } }
+

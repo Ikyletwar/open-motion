@@ -1,0 +1,230 @@
+
+/* V4.29 — compact layer clipboard/actions popover. */
+.layerActionsBtn{
+  position:relative;
+  display:grid;
+  place-items:center;
+}
+.layerActionsBtn.active{
+  color:#fff!important;
+  background:#252b3e!important;
+}
+.layerActionsToolbarIcon{
+  position:relative;
+  width:18px;
+  height:17px;
+  display:block;
+}
+.layerActionsToolbarIcon::before,
+.layerActionsToolbarIcon::after{
+  content:"";
+  position:absolute;
+  width:10px;
+  height:12px;
+  border:1.25px solid currentColor;
+  border-radius:3px;
+  background:transparent;
+}
+.layerActionsToolbarIcon::before{left:1px;top:4px}
+.layerActionsToolbarIcon::after{left:6px;top:0}
+.layerActionsToolbarIcon{
+  --plus-x:15px;
+}
+.layerActionsBtn .layerActionsToolbarIcon span{display:none}
+.layerActionsToolbarIcon:after{}
+.layerActionsBtn::before,
+.layerActionsBtn::after{
+  content:"";
+  position:absolute;
+  background:currentColor;
+  border-radius:2px;
+  pointer-events:none;
+}
+.layerActionsBtn::before{width:8px;height:1.25px;right:3px;bottom:5px}
+.layerActionsBtn::after{width:1.25px;height:8px;right:6.35px;bottom:1.8px}
+
+.layerActionsShade{
+  position:fixed;
+  inset:0;
+  z-index:220;
+  background:rgba(4,7,13,.36);
+  backdrop-filter:blur(1.5px);
+  -webkit-backdrop-filter:blur(1.5px);
+}
+.layerActionsPopup{
+  position:fixed;
+  width:min(335px,calc(100vw - 20px));
+  max-height:min(520px,calc(100vh - 20px));
+  overflow:auto;
+  color:#eef2fb;
+  background:linear-gradient(180deg,#252a3e 0%,#202536 100%);
+  border:1px solid #3b435c;
+  border-radius:16px;
+  box-shadow:0 22px 58px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.025);
+  padding:9px;
+  overscroll-behavior:contain;
+}
+.layerActionsHead{
+  min-height:46px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:3px 4px 8px 9px;
+  border-bottom:1px solid #343b51;
+}
+.layerActionsHead>div{min-width:0}
+.layerActionsHead b{display:block;font-size:13px}
+.layerActionsHead small{display:block;margin-top:2px;color:#8f9ab1;font-size:8px}
+.layerActionsHead button{
+  flex:0 0 34px;
+  width:34px;
+  height:34px;
+  border:0;
+  border-radius:9px;
+  background:transparent;
+  color:#aab3c6;
+  font-size:22px;
+}
+.layerActionsHead button:active{background:#31384d;color:white}
+.layerActionsList{display:grid;padding-top:5px}
+.layerActionRow{
+  width:100%;
+  min-height:58px;
+  border:0;
+  border-radius:11px;
+  background:transparent;
+  color:#e8edf7;
+  display:grid;
+  grid-template-columns:46px minmax(0,1fr);
+  align-items:center;
+  gap:8px;
+  padding:7px 8px;
+  text-align:left;
+  -webkit-tap-highlight-color:transparent;
+}
+.layerActionRow:not(:disabled):active,
+.layerActionRow:not(:disabled):focus-visible{
+  background:#30384d;
+  outline:none;
+}
+.layerActionRow:disabled{
+  opacity:.34;
+  color:#8791a8;
+}
+.layerActionCopy{min-width:0}
+.layerActionCopy b{
+  display:block;
+  font-size:12px;
+  font-weight:650;
+  line-height:1.15;
+}
+.layerActionCopy small{
+  display:block;
+  margin-top:3px;
+  color:#929db3;
+  font-size:8px;
+  line-height:1.25;
+}
+.layerActionRow:disabled .layerActionCopy small{color:#737d92}
+.layerActionMenuIcon{
+  position:relative;
+  width:35px;
+  height:35px;
+  display:block;
+  color:#f3f6fc;
+}
+.layerActionMenuIcon::before,
+.layerActionMenuIcon::after{
+  content:"";
+  position:absolute;
+  width:18px;
+  height:22px;
+  border:1.7px solid currentColor;
+  border-radius:5px;
+  background:#252a3e;
+}
+.layerActionMenuIcon::before{left:3px;top:9px}
+.layerActionMenuIcon::after{left:11px;top:3px}
+.layerActionMenuIcon.duplicate i::before,
+.layerActionMenuIcon.duplicate i::after,
+.layerActionMenuIcon.copyLayer i::before,
+.layerActionMenuIcon.copyLayer i::after,
+.layerActionMenuIcon.pasteLayer i::before,
+.layerActionMenuIcon.pasteLayer i::after{
+  content:"";
+  position:absolute;
+  z-index:2;
+  background:currentColor;
+  border-radius:2px;
+}
+.layerActionMenuIcon.duplicate i::before{width:11px;height:1.8px;left:16px;top:14px}
+.layerActionMenuIcon.duplicate i::after{width:1.8px;height:11px;left:20.6px;top:9.4px}
+.layerActionMenuIcon.copyLayer i::before{
+  width:10px;height:1.8px;left:17px;top:11px;transform:rotate(-45deg);transform-origin:right center
+}
+.layerActionMenuIcon.copyLayer i::after{
+  width:7px;height:7px;left:21px;top:7px;background:transparent;border-top:1.8px solid currentColor;border-right:1.8px solid currentColor
+}
+.layerActionMenuIcon.pasteLayer i::before{
+  width:10px;height:1.8px;left:10px;top:22px;transform:rotate(-45deg);transform-origin:left center
+}
+.layerActionMenuIcon.pasteLayer i::after{
+  width:7px;height:7px;left:7px;top:20px;background:transparent;border-left:1.8px solid currentColor;border-bottom:1.8px solid currentColor
+}
+.layerActionMenuIcon.pasteStyle i{
+  position:absolute;
+  z-index:3;
+  right:0;
+  top:0;
+  width:15px;
+  height:15px;
+  border-radius:5px;
+  display:grid;
+  place-items:center;
+  font-style:normal;
+  font-size:8px;
+  font-weight:800;
+  color:#10201c;
+  background:var(--accent);
+  box-shadow:0 0 0 2px #252a3e;
+}
+.layerActionMenuIcon.selectAll::before,
+.layerActionMenuIcon.selectAll::after{display:none}
+.layerActionMenuIcon.selectAll{
+  border:1.7px solid currentColor;
+  border-radius:9px;
+  width:31px;height:27px;
+  margin-left:2px;
+}
+.layerActionMenuIcon.selectAll i::before,
+.layerActionMenuIcon.selectAll i::after{
+  content:"";
+  position:absolute;
+}
+.layerActionMenuIcon.selectAll i::before{
+  left:7px;top:12px;width:7px;height:4px;
+  border-left:2px solid currentColor;
+  border-bottom:2px solid currentColor;
+  transform:rotate(-45deg);
+}
+.layerActionMenuIcon.selectAll i::after{
+  right:5px;top:6px;width:8px;height:1.6px;
+  background:currentColor;
+  box-shadow:0 6px 0 currentColor,0 12px 0 currentColor;
+  border-radius:2px;
+}
+.layerActionsStatus{
+  min-height:18px;
+  padding:5px 10px 2px;
+  color:#7fe6cd;
+  font-size:8px;
+  border-top:1px solid #30374c;
+}
+.trackHead.multiSel{background:#263246!important;box-shadow:inset 3px 0 0 var(--accent)}
+.clip.multiSel{outline:2px solid rgba(126,234,209,.9);outline-offset:1px}
+
+@media (max-width:560px){
+  .layerActionsPopup{width:min(318px,calc(100vw - 16px));border-radius:15px}
+  .layerActionRow{min-height:56px}
+}

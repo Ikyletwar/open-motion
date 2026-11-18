@@ -1,0 +1,311 @@
+
+/* V5.124 — Effect Stack UI keeps Open Motion's existing drawer language. */
+.effectsDrawer .drawerBody{padding:8px;overflow:auto}
+.effectStackPanel{display:flex;flex-direction:column;gap:8px;min-height:100%}
+.effectStackEmpty{min-height:112px;border:1px dashed #354058;border-radius:11px;background:#171b29;display:grid;place-items:center;text-align:center;padding:18px;color:#7f8aa1}
+.effectStackEmpty span{display:block;font-size:22px;color:#55627a;margin-bottom:6px}.effectStackEmpty b{display:block;color:#cfd6e4;font-size:10px}.effectStackEmpty small{display:block;margin-top:4px;font-size:7.5px;line-height:1.4}
+.effectStackList{display:grid;gap:7px}
+.effectCard{border:1px solid #30384d;border-radius:10px;background:#1d2232;overflow:hidden;transition:border-color .12s,opacity .12s,transform .12s}
+.effectCard.dragging{opacity:.94;border-color:var(--accent);box-shadow:0 10px 24px rgba(0,0,0,.34);z-index:8}
+/* V5.130 — timeline-layer-style animated effect reorder. */
+.effectCard{--effect-reorder-shift-y:0px;--effect-reorder-drag-y:0px;position:relative}
+.effectCard.effect-reorder-shift{
+  transform:translate3d(0,var(--effect-reorder-shift-y),0);
+  transition:transform .17s cubic-bezier(.2,.78,.24,1),border-color .12s,opacity .12s;
+  will-change:transform;
+}
+.effectCard.effect-reorder-source{
+  z-index:12;
+  transform:translate3d(0,var(--effect-reorder-drag-y),0) scale(.995);
+  transition:transform .045s linear,border-color .12s,opacity .12s;
+  will-change:transform;
+  filter:drop-shadow(0 10px 16px rgba(0,0,0,.30));
+}
+.effectCard.effect-reorder-hover{border-color:rgba(0,215,167,.58)}
+.effectCard.effect-reorder-target-before::before,
+.effectCard.effect-reorder-target-after::after{
+  content:"";position:absolute;left:5px;right:5px;height:1.5px;background:var(--accent);
+  z-index:20;pointer-events:none;box-shadow:0 0 8px rgba(0,215,167,.48);opacity:.86
+}
+.effectCard.effect-reorder-target-before::before{top:-1px}
+.effectCard.effect-reorder-target-after::after{bottom:-1px}
+.effectCard.disabledEffect{opacity:.62}
+.effectCardHead{height:40px;display:grid;grid-template-columns:30px minmax(0,1fr) 32px 32px 32px 32px;align-items:center;border-bottom:1px solid transparent}
+.effectCard.expanded .effectCardHead{border-bottom-color:#2d3548}
+.effectDragHandle,.effectHeadBtn{height:100%;border:0;background:transparent;color:#8d98ae;display:grid;place-items:center;padding:0;touch-action:none;-webkit-user-select:none;user-select:none}
+.effectDragHandle{font-size:15px;cursor:grab}.effectDragHandle:active{cursor:grabbing;color:var(--accent)}
+.effectHeadBtn{font-size:14px}.effectHeadBtn:active{background:#252c40}.effectHeadBtn.bypassOff{color:#596276}.effectHeadBtn.delete{color:#ff8197}.effectHeadBtn.chevron{font-size:17px;transition:transform .12s}.effectCard.expanded .effectHeadBtn.chevron{transform:rotate(90deg)}
+/* V5.128 — effect overflow/context surfaces live outside the drawer so drawer overflow cannot clip them. */
+.effectHeadBtn.more{font-size:19px;line-height:1;letter-spacing:1px}
+.effectHeadBtn.more[aria-expanded="true"]{color:var(--accent);background:#252c40}
+.effectContextShade{position:fixed;inset:0;z-index:100120;background:rgba(5,8,14,.18);touch-action:none}
+.effectContextMenu{position:fixed;width:min(232px,calc(100vw - 16px));padding:6px;border:1px solid #3a4359;border-radius:12px;background:#1b2030;color:#e6ebf5;box-shadow:0 16px 42px rgba(0,0,0,.48);display:grid;gap:2px;touch-action:manipulation}
+.effectContextMenu button{min-height:40px;border:0;border-radius:8px;background:transparent;color:#dbe2ef;display:grid;grid-template-columns:27px minmax(0,1fr);align-items:center;text-align:left;padding:0 9px;font-size:9px}
+.effectContextMenu button:active{background:#252c40}.effectContextMenu button .effectMenuIcon{font-size:14px;color:#8d9ab1;text-align:center}.effectContextMenu button.danger{color:#ff9caf}
+.effectDetailShade{position:fixed;inset:0;z-index:100130;background:rgba(4,6,11,.68);display:flex;align-items:flex-end;justify-content:center;padding:10px max(10px,env(safe-area-inset-right)) max(10px,env(safe-area-inset-bottom)) max(10px,env(safe-area-inset-left));touch-action:none}
+.effectDetailCard{width:min(520px,100%);max-height:78vh;max-height:78dvh;overflow:auto;border:1px solid #3a4359;border-radius:15px;background:#1b2030;color:#e6ebf5;box-shadow:0 18px 50px rgba(0,0,0,.55);padding:12px;touch-action:pan-y}
+.effectDetailHead{display:flex;align-items:flex-start;gap:10px;border-bottom:1px solid #30384c;padding:2px 2px 10px}.effectDetailHeadText{min-width:0;flex:1}.effectDetailHeadText b{display:block;font-size:13px}.effectDetailHeadText small{display:block;color:#7f8ba2;font-size:7px;margin-top:3px}.effectDetailClose{width:32px;height:32px;border:0;border-radius:8px;background:#252b3c;color:#cbd3e1;font-size:20px}
+.effectDetailGrid{display:grid;grid-template-columns:92px minmax(0,1fr);gap:7px 9px;padding:11px 2px 4px;font-size:8px}.effectDetailGrid span{color:#7f8ba2}.effectDetailGrid b{font-weight:700;color:#dce3ef;overflow-wrap:anywhere}.effectDetailParams{margin-top:9px;border-top:1px solid #30384c;padding-top:9px}.effectDetailParams>small{display:block;color:#7f8ba2;font-size:7px;margin-bottom:6px;text-transform:uppercase;letter-spacing:.07em}.effectDetailParamList{display:flex;flex-wrap:wrap;gap:5px}.effectDetailParamList i{font-style:normal;border:1px solid #343d52;border-radius:999px;background:#202638;color:#aeb7c9;padding:4px 7px;font-size:7px}
+@media(min-width:900px){.effectDetailShade{align-items:center}.effectDetailCard{border-radius:15px}}
+
+.effectCardTitle{min-width:0;padding:0 5px}.effectCardTitle b{display:block;color:#e7ebf4;font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.effectCardTitle small{display:block;color:#748198;font-size:6.8px;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.effectCardTitle small.live{color:#6ce2c6}
+.effectParams{display:none;padding:7px;background:#181d2b}.effectCard.expanded .effectParams{display:grid;gap:7px}
+.effectParamGroup{display:grid;gap:6px}.effectParamGroupTitle{font-size:6.8px;color:#7f8ca3;text-transform:uppercase;letter-spacing:.08em;padding:3px 1px 0;font-weight:850}.effectParamConditionalHidden,.effectParamGroupConditionalHidden{display:none!important}
+.effectParamRow{display:grid;grid-template-columns:minmax(74px,.8fr) minmax(90px,1.25fr) 54px 28px;gap:6px;align-items:center;min-height:31px}
+.effectParamRow.bool{grid-template-columns:minmax(0,1fr) 46px 28px}
+.effectParamLabel{min-width:0;color:#aeb7c9;font-size:7.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.effectParamRange{width:100%;min-width:0;margin:0;touch-action:none;accent-color:var(--accent)}.effectParamRangeHidden{display:none!important}.effectParamRulerShell{position:relative;width:100%;min-width:0;height:27px;border:1px solid #353e53;background:#151c29;border-radius:999px;overflow:hidden;touch-action:none;user-select:none;-webkit-user-select:none;cursor:ew-resize}.effectParamRulerShell.active,.effectParamRulerShell:focus-visible{border-color:rgba(0,215,167,.8);box-shadow:0 0 0 1px rgba(0,215,167,.18) inset,0 0 0 1px rgba(0,215,167,.12)}.effectParamRulerViewport{position:absolute;inset:0;overflow:hidden;border-radius:999px}.effectParamRulerContent{position:absolute;top:0;bottom:0;left:0;width:var(--effect-ruler-content-width,1920px);will-change:transform}.effectParamRulerMinor,.effectParamRulerMajor{position:absolute;inset:0;pointer-events:none}.effectParamRulerMinor{background-image:repeating-linear-gradient(90deg,transparent 0 calc(var(--effect-ruler-spacing,12px) - 1px),rgba(191,199,215,.22) calc(var(--effect-ruler-spacing,12px) - 1px) var(--effect-ruler-spacing,12px))}.effectParamRulerMajor{background-image:repeating-linear-gradient(90deg,transparent 0 calc(var(--effect-ruler-major-spacing,60px) - 2px),rgba(214,220,235,.38) calc(var(--effect-ruler-major-spacing,60px) - 2px) var(--effect-ruler-major-spacing,60px))}.effectParamRulerDefault{position:absolute;top:3px;bottom:3px;width:6px;border-radius:999px;background:#eef2fb;box-shadow:0 0 6px rgba(255,255,255,.18)}.effectParamRulerPlayhead{position:absolute;left:50%;top:0;bottom:0;width:4px;margin-left:-2px;border-radius:999px;background:var(--accent);box-shadow:0 0 8px rgba(0,215,167,.42)}.effectParamRulerShine{position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.06),transparent 30%,transparent 70%,rgba(255,255,255,.03));pointer-events:none}.effectParamNumber{width:100%;height:27px;border:1px solid #353e53;background:#111620;border-radius:6px;color:#dbe2ef;text-align:center;padding:0 4px;font-size:8px;font-variant-numeric:tabular-nums}.effectParamNumber:focus{border-color:var(--accent)}
+.effectParamKey{width:27px;height:27px;border:1px solid #384258;background:#202638;border-radius:6px;color:#77849c;padding:0}.effectParamKey.on{border-color:#ff6da9;color:#ff6da9;background:#2a2030}
+.effectBoolToggle{justify-self:end;width:40px;height:22px;appearance:none;border-radius:999px;border:1px solid #39445a;background:#171c28;position:relative;transition:.15s}.effectBoolToggle:before{content:"";position:absolute;width:16px;height:16px;left:2px;top:2px;border-radius:50%;background:#778298;transition:.15s}.effectBoolToggle:checked{background:#17322e;border-color:#2b7566}.effectBoolToggle:checked:before{left:20px;background:var(--accent)}.effectParamRow.enum{grid-template-columns:minmax(0,1fr) minmax(110px,1.15fr) 28px}.effectEnumSelect{width:100%;min-width:0;height:28px;border:1px solid #353e53;background:#111620;color:#dbe2ef;border-radius:6px;padding:0 24px 0 8px;font-size:8px;font-weight:700;outline:none}.effectEnumSelect:focus{border-color:var(--accent)}
+.effectAddBtn{width:100%;height:38px;border:1px solid rgba(0,215,167,.48);border-radius:9px;background:#1c302f;color:#78ead0;font-weight:850;font-size:9px}.effectAddBtn:active{background:#21403b}.effectAddBtn span{font-size:15px;margin-right:5px;vertical-align:-1px}
+.effectStackNote{font-size:7px;line-height:1.45;color:#6f7b92;padding:0 2px 3px}
+
+/* V5.131 — Effect workspace side rail mirrors the compact action language of Transform. */
+.effectsDrawer .effectWorkspace{
+  flex:1 1 auto;
+  display:grid!important;
+  grid-template-columns:44px minmax(0,1fr)!important;
+  min-height:0!important;
+  height:100%;
+  padding:0!important;
+  overflow:hidden!important;
+}
+.effectSideRail{
+  min-height:0;
+  border-right:1px solid #30384d;
+  background:#151927;
+  display:grid;
+  grid-template-rows:58px 58px 1fr;
+  align-content:start;
+}
+.effectSideBtn{
+  min-width:0;
+  min-height:0;
+  border:0;
+  border-bottom:1px solid #2c3347;
+  background:transparent;
+  color:#8f9bb0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:1px;
+  padding:2px 1px;
+  touch-action:manipulation;
+  -webkit-user-select:none;
+  user-select:none;
+}
+.effectSideBtn:active{background:#202638;color:#dce4f3}
+.effectSideBtn:disabled{opacity:.34;pointer-events:none}
+.effectSideBtn.active{color:var(--accent);background:#1d2d31;box-shadow:inset 3px 0 0 var(--accent)}
+.effectSideBtn .effectRailLabel{font-size:6px;font-weight:850;letter-spacing:.05em}
+.effectSideBtn .effectRailValue{font-size:9px;font-weight:850;color:#eef3ff;line-height:1.05;max-width:40px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.effectSideBtn .effectRailSub{font-size:5px;color:#718097;line-height:1.05;max-width:40px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.effectPasteGlyph{font-size:22px;line-height:.7;letter-spacing:1px;color:#d8deeb}
+.effectPasteSide:not(:disabled) .effectPasteGlyph{color:var(--accent)}
+.effectsDrawer .effectStackPanel{
+  min-width:0;
+  min-height:0;
+  height:100%;
+  overflow:auto;
+  overscroll-behavior:contain;
+  padding:8px;
+  align-content:start;
+}
+.effectCard.activeEffectCard{border-color:rgba(0,215,167,.46);box-shadow:inset 0 0 0 1px rgba(0,215,167,.06)}
+.effectParamRow.activeEffectParam{background:rgba(0,215,167,.055);border-radius:6px;box-shadow:inset 2px 0 0 rgba(0,215,167,.55)}
+.effectEaseMain{display:grid;grid-template-columns:minmax(0,1fr) 60px;min-height:235px;height:100%;border:1px solid #30384d;border-radius:9px;overflow:hidden;background:#171b29}
+.effectEaseMain .effectEaseEditorWrap{min-width:0;min-height:0;padding:7px}
+.effectEaseMain .easePresetRail{border-left:1px solid #30384d}
+.effectEaseContext{font-size:6px;color:#6f7b92;margin-top:-2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* V5.133 — Effect Easing uses the same compact, non-scrolling geometry as Transform Easing. */
+.effectCardHead{cursor:pointer}
+.effectCardHead .effectDragHandle,.effectCardHead .effectHeadBtn{cursor:pointer}
+.drawer.effectEaseDrawer{height:66%;max-height:66%;overflow:hidden}
+.drawer.effectEaseDrawer .drawerHead{height:34px;min-height:34px;padding:0 7px}
+.drawer.effectEaseDrawer .drawerHead b{font-size:11px}
+.drawer.effectEaseDrawer .drawerHead button{font-size:15px}
+.drawer.effectEaseDrawer .drawerBody.effectWorkspace{flex:1;min-height:0;height:auto;overflow:hidden!important}
+.drawer.effectEaseDrawer .effectStackPanel{height:100%;min-height:0;overflow:hidden!important;padding:4px!important;padding-bottom:4px!important;gap:0}
+.drawer.effectEaseDrawer .effectEaseMain{height:100%;min-height:0;grid-template-columns:minmax(0,1fr) 54px}
+.drawer.effectEaseDrawer .effectEaseEditorWrap{height:100%;min-height:0;padding:4px;overflow:hidden;display:flex}
+.drawer.effectEaseDrawer .easeEditor{height:100%;min-height:0;gap:3px}
+.drawer.effectEaseDrawer .easeEditorHead{min-height:18px}
+.drawer.effectEaseDrawer .easeEditorHead b{font-size:7px}
+.drawer.effectEaseDrawer .easeEditorHead small{font-size:5px}
+.drawer.effectEaseDrawer .effectEaseContext{font-size:5px;margin:0}
+.drawer.effectEaseDrawer .easeGraphWrap{
+  flex:0 1 auto!important;
+  width:min(100%,310px)!important;
+  aspect-ratio:1 / 1!important;
+  min-height:0!important;
+  height:auto!important;
+  max-height:min(38vh,310px)!important;
+  max-height:min(38dvh,310px)!important;
+  align-self:center
+}
+.drawer.effectEaseDrawer #effectEaseGraph{width:100%!important;height:100%!important}
+.drawer.effectEaseDrawer .easeParamGrid{gap:2px}
+.drawer.effectEaseDrawer .easeParam{padding:1px 2px}
+.drawer.effectEaseDrawer .easeParam span{font-size:5px}
+.drawer.effectEaseDrawer .easeParam input{height:16px;font-size:6.5px}
+.drawer.effectEaseDrawer .easeEditorFoot{gap:2px}
+.drawer.effectEaseDrawer .easeEditorFoot button{height:18px;font-size:5.5px}
+.drawer.effectEaseDrawer .easePresetRail{grid-template-rows:repeat(7,minmax(0,1fr))}
+.drawer.effectEaseDrawer .easePresetBtn{padding:1px}
+.drawer.effectEaseDrawer .easePresetBtn svg{width:24px;height:18px}
+.drawer.effectEaseDrawer .easePresetBtn small{font-size:4px}
+.drawer.effectEaseDrawer .easeSpringPanel{gap:3px;padding:2px}
+.drawer.effectEaseDrawer .easeSpringRow{grid-template-columns:46px 1fr 36px;gap:3px;font-size:6px}
+.drawer.effectEaseDrawer .easeSpringRow input[type="number"]{height:18px;font-size:6.5px}
+.drawer.effectEaseDrawer .easeHoldPanel{padding:7px;font-size:7px}
+.drawer.effectEaseDrawer .easeHoldPanel b{font-size:11px;margin-bottom:3px}
+.drawer.effectEaseDrawer .easeNoKey{padding:8px;font-size:7px}
+.drawer.effectEaseDrawer .easeNoKey b{font-size:9px;margin-bottom:3px}
+@media(max-width:820px){
+  .drawer.effectEaseDrawer{height:76%!important;max-height:76%!important}
+}
+@media(max-width:420px){
+  .drawer.effectEaseDrawer .effectEaseMain{grid-template-columns:minmax(0,1fr) 48px}
+}
+@media(max-width:390px){
+  .effectsDrawer .effectWorkspace{grid-template-columns:40px minmax(0,1fr)!important}
+  .effectSideRail{grid-template-rows:54px 54px 1fr}
+  .effectEaseMain{grid-template-columns:minmax(0,1fr) 54px}
+  .drawer.effectEaseDrawer .effectEaseMain{grid-template-columns:minmax(0,1fr) 48px}
+}
+
+.effectsBrowserDrawer .drawerBody{padding:8px;overflow:auto;overscroll-behavior:contain;scroll-padding-bottom:84px}
+.effectsBrowserDrawer .effectBrowser{padding-bottom:calc(72px + env(safe-area-inset-bottom));min-height:min-content}
+.effectsDrawer .effectStackPanel{padding-bottom:calc(18px + env(safe-area-inset-bottom))}
+.effectDragHandle,.effectHeadBtn{position:relative;z-index:2;pointer-events:auto;-webkit-tap-highlight-color:transparent}
+@media(min-width:900px){.effectsBrowserDrawer .effectBrowser{padding-bottom:12px}.effectsBrowserDrawer .drawerBody{scroll-padding-bottom:12px}}
+.effectBrowser{display:grid;grid-auto-rows:max-content;align-content:start;gap:9px}
+.effectSearchWrap{position:relative}.effectSearchIcon{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--accent);font-size:13px;pointer-events:none}.effectSearch{width:100%;height:36px;border:1px solid #343d52;border-radius:10px;background:#131824;color:#e6ebf5;padding:0 10px 0 31px;font-size:9px}.effectSearch:focus{border-color:#427467}
+.effectCategoryStrip{display:flex;align-items:center;gap:5px;width:100%;height:34px;min-height:34px;max-height:34px;overflow-x:auto;overflow-y:hidden;padding:2px 0 4px;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;white-space:nowrap}.effectCategoryStrip::-webkit-scrollbar{display:none}.effectCategoryChip{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;height:28px;min-height:28px;line-height:26px;border:1px solid #364158;border-radius:999px;background:#202638;color:#97a2b8;padding:0 10px;font-size:7.5px;font-weight:800;white-space:nowrap}.effectCategoryChip.active{border-color:var(--accent);background:#19312f;color:#7debd2}
+.effectBrowserSection{display:grid;gap:6px}.effectBrowserSection.hidden{display:none}.effectBrowserHeading{display:flex;align-items:center;justify-content:space-between;padding:2px 1px}.effectBrowserHeading b{font-size:9px;color:#dce3ef}.effectBrowserHeading small{font-size:6.5px;color:#69758c}
+.effectFeaturedGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.effectCatalogGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.effectLibraryCard{position:relative;min-width:0;min-height:58px;border:1px solid #30394e;border-radius:9px;background:#1d2333;color:#dbe2ef;padding:8px;text-align:left;overflow:hidden}.effectLibraryCard:active:not(.unavailable){border-color:var(--accent);background:#20332f}.effectLibraryCard b{display:block;font-size:8.5px;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.effectLibraryCard small{display:block;font-size:6.3px;color:#7f8ba2;margin-top:4px}.effectLibraryCard .effectGlyph{display:block;font-size:18px;color:var(--accent);margin-bottom:6px;line-height:1}.effectLibraryCard.unavailable{opacity:.48}.effectLibraryCard .effectAvailability{position:absolute;right:6px;top:6px;padding:2px 5px;border-radius:999px;background:#252d3e;color:#758198;font-size:5.5px;font-weight:850}.effectLibraryCard:not(.unavailable) .effectAvailability{background:#19332e;color:#76e6cc}
+.effectBrowserNoResults{grid-column:1/-1;border:1px dashed #333c50;border-radius:9px;color:#77849b;padding:18px;text-align:center;font-size:8px}
+@media(max-width:390px){.effectCardHead{grid-template-columns:27px minmax(0,1fr) 29px 29px 29px 29px}.effectParamRow{grid-template-columns:minmax(65px,.7fr) minmax(72px,1fr) 48px 27px;gap:4px}.effectCatalogGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.effectFeaturedGrid{gap:4px}.effectLibraryCard{padding:7px;min-height:55px}}
+
+/* V5.142 — reusable effect parameter scrub-ruler component.
+   IMPORTANT: never use the generic `.ruler` class here. `.ruler` belongs to
+   Timeline and is absolutely positioned. Effect controls are fully namespaced
+   so the same component can be reused by any effect parameter safely. */
+.effectParamRulerRow{
+  display:block!important;
+  width:100%;
+  max-width:100%;
+  min-width:0;
+  min-height:96px!important;
+  padding:8px 0 11px!important;
+  margin:0 0 5px!important;
+  position:relative;
+  box-sizing:border-box;
+  border-bottom:1px solid rgba(64,75,99,.42);
+}
+.effectParamRulerRow{
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  gap:6px;
+  min-height:auto;
+  grid-template-columns:none;
+}
+.effectRulerTop{
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:8px;
+  min-height:16px;
+  padding:0 1px;
+}
+.effectRulerTop>.effectParamLabel{
+  flex:1 1 auto;
+  min-width:0;
+  font-size:8px;
+  color:#aeb7c9;
+}
+.effectRulerMain{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  width:100%;
+  min-width:0;
+}
+.effectRulerSideControls{
+  flex:0 0 auto;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.effectRulerSideControls>.effectParamNumber{
+  width:auto;
+  min-width:46px;
+  max-width:104px;
+  height:30px;
+  padding:0 8px;
+  box-sizing:border-box;
+  font-size:8.5px;
+}
+.effectRulerSideControls>.effectParamKey{
+  width:31px;
+  height:30px;
+}
+.effectParamRulerRow>.effectRulerMain>.effectParamRulerShell{
+  flex:1 1 auto;
+  display:block;
+  width:auto;
+  max-width:100%;
+  min-width:0;
+  box-sizing:border-box;
+  height:39px;
+  border:0;
+  border-top:1px solid rgba(67,78,103,.7);
+  border-bottom:1px solid rgba(67,78,103,.7);
+  border-radius:5px;
+  background:#171d2b;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.025),inset 0 -1px 0 rgba(0,0,0,.18);
+}
+.effectParamRulerRow>.effectRulerMain>.effectParamRulerShell.active,
+.effectParamRulerRow>.effectRulerMain>.effectParamRulerShell:focus-visible{
+  border-top-color:rgba(0,215,167,.65);
+  border-bottom-color:rgba(0,215,167,.65);
+  box-shadow:inset 0 1px 0 rgba(0,215,167,.05),inset 0 -1px 0 rgba(0,215,167,.05);
+}
+.effectParamRulerRow .effectParamRulerViewport{border-radius:5px}
+.effectParamRulerRow .effectParamRulerDefault{
+  top:4px;
+  bottom:4px;
+  width:5px;
+  border-radius:2px;
+  background:#f2f4f9;
+  box-shadow:0 0 5px rgba(255,255,255,.14);
+}
+.effectParamRulerRow .effectParamRulerPlayhead{
+  top:0;
+  bottom:0;
+  width:4px;
+  margin-left:-2px;
+  border-radius:1px;
+  background:#65e8c7;
+  box-shadow:0 0 6px rgba(0,215,167,.34);
+}
+.effectParamRulerRow .effectParamRulerMinor{
+  background-image:repeating-linear-gradient(90deg,transparent 0 calc(var(--effect-ruler-spacing,12px) - 1px),rgba(174,184,204,.22) calc(var(--effect-ruler-spacing,12px) - 1px) var(--effect-ruler-spacing,12px));
+  top:5px;
+  bottom:5px;
+}
+.effectParamRulerRow .effectParamRulerMajor{
+  background-image:repeating-linear-gradient(90deg,transparent 0 calc(var(--effect-ruler-major-spacing,60px) - 2px),rgba(218,224,236,.46) calc(var(--effect-ruler-major-spacing,60px) - 2px) var(--effect-ruler-major-spacing,60px));
+  top:3px;
+  bottom:3px;
+}
+.effectParamRulerRow .effectParamRulerShine{
+  background:linear-gradient(180deg,rgba(255,255,255,.035),transparent 34%,transparent 72%,rgba(255,255,255,.018));
+}
+.effectParamRulerRow + .effectParamRow{
+  margin-top:2px;
+}

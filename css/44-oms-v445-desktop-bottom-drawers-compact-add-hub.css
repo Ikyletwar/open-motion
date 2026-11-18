@@ -1,0 +1,361 @@
+
+/* V4.45 — desktop Inspector drawer is docked below the timeline.
+   Add Popup (#drawer.addDrawer) is an authentic Alight Motion bottom overlay. */
+@media (min-width:900px){
+  html:not(.omsMobileLandscapeDesktop) .timelineArea:has(> #drawer:not(.hidden):not(.addDrawer)){
+    grid-template-rows:38px minmax(0,1fr) clamp(260px,38vh,380px)!important;grid-template-rows:38px minmax(0,1fr) clamp(260px,38dvh,380px)!important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer:not(.hidden):not(.addDrawer){
+    position:relative!important;
+    left:auto!important;
+    right:auto!important;
+    top:auto!important;
+    bottom:auto!important;
+    grid-column:1!important;
+    grid-row:3!important;
+    align-self:stretch!important;
+    width:100%!important;
+    min-width:0!important;
+    height:100%!important;
+    max-height:none!important;
+    overflow:hidden!important;
+    border-left:0!important;
+    border-top:1px solid #353c52!important;
+    border-radius:0!important;
+    box-shadow:0 -10px 24px rgba(0,0,0,.24)!important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.drawerClosing:not(.addDrawer) {
+    animation: omsDesktopDrawerSlideDown 0.2s cubic-bezier(0.4, 0, 1, 1) forwards !important;
+    pointer-events: none !important;
+  }
+  @keyframes omsDesktopDrawerSlideDown {
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+  }
+
+  /* Inspector and property editors: header stays fixed, long content scrolls
+     inside the drawer without covering the timeline above. */
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer:not(.addDrawer) > .drawerHead{
+    flex:0 0 42px!important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer:not(.addDrawer) > .drawerBody{
+    flex:1 1 auto!important;
+    min-width:0!important;
+    min-height:0!important;
+    overflow-y:auto!important;
+    overflow-x:hidden!important;
+  }
+
+  /* Add Hub docked below timeline on desktop */
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer {
+    padding: 0 !important;
+    background: #2b2e3c !important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .amAddPopup {
+    display: grid !important;
+    grid-template-columns: 1fr 1px 58px !important;
+    grid-template-rows: 52px 1fr !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: #2b2e3c !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .amTabHolder,
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .addHubTabs {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    height: 52px !important;
+    min-height: 52px !important;
+    max-height: 52px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: stretch !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    padding: 0 4px !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-sizing: border-box !important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .amTab,
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .addHubTab {
+    height: 52px !important;
+    min-height: 52px !important;
+    max-height: 52px !important;
+    padding: 4px 2px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    background: transparent !important;
+    border: 0 !important;
+    color: #ffffff !important;
+    cursor: pointer !important;
+    box-sizing: border-box !important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .amTab.active,
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .addHubTab.active {
+    color: #00ffa8 !important;
+    border: 0 !important;
+    background: transparent !important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .amTab svg,
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .addHubTab svg {
+    margin-bottom: 2px !important;
+    color: currentColor !important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .amTab span,
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .addHubTab span {
+    font-size: 8.5px !important;
+    font-weight: 700 !important;
+    margin: 0 !important;
+    color: inherit !important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .amQuickAddBar {
+    grid-column: 3 !important;
+    grid-row: 1 / 3 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    background: #2b2e3c !important;
+    border-left: 1px solid rgba(20, 22, 32, 0.6) !important;
+    padding: 2px 0 !important;
+    width: 58px !important;
+    box-sizing: border-box !important;
+    z-index: 2 !important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .amQuickBtn {
+    width: 52px !important;
+    height: 48px !important;
+    padding: 3px 2px !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: transparent !important;
+    border: 0 !important;
+    color: #ffffff !important;
+    cursor: pointer !important;
+    box-sizing: border-box !important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .amQuickBtn:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .amQuickBtn span {
+    font-size: 7.5px !important;
+    font-weight: 700 !important;
+    color: inherit !important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .amCloseBtn {
+    width: 52px !important;
+    height: 38px !important;
+    margin-top: auto !important;
+    margin-bottom: 2px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: transparent !important;
+    border: 0 !important;
+    color: #ffffff !important;
+    cursor: pointer !important;
+    border-radius: 8px !important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .amCloseBtn:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: #ff6b8b !important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .amContentHolder,
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .addHubBody {
+    grid-column: 1 / 3 !important;
+    grid-row: 2 !important;
+    background: #202332 !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    height: 193px !important;
+    max-height: 193px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    position: relative !important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .amShapeViewPagerWrap {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    position: relative !important;
+    overflow: hidden !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .amShapeViewPager {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    scroll-behavior: smooth !important;
+    scrollbar-width: none !important;
+    -webkit-overflow-scrolling: touch !important;
+    user-select: none !important;
+    cursor: grab !important;
+    touch-action: pan-x pan-y !important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .amShapeViewPager:active {
+    cursor: grabbing !important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .amShapeViewPager::-webkit-scrollbar {
+    display: none !important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .amShapePage {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    scroll-snap-align: start !important;
+    scroll-snap-stop: always !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+    padding: 2px 4px !important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .amShapePage .amShapeGrid,
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .amShapeGrid,
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .shapeGrid {
+    display: grid !important;
+    grid-template-columns: repeat(6, 1fr) !important;
+    grid-template-rows: repeat(3, 48px) !important;
+    gap: 2px 4px !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    height: 100% !important;
+    align-content: center !important;
+    justify-items: center !important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .amShapeItem,
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .shapeItem {
+    min-height: 48px !important;
+    height: 48px !important;
+    max-width: 48px !important;
+    width: 48px !important;
+    margin: 0 auto !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    color: #ffffff !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    transition: background 0.12s ease, transform 0.12s ease !important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .amShapeItem:hover,
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .shapeItem:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 0 !important;
+    transform: scale(1.08) !important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .amShapeItem:active,
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .shapeItem:active {
+    background: rgba(0, 255, 168, 0.22) !important;
+    color: #00ffa8 !important;
+    transform: scale(0.92) !important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .amShapeItem svg,
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .shapeItem svg {
+    display: block !important;
+    margin: 0 !important;
+    pointer-events: none !important;
+    color: currentColor !important;
+    width: 28px !important;
+    height: 28px !important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .amShapeGrid .amShapeItem span {
+    display: none !important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .amShapePagination {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 6px !important;
+    height: 14px !important;
+    min-height: 14px !important;
+    padding: 2px 0 4px 0 !important;
+    margin-top: auto !important;
+    z-index: 5 !important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .amDot {
+    width: 5px !important;
+    height: 5px !important;
+    border-radius: 3px !important;
+    background: #474b5c !important;
+    transition: all 0.22s ease !important;
+    cursor: pointer !important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .amDot.active {
+    width: 15px !important;
+    height: 5px !important;
+    background: #00ffa8 !important;
+    border-radius: 3px !important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .mediaDrop{
+    flex:1 1 auto!important;
+    min-width:0!important;
+    min-height:0!important;
+    width:100%!important;
+    height:auto!important;
+    max-width:none!important;
+    margin:0!important;
+    padding:8px!important;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:center!important;
+    justify-content:center!important;
+    overflow:hidden!important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .mediaDrop button{
+    margin-top:7px!important;
+    padding:6px 12px!important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .addHubBody > .miniNote{
+    flex:0 0 auto!important;
+    margin-top:4px!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .addHubBody > .drawerBody{
+    flex:1 1 auto!important;
+    min-width:0!important;
+    min-height:0!important;
+    padding:0!important;
+    display:grid!important;
+    place-items:center!important;
+    overflow:hidden!important;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .addHubBody > .drawerBody .createBtn{
+    width:min(88%,320px)!important;
+    height:32px!important;
+    margin:0!important;
+  }
+}

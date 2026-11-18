@@ -1,0 +1,5 @@
+
+#omsDiagPreviewV205{border:1px solid #cbd5e1;border-radius:12px;padding:12px;margin:10px 0;background:#f8fafc;color:#172033}
+#omsDiagPreviewV205 h3{margin:0 0 8px;font-size:14px}#omsDiagPreviewV205 p{font-size:12px;line-height:1.5;margin:8px 0}
+#omsDiagPreviewV205 small{display:block;font-size:11px;line-height:1.5;color:#526480}#omsDiagPreviewV205 .omsDiagMemoryActions{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+#omsDiagPreviewV205 button{border:1px solid #a5b4c7;border-radius:8px;background:#172033;color:#fff!important;-webkit-text-fill-color:#fff;font-size:12px;font-weight:700;padding:10px 12px;cursor:pointer}

@@ -1,0 +1,26 @@
+
+/* =========================================================
+   V4.01 — persistent collapsed-header + floating button fix.
+   Drawers must never implicitly restore the editor header. The floating +
+   stays above any open drawer; while the header is collapsed it remains the
+   dedicated restore affordance requested by the portrait workflow.
+   ========================================================= */
+.editor.drawerOverlayOpen #plusBtn{
+  position:fixed!important;
+  right:12px!important;
+  top:var(--oms-floating-plus-top,auto)!important;
+  bottom:auto!important;
+  z-index:120!important;
+}
+.editor.topBarCollapsed #plusBtn{
+  z-index:120!important;
+}
+.editor.topBarCollapsed:not(.drawerOverlayOpen) #plusBtn{
+  position:fixed!important;
+  right:12px!important;
+  top:auto!important;
+  bottom:12px!important;
+}
+@media (min-width:900px){
+  .editor.drawerOverlayOpen #plusBtn{right:20px!important}
+}

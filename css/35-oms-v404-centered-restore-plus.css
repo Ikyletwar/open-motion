@@ -1,0 +1,26 @@
+
+/* =========================================================
+   V4.04 — optically centered restore + icon.
+   The Unicode full-width plus had font-dependent baseline metrics, so the
+   collapsed-header restore button now draws its + from two centered bars.
+   ========================================================= */
+.editor.topBarCollapsed #restoreEditorTop{
+  font-size:0!important;
+  line-height:0!important;
+}
+.editor.topBarCollapsed #restoreEditorTop::before,
+.editor.topBarCollapsed #restoreEditorTop::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:12px;
+  height:1.6px;
+  background:currentColor;
+  border-radius:2px;
+  transform:translate(-50%,-50%);
+  pointer-events:none;
+}
+.editor.topBarCollapsed #restoreEditorTop::after{
+  transform:translate(-50%,-50%) rotate(90deg);
+}

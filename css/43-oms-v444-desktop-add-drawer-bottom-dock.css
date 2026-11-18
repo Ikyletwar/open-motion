@@ -1,0 +1,29 @@
+
+/* V4.44 — desktop Add Hub is a real row below the timeline instead of a
+   430px right overlay. Inspector/property drawers deliberately keep their
+   existing right-side layout. Mobile landscape desktop mode is unchanged. */
+@media (min-width:900px){
+  /* Add Popup (#drawer.addDrawer) remains a pure bottom overlay; only Inspector docks below timeline */
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .addHubTabs{
+    flex:0 0 auto;
+    width:100%;
+    min-width:0;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .addHubTab{
+    flex:1 1 0;
+    min-width:76px;
+    white-space:nowrap;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .addHubBody{
+    flex:1 1 auto;
+    min-width:0;
+    min-height:0;
+    width:100%;
+    overflow:auto;
+  }
+  html:not(.omsMobileLandscapeDesktop) .timelineArea > #drawer.addDrawer .mediaDrop{
+    width:calc(100% - 8px);
+    max-width:none;
+    margin:4px;
+  }
+}
