@@ -1,0 +1,281 @@
+/* V1.0 — Dark theme
+   Activated by data-theme="dark" on <html>. Only the light surfaces of the
+   application are re-themed; the editor is already dark by default and is left
+   untouched so the editing workspace keeps a single, consistent appearance. */
+
+html[data-theme="dark"]{color-scheme:dark}
+html[data-theme="dark"] body{background:#0b0d13}
+
+/* ---------- Theme toggle control ---------- */
+.themeToggleBtn .icon-sun{display:none}
+html[data-theme="dark"] .themeToggleBtn .icon-sun{display:block}
+html[data-theme="dark"] .themeToggleBtn .icon-moon{display:none}
+.simpleHome .themeToggleBtn{
+  width:35px!important;
+  min-width:35px!important;
+  flex:0 0 35px!important;
+  padding:0!important;
+  justify-content:center!important;
+  gap:0!important;
+}
+.simpleHome .themeToggleBtn svg{
+  flex:0 0 auto!important;
+  width:17px!important;
+  height:17px!important;
+}
+.simpleHome .themeToggleBtn svg{stroke:#4dba9a}
+html[data-theme="dark"] .simpleHome .themeToggleBtn svg{stroke:#8ff0d4}
+.topActions .themeToggleBtn{color:#9aa3ba}
+html[data-theme="dark"] .topActions .themeToggleBtn{color:#ffd479}
+
+/* ---------- Home ---------- */
+html[data-theme="light"] #home.home:not(.hidden){
+  background:var(--simple-bg)!important;
+}
+html[data-theme="dark"] #home.home:not(.hidden){
+  background:
+    radial-gradient(circle at 85% 0%,rgba(34,224,180,.10),transparent 36%),
+    radial-gradient(circle at 8% 92%,rgba(139,131,255,.07),transparent 42%),
+    var(--simple-bg)!important;
+}
+html[data-theme="dark"] .simpleHome{
+  --simple-bg:#0d0f16;
+  --simple-surface:#161a22;
+  --simple-text:#eef1f7;
+  --simple-muted:#98a0ad;
+  --simple-line:#272d3a;
+  --simple-accent:#22e0b4;
+  background:var(--simple-bg);
+  color:var(--simple-text)!important;
+}
+html[data-theme="dark"] .simpleHome .homeTop{
+  background:rgba(16,19,27,.94);
+  border-bottom-color:var(--simple-line);
+}
+html[data-theme="dark"] .simpleHome .homeMark{
+  background:#05070c;
+  box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 0 0 1px rgba(255,255,255,.08);
+}
+html[data-theme="dark"] .simpleHome .homeWordmark b{color:#f2f5fa!important}
+html[data-theme="dark"] .simpleHome .homeWordmark small{color:#8b93a1!important}
+html[data-theme="dark"] .simpleHome .rightBtn{
+  background:#181c25!important;
+  border-color:var(--simple-line)!important;
+  color:#c6cdd9!important;
+}
+html[data-theme="dark"] .simpleHome .rightBtn:active{background:#232936}
+html[data-theme="dark"] .simpleHome .languageBtn .langCode{color:#aab3c0}
+html[data-theme="dark"] .simpleHome .sectionKicker{color:#7f8896!important}
+html[data-theme="dark"] .simpleHome .sectionRow h1{color:#f2f5fa!important}
+html[data-theme="dark"] .simpleHome .projectCountBadge{
+  background:#11312a!important;
+  border-color:#215445!important;
+  color:#6fe6c4!important;
+}
+html[data-theme="dark"] .simpleHome .projectSort{
+  background:#181c25!important;
+  border-color:var(--simple-line)!important;
+  color:#9aa3b1!important;
+}
+html[data-theme="dark"] .simpleHome .projectSort svg{stroke:#9aa3b1}
+html[data-theme="dark"] .simpleHome .projectSort select{color:#c6cdd9!important}
+html[data-theme="dark"] .simpleHome .projectCard{
+  background:#161a22!important;
+  border-color:var(--simple-line)!important;
+}
+html[data-theme="dark"] .simpleHome .projectCard:active{
+  background:#1c2130;
+  border-color:#33544a;
+}
+html[data-theme="dark"] .simpleHome .projectMeta b{color:#e9edf4!important}
+html[data-theme="dark"] .simpleHome .projectMeta span{color:#8f97a5!important}
+html[data-theme="dark"] .simpleHome .projectArrow{color:#6fd6b8}
+html[data-theme="dark"] .simpleHome .projectSelectMark{
+  background:#161a22;
+  border-color:#4a5568;
+  color:transparent;
+}
+html[data-theme="dark"] .simpleHome .projectCard.projectSelected{
+  background:#122821!important;
+  border-color:#2f856e!important;
+  box-shadow:0 0 0 1px rgba(80,220,180,.18)!important;
+}
+html[data-theme="dark"] .simpleHome .projectCard.projectSelected .projectSelectMark{
+  border-color:#4bcaa6;
+  background:#59d5b1;
+  color:#073f31;
+}
+html[data-theme="dark"] .simpleHome .fabHome{color:#06231c}
+
+/* ---------- New project / settings dialogs ---------- */
+html[data-theme="dark"] .modalShade{background:rgba(0,0,0,.68)}
+html[data-theme="dark"] .modal{
+  background:#151922;
+  border:1px solid #262c39;
+  color:#eef1f7;
+}
+html[data-theme="dark"] .modalHead button{color:#c6cdd9}
+html[data-theme="dark"] .seg{background:#1e232e}
+html[data-theme="dark"] .seg button{color:#aab3c0}
+html[data-theme="dark"] .seg button.active{background:#00d7a7;color:#05221c}
+html[data-theme="dark"] .aspect{
+  background:#181d27;
+  border-color:#2b3240;
+  color:#c6cdd9;
+}
+html[data-theme="dark"] .aspect.active{
+  border-color:#22e0b4;
+  background:#14231f;
+  color:#6fe6c4;
+}
+html[data-theme="dark"] .settingRow label{color:#aab3c0}
+html[data-theme="dark"] .settingRow select,
+html[data-theme="dark"] .settingRow input{
+  background:#10141c;
+  border-color:#2b3240;
+  color:#e9edf4;
+}
+html[data-theme="dark"] #newName{
+  background:#10141c!important;
+  border-color:#2b3240!important;
+  color:#e9edf4!important;
+}
+html[data-theme="dark"] .createBtn{background:#00d7a7;color:#05221c}
+
+/* ---------- Language sheet ---------- */
+html[data-theme="dark"] .languageModal{background:rgba(0,0,0,.58)}
+html[data-theme="dark"] .languageSheet{
+  background:#151922;
+  border-color:#262c39;
+  color:#eef1f7;
+  box-shadow:0 24px 70px rgba(0,0,0,.55);
+}
+html[data-theme="dark"] .languageSheetHead{border-bottom-color:#262c39}
+html[data-theme="dark"] .languageSheetHead p{color:#98a0ad}
+html[data-theme="dark"] .languageClose{
+  background:#181d27;
+  border-color:#2b3240;
+  color:#c6cdd9;
+}
+html[data-theme="dark"] .languageOption{
+  background:#181d27;
+  border-color:#2b3240;
+  color:#e9edf4;
+}
+html[data-theme="dark"] .languageOption.active{
+  border-color:#4bcaa6;
+  background:#122821;
+  box-shadow:0 0 0 1px rgba(80,220,180,.16);
+}
+html[data-theme="dark"] .languageFlag{background:#232936}
+html[data-theme="dark"] .languageText small{color:#8f97a5}
+html[data-theme="dark"] .languageSheetFoot{
+  border-top-color:#262c39;
+  color:#8f97a5;
+}
+
+/* ---------- Export sheet ---------- */
+html[data-theme="dark"] .exportSheet{background:#0f1219;color:#eef1f7}
+html[data-theme="dark"] .exportTop{border-bottom-color:#262c39}
+html[data-theme="dark"] .exportTop button{color:#c6cdd9}
+html[data-theme="dark"] .spaceRow,
+html[data-theme="dark"] .estRow{border-bottom-color:#262c39}
+html[data-theme="dark"] .exportOption{
+  background:#171b24;
+  border-color:#2b3240;
+}
+html[data-theme="dark"] .exportOption.active{
+  border-color:#22e0b4;
+  box-shadow:0 2px 10px rgba(34,224,180,.1);
+}
+html[data-theme="dark"] .exportOption select{
+  background:#10141c;
+  border-color:#2b3240;
+  color:#e9edf4;
+}
+html[data-theme="dark"] .exportOption small{color:#8f97a5!important}
+html[data-theme="dark"] .radioDot{border-color:#5b6678}
+html[data-theme="dark"] .radioRow.active .radioDot{border-color:#22e0b4}
+html[data-theme="dark"] .codecSeg{background:#10141c}
+html[data-theme="dark"] .codecSeg button{color:#aab3c0}
+html[data-theme="dark"] .codecSeg button.active{background:#00d7a7;color:#05221c}
+html[data-theme="dark"] .exportEngineSeg button{
+  background:#181d27;
+  border-color:#2b3240;
+  color:#c6cdd9;
+}
+html[data-theme="dark"] .exportEngineSeg button small{color:#8f97a5}
+html[data-theme="dark"] .exportEngineSeg button.active{
+  background:#00d7a7;
+  border-color:#00d7a7;
+  color:#05221c;
+}
+html[data-theme="dark"] .exportEngineSeg button.active small{color:#0a3b31}
+html[data-theme="dark"] .exportEngineNotes div{
+  background:#141922;
+  border-color:#262c39;
+  color:#9aa3b1;
+}
+html[data-theme="dark"] .exportEngineNotes b{color:#e9edf4}
+html[data-theme="dark"] .exportFoot{
+  background:#12161e;
+  border-top-color:#262c39;
+}
+html[data-theme="dark"] .exportFoot button{background:#00d7a7;color:#05221c}
+html[data-theme="dark"] .progress{background:#242b38}
+html[data-theme="dark"] #omsWakeLockNotice{
+  background:#0f2a22!important;
+  border-color:#1f5a49!important;
+  color:#7fe7c7!important;
+}
+html[data-theme="dark"] .nonVideoExportOption button[type="button"]:not(#exportAmLink){
+  background:#232a37!important;
+  color:#c6cdd9!important;
+}
+
+/* ---------- Transitions ---------- */
+@media (prefers-reduced-motion:no-preference){
+  .simpleHome,
+  .simpleHome .homeTop,
+  .simpleHome .rightBtn,
+  .simpleHome .projectCard,
+  .simpleHome .projectSort,
+  .modal,
+  .languageSheet,
+  .exportSheet,
+  .exportOption{
+    transition:background-color .22s ease,border-color .22s ease,color .22s ease;
+  }
+}
+
+/* ---------- Mobile header safety (override !important mobile overhaul) ---------- */
+html[data-theme="light"] #home .homeTop{
+  background:rgba(255,255,255,.94)!important;
+  border-bottom-color:#e5e7eb!important;
+}
+html[data-theme="dark"] #home .homeTop{
+  background:rgba(16,19,27,.94)!important;
+  border-bottom-color:var(--simple-line)!important;
+}
+html[data-theme="light"] #home .homeWordmark b{
+  background:none!important;
+  -webkit-text-fill-color:#171a22!important;
+  color:#171a22!important;
+}
+html[data-theme="dark"] #home .homeWordmark b{
+  background:none!important;
+  -webkit-text-fill-color:#f2f5fa!important;
+  color:#f2f5fa!important;
+}
+html[data-theme="light"] #home .rightBtn{
+  background:#fff!important;
+  border-color:#dce1e8!important;
+  color:#3b424f!important;
+}
+html[data-theme="dark"] #home .rightBtn{
+  background:#181c25!important;
+  border-color:var(--simple-line)!important;
+  color:#c6cdd9!important;
+}
+html[data-theme="light"] #home .languageBtn .langCode{color:#3b424f!important}
+html[data-theme="dark"] #home .languageBtn .langCode{color:#c6cdd9!important}
