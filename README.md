@@ -43,7 +43,7 @@ Stackable effects rack &nbsp;·&nbsp; Groups and workspaces &nbsp;·&nbsp; Fully
 
 <table>
   <tr>
-    <td align="center" width="25%"><h3>67</h3><sub>CSS modules</sub></td>
+    <td align="center" width="25%"><h3>68</h3><sub>CSS modules</sub></td>
     <td align="center" width="25%"><h3>18</h3><sub>JS modules</sub></td>
     <td align="center" width="25%"><h3>0</h3><sub>Build steps</sub></td>
     <td align="center" width="25%"><h3>100%</h3><sub>Client-side</sub></td>
@@ -239,7 +239,7 @@ Do not move these into files unless you also update the code that reads them.
 
 ## CSS Module Catalog
 
-The stylesheets are numbered `01` through `67`. The numeric prefix is the authoritative cascade order: later files intentionally override earlier ones. Each file is named after the feature or revision tag it originated from.
+The stylesheets are numbered `01` through `68`. The numeric prefix is the authoritative cascade order: later files intentionally override earlier ones. Each file is named after the feature or revision tag it originated from.
 
 <details open>
 <summary><strong>Foundation</strong></summary>
@@ -393,6 +393,7 @@ The stylesheets are numbered `01` through `67`. The numeric prefix is the author
 | `65-oms-timeline-markers-20261030.css` | Timeline markers |
 | `66-dark-theme.css` | Dark theme surfaces and toggle control |
 | `67-oms-about.css` | About modal, creator profile and theme-aware surfaces |
+| `68-oms-mobile-first.css` | Fluid phone-first sizing, safe areas, dynamic viewport and compact header |
 
 </details>
 
@@ -491,7 +492,7 @@ Follow these rules to keep the modular build equivalent to the original single-f
 | Ordering | Preserve numeric prefixes that encode cascade and execution order | Rename or reorder modules casually |
 | Loading | Keep scripts synchronous | Add `defer` or `async` |
 | Data blocks | Keep typed data scripts inline in `index.html` | Externalize `text/plain` or `octet-stream` blocks |
-| New styles | Append `68-...css` and add a link after the last stylesheet | Edit an existing module for a new unrelated feature |
+| New styles | Append `69-...css` and add a link after the last stylesheet | Edit an existing module for a new unrelated feature |
 | New scripts | Append `19-...js` after the last script | Insert mid-sequence |
 | Overrides | Keep "fix" modules separate; they intentionally win the cascade | Merge override modules into their base |
 
@@ -501,7 +502,7 @@ Follow these rules to keep the modular build equivalent to the original single-f
 [ ] Home screen visible (grid layout)
 [ ] No console errors
 [ ] Splash screen dismisses
-[ ] All 67 stylesheets return 200
+[ ] All 68 stylesheets return 200
 [ ] All 18 scripts return 200
 ```
 
@@ -566,7 +567,7 @@ Unless a separate license file is added to this repository, treat the source as 
 | Build system | None |
 | Hosting | GitHub Pages, branch `main`, root |
 | Entry point | `index.html` |
-| Modular units | 67 CSS files, 18 JS files |
+| Modular units | 68 CSS files, 18 JS files |
 
 <br>
 

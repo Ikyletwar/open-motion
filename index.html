@@ -148,6 +148,7 @@
 <link rel="stylesheet" href="css/65-oms-timeline-markers-20261030.css">
 <link rel="stylesheet" href="css/66-dark-theme.css">
 <link rel="stylesheet" href="css/67-oms-about.css">
+<link rel="stylesheet" href="css/68-oms-mobile-first.css">
 
 
 
@@ -243,9 +244,9 @@ SOFTWARE. -->
         <div class="homeWordmark"><b>Open Motion</b></div>
       </div>
       <div class="homeTopActions">
-        <button class="rightBtn aboutBtn" type="button" data-about-open aria-haspopup="dialog" aria-controls="aboutModal" title="Tentang Open Motion" aria-label="Tentang Open Motion">
+        <button class="rightBtn aboutBtn" type="button" data-about-open data-about-trigger aria-haspopup="dialog" aria-controls="aboutModal" title="Tentang Open Motion" aria-label="Tentang Open Motion">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 8h.01"/></svg>
-          <span class="aboutBtnLabel">TENTANG</span>
+          <span class="aboutBtnLabel" data-about-label>TENTANG</span>
         </button>
         <button class="rightBtn themeToggleBtn" type="button" data-theme-toggle aria-pressed="false" aria-label="Aktifkan mode gelap" title="Mode gelap">
           <svg class="icon-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z"/></svg>
@@ -512,56 +513,14 @@ SOFTWARE. -->
     <section class="aboutCard" tabindex="-1">
       <header class="aboutHead">
         <div>
-          <span class="aboutEyebrow">TENTANG APLIKASI</span>
+          <span class="aboutEyebrow" data-about-eyebrow>TENTANG APLIKASI</span>
           <h2 id="aboutTitle">Open Motion</h2>
         </div>
         <button class="aboutClose" type="button" data-about-close aria-label="Tutup">&times;</button>
       </header>
-      <div class="aboutBody">
-        <p id="aboutLead" class="aboutLead">Open Motion adalah editor gerak berbasis web yang dibuat agar motion graphics bisa dipelajari dan dipakai tanpa alur kerja yang rumit, perangkat mahal, atau ketergantungan pada langganan.</p>
-
-        <section class="aboutSection">
-          <h3>Mengapa dibuat</h3>
-          <p>Ide awalnya sederhana: banyak orang ingin membuat animasi gerak, tetapi langsung berhenti di depan aplikasi yang berat, fitur yang terlalu padat, atau biaya lisensi. Open Motion mencoba membuka jalan yang lebih ringan, yaitu editor yang langsung berjalan di browser dan menyimpan proyek di perangkat sendiri.</p>
-          <p>Aplikasi ini juga menjadi ruang belajar dan bereksperimen: mencoba keyframe, efek, komposisi 3D, hingga alur ekspor sambil memahami cara kerja editor motion graphics dari dalam.</p>
-          <ul class="aboutPrinciples">
-            <li><b>Lokal-first.</b> Proyek disimpan di perangkat, bukan di server pihak lain.</li>
-            <li><b>Ringan dan langsung.</b> Tanpa proses build, tanpa instalasi berat, cukup buka browser.</li>
-            <li><b>Terbuka untuk belajar.</b> Struktur modular agar mudah dibaca, diubah, dan dikembangkan.</li>
-          </ul>
-        </section>
-
-        <section class="aboutSection">
-          <h3>Cocok untuk</h3>
-          <div class="aboutChips">
-            <span>Pelajar &amp; mahasiswa</span>
-            <span>Kreator pemula</span>
-            <span>Guru &amp; pengajar</span>
-            <span>Konten media sosial</span>
-            <span>Eksperimen motion graphics</span>
-            <span>Perangkat terbatas</span>
-          </div>
-          <p class="aboutMuted">Open Motion belum ditujukan untuk produksi broadcast atau film skala besar, render 3D berat, dan kolaborasi real-time. Aplikasi ini masih tahap eksperimen dan terus berkembang.</p>
-        </section>
-
-        <section class="aboutSection aboutCreator">
-          <h3>Pembuat</h3>
-          <div class="aboutProfile">
-            <div class="aboutAvatar" role="img" aria-label="Foto profil belum tersedia"></div>
-            <div class="aboutIdentity">
-              <b>Hizkia Letwar</b>
-              <span class="aboutAlias">Nihongo</span>
-              <dl class="aboutMeta">
-                <div><dt>Sekolah</dt><dd>SMK Negeri 1 Maluku Tengah</dd></div>
-                <div><dt>Kelas</dt><dd>XI TJKT 1</dd></div>
-                <div><dt>Peran</dt><dd>Pengembang &amp; pemelihara</dd></div>
-              </dl>
-            </div>
-          </div>
-        </section>
-      </div>
+      <div class="aboutBody" data-about-body></div>
       <footer class="aboutFoot">
-        <span>Dibangun dengan HTML, CSS, dan JavaScript modular.</span>
+        <span data-about-footer>Dibangun dengan HTML, CSS, dan JavaScript modular.</span>
         <a href="https://github.com/Ikyletwar/open-motion" target="_blank" rel="noopener">GitHub</a>
       </footer>
     </section>
@@ -626,7 +585,7 @@ SOFTWARE. -->
       </button>
       <div id="editorTitle" class="editorTitle">Tanpa judul<small>1080 × 1920 • 30 fps</small></div>
       <div class="topActions">
-        <button class="topIcon aboutBtn" type="button" data-about-open aria-haspopup="dialog" aria-controls="aboutModal" title="Tentang Open Motion" aria-label="Tentang Open Motion">
+        <button class="topIcon aboutBtn" type="button" data-about-open data-about-trigger aria-haspopup="dialog" aria-controls="aboutModal" title="Tentang Open Motion" aria-label="Tentang Open Motion">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 8h.01"/></svg>
         </button>
         <button class="topIcon themeToggleBtn" type="button" data-theme-toggle aria-pressed="false" aria-label="Aktifkan mode gelap" title="Mode gelap">
