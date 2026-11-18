@@ -43,8 +43,8 @@ Stackable effects rack &nbsp;·&nbsp; Groups and workspaces &nbsp;·&nbsp; Fully
 
 <table>
   <tr>
-    <td align="center" width="25%"><h3>66</h3><sub>CSS modules</sub></td>
-    <td align="center" width="25%"><h3>16</h3><sub>JS modules</sub></td>
+    <td align="center" width="25%"><h3>67</h3><sub>CSS modules</sub></td>
+    <td align="center" width="25%"><h3>18</h3><sub>JS modules</sub></td>
     <td align="center" width="25%"><h3>0</h3><sub>Build steps</sub></td>
     <td align="center" width="25%"><h3>100%</h3><sub>Client-side</sub></td>
   </tr>
@@ -115,6 +115,7 @@ Derived from the shipped modules and the editor surface exposed by the applicati
 | **Keyboard-first control** | Documented shortcut layer |
 | **PWA install surface** | Manifest and install prompt wiring |
 | **Theme control** | Light and dark mode toggle with saved preference and system-preference fallback |
+| **About** | Built-in About modal with the project philosophy, intended audience, and creator profile |
 | **Diagnostics** | Audio diagnostics, preview diagnostics, and timeline diagnostics |
 | **Usability and recovery** | Home recovery and health checks, element labels, responsive content adjustments |
 
@@ -178,8 +179,8 @@ No frameworks. No runtime dependency graph. No package lockfile.
 ```
 open-motion/
 ├── index.html            Markup and typed data blocks only
-├── css/                  66 ordered stylesheet modules
-├── js/                   17 ordered script modules
+├── css/                  67 ordered stylesheet modules
+├── js/                   18 ordered script modules
 ├── docs/
 │   └── screenshots/      Product screenshots used in this README
 ├── README.md             This document
@@ -199,7 +200,7 @@ Open Motion is a classic, parse-blocking, synchronous application. Three orderin
 Document parse
    │
    ├─ <head>
-   │    └─ 66 <link rel="stylesheet"> in numeric order
+   │    └─ 67 <link rel="stylesheet"> in numeric order
    │         (01-base sets tokens; the rest refine and override)
    │
    ├─ <body> markup
@@ -210,7 +211,7 @@ Document parse
         ├─ 02 splash
         ├─ 03 experimental notice
         ├─ 04 application core
-        └─ 05 .. 17 feature patches (each depends on core globals and DOM)
+        └─ 05 .. 18 feature patches (each depends on core globals and DOM)
 ```
 
 | Rule | Meaning |
@@ -238,7 +239,7 @@ Do not move these into files unless you also update the code that reads them.
 
 ## CSS Module Catalog
 
-The stylesheets are numbered `01` through `66`. The numeric prefix is the authoritative cascade order: later files intentionally override earlier ones. Each file is named after the feature or revision tag it originated from.
+The stylesheets are numbered `01` through `67`. The numeric prefix is the authoritative cascade order: later files intentionally override earlier ones. Each file is named after the feature or revision tag it originated from.
 
 <details open>
 <summary><strong>Foundation</strong></summary>
@@ -391,6 +392,7 @@ The stylesheets are numbered `01` through `66`. The numeric prefix is the author
 | `64-oms-element-labels-20261023.css` | Element labels |
 | `65-oms-timeline-markers-20261030.css` | Timeline markers |
 | `66-dark-theme.css` | Dark theme surfaces and toggle control |
+| `67-oms-about.css` | About modal, creator profile and theme-aware surfaces |
 
 </details>
 
@@ -419,6 +421,7 @@ Scripts execute synchronously in numbered order. Do not reorder them and do not 
 | `15-am-title-rename-script.js` | Project title rename |
 | `16-oms-layer-header-v250-script.js` | Layer header behavior |
 | `17-oms-theme-toggle.js` | Theme persistence, system preference and toggle wiring |
+| `18-oms-about.js` | About modal open/close, Escape handling and trigger wiring |
 
 > **Core module note.** `04-app-main.js` is intentionally kept as a single module. It is one large immediately-invoked function expression that encapsulates shared state. Splitting it further requires a deliberate refactor with explicit bridge objects, not a mechanical file cut.
 
@@ -488,8 +491,8 @@ Follow these rules to keep the modular build equivalent to the original single-f
 | Ordering | Preserve numeric prefixes that encode cascade and execution order | Rename or reorder modules casually |
 | Loading | Keep scripts synchronous | Add `defer` or `async` |
 | Data blocks | Keep typed data scripts inline in `index.html` | Externalize `text/plain` or `octet-stream` blocks |
-| New styles | Append `67-...css` and add a link after the last stylesheet | Edit an existing module for a new unrelated feature |
-| New scripts | Append `18-...js` after the last script | Insert mid-sequence |
+| New styles | Append `68-...css` and add a link after the last stylesheet | Edit an existing module for a new unrelated feature |
+| New scripts | Append `19-...js` after the last script | Insert mid-sequence |
 | Overrides | Keep "fix" modules separate; they intentionally win the cascade | Merge override modules into their base |
 
 ### Quick verification checklist
@@ -498,8 +501,8 @@ Follow these rules to keep the modular build equivalent to the original single-f
 [ ] Home screen visible (grid layout)
 [ ] No console errors
 [ ] Splash screen dismisses
-[ ] All 66 stylesheets return 200
-[ ] All 17 scripts return 200
+[ ] All 67 stylesheets return 200
+[ ] All 18 scripts return 200
 ```
 
 ---
@@ -521,7 +524,7 @@ WebAssembly and WebCodecs availability depend on the browser version; the core m
 
 - The repository is roughly 9.6 MB. `index.html` is about 3.8 MB because it embeds the application's runtime data resources.
 - The core module `04-app-main.js` is large by design. It is fetched once and executes synchronously at load.
-- Total stylesheet count is 66. On a cold load this is many requests; on a warm load, and on GitHub Pages, they are cached.
+- Total stylesheet count is 67. On a cold load this is many requests; on a warm load, and on GitHub Pages, they are cached.
 - GitHub Pages serves with HTTP/2 multiplexing, which mitigates the request count in practice.
 - For a single-request production bundle, concatenate the CSS files in numeric order into one file and the scripts in numeric order into one file, then reference the bundles. This optimization is optional and not part of this distribution.
 
@@ -563,7 +566,7 @@ Unless a separate license file is added to this repository, treat the source as 
 | Build system | None |
 | Hosting | GitHub Pages, branch `main`, root |
 | Entry point | `index.html` |
-| Modular units | 66 CSS files, 17 JS files |
+| Modular units | 67 CSS files, 18 JS files |
 
 <br>
 
